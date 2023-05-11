@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
-    [SerializeField] private GameObject Spike;
+    [SerializeField] private SpikeBehaviour SpikePrefab;
+    [SerializeField] private Transform SpikeSpawnPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -16,5 +17,12 @@ public class InputHandler : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void SpawnSpikeByClick()
+    {
+        SpikeBehaviour newSpike = Instantiate(SpikePrefab, SpikeSpawnPosition);
+        newSpike.SetDirection(Input.mousePosition);
+        Debug.Log("Mouse position: " + Input.mousePosition);
     }
 }
