@@ -25,7 +25,7 @@ public class SpikeBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Movement();
+
     }
 
     private void SetVelocity()
@@ -37,10 +37,7 @@ public class SpikeBehaviour : MonoBehaviour
     public void SetDirection(Vector3 direction)
     {
         DirectionPoint = Vector3.Normalize(direction - transform.position);
+        transform.up = new Vector2(DirectionPoint.x, DirectionPoint.y);
     }
 
-    public void Movement()
-    {
-        SpikeRB.AddForce(DirectionPoint * Speed * Time.deltaTime, ForceMode2D.Force);
-    }
 }

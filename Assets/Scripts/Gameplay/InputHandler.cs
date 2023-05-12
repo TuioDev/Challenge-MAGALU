@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InputHandler : MonoBehaviour
 {
     [SerializeField] private SpikeBehaviour SpikePrefab;
     [SerializeField] private Transform SpikeSpawnPosition;
+
+    private Vector3 ScreenToGamePos;
 
     // Start is called before the first frame update
     void Start()
@@ -19,10 +22,13 @@ public class InputHandler : MonoBehaviour
         
     }
 
-    public void SpawnSpikeByClick()
+    public void SpawnSpikeByClick(InputAction.CallbackContext context)
     {
-        SpikeBehaviour newSpike = Instantiate(SpikePrefab, SpikeSpawnPosition);
-        newSpike.SetDirection(Input.mousePosition);
-        Debug.Log("Mouse position: " + Input.mousePosition);
+        if (context.performed)
+        {
+            SpikeBehaviour newSpike = Instantiate(SpikePrefab, SpikeSpawnPosition.position, Quaternion.identity);
+            ScreenToGamePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            newSpike.SetDirection(ScreenToGamePos);
+        }
     }
 }
