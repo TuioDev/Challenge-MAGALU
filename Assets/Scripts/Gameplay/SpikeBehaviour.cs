@@ -10,34 +10,34 @@ public class SpikeBehaviour : MonoBehaviour
     private Rigidbody2D SpikeRB;
     private Vector3 DirectionPoint;
 
-    //public SpikeBehaviour(Vector3 mousePosition)
-    //{
-    //    DirectionPoint = Vector3.Normalize(mousePosition - SpawnPoint.position);
-    //}
-
-    // Start is called before the first frame update
-    void Start()
+    //Always get components on awake to ensure that OnEnable functions are working properly
+    private void Awake()
     {
         SpikeRB = GetComponent<Rigidbody2D>();
-        SetVelocity();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-
+        SetVelocity();
     }
 
     private void SetVelocity()
     {
-        SpikeRB.velocity = Speed * DirectionPoint;
+        SpikeRB.velocity = DirectionPoint.normalized * Speed;
     }
 
-    //Change the behaviour of the travelling spike?
-    public void SetDirection(Vector3 direction)
+    //Sets the direction of the spike, receives the 2D position of the mouse to calculate based on the spawn position
+    public void SetDirection(Vector2 direction)
     {
-        DirectionPoint = Vector3.Normalize(direction - transform.position);
+        DirectionPoint = direction - (Vector2)transform.position;
         transform.up = new Vector2(DirectionPoint.x, DirectionPoint.y);
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Border")
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
 }

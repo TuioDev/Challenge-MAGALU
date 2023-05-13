@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,29 +7,67 @@ using UnityEngine.InputSystem;
 public class InputHandler : MonoBehaviour
 {
     [SerializeField] private SpikeBehaviour SpikePrefab;
-    [SerializeField] private Transform SpikeSpawnPosition;
+    [SerializeField] private Transform SpikeSpawnTransform;
+    [SerializeField] private float SpikeShootCooldown;
 
-    private Vector3 ScreenToGamePos;
+    private Vector3 SpikeSpawnPosition;
+    private bool CanShootSpike;
+    private float Timer;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        SpikeSpawnPosition = SpikeSpawnTransform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        CanShootSpike = true;
+        Timer = 0.0f;
     }
 
+    private void Update()
+    {
+        CheckCanShootSpike();
+    }
+
+    #region Spike Script
+    //We spawn the spike based on mouse position, and then set it's direction because inside SpikeBehaviour
+    //is defined the velocity based on the direction
     public void SpawnSpikeByClick(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (CanShootSpike && context.performed)
         {
-            SpikeBehaviour newSpike = Instantiate(SpikePrefab, SpikeSpawnPosition.position, Quaternion.identity);
-            ScreenToGamePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            newSpike.SetDirection(ScreenToGamePos);
+            CanShootSpike = false;
+            ActivatePooledOject();
         }
     }
+
+    private Vector2 ScreenToGame2DPosition(Vector2 position)
+    {
+        return (Vector2)Camera.main.ScreenToWorldPoint(position);
+    }
+
+    private void ActivatePooledOject()
+    {
+        SpikeBehaviour spike = ObjectPool.Instance.GetInactivePooledObject();
+        if(spike != null)
+        {
+            spike.transform.position = SpikeSpawnPosition;
+            spike.SetDirection(ScreenToGame2DPosition(Mouse.current.position.ReadValue() ));
+            spike.gameObject.SetActive(true);
+        }
+    }
+    private void CheckCanShootSpike()
+    {
+        if (!CanShootSpike)
+        {
+            Timer += Time.deltaTime;
+            if (Timer >= SpikeShootCooldown)
+            {
+                CanShootSpike = true;
+                Timer = 0.0f;
+            }
+        }
+    }
+    #endregion
 }
