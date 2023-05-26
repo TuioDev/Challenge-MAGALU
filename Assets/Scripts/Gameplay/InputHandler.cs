@@ -30,7 +30,7 @@ public class InputHandler : MonoBehaviour
         CheckCanShootSpike();
     }
 
-    #region Spike Script
+    #region Spike Related
     //We spawn the spike based on mouse position, and then set it's direction because inside SpikeBehaviour
     //is defined the velocity based on the direction
     public void SpawnSpikeByClick(InputAction.CallbackContext context)
@@ -69,5 +69,9 @@ public class InputHandler : MonoBehaviour
             }
         }
     }
+    #endregion
+
+    #region Wind Related
+
     #endregion
 }
