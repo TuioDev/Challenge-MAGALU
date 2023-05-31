@@ -6,6 +6,7 @@ using UnityEngine;
 public class SpikeBehaviour : MonoBehaviour
 {
     [SerializeField] private float Speed;
+    [SerializeField] private int Power;
 
     private Rigidbody2D SpikeRB;
     private Vector3 DirectionPoint;
@@ -31,6 +32,11 @@ public class SpikeBehaviour : MonoBehaviour
     {
         DirectionPoint = direction - (Vector2)transform.position;
         transform.up = new Vector2(DirectionPoint.x, DirectionPoint.y);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Set the interactions of the layers collision for this, and change the triggerexit?
     }
 
     private void OnTriggerExit2D(Collider2D collision)

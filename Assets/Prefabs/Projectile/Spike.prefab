@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 5
+  Power: 1
 --- !u!61 &8555463786110152666
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using PathCreation;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] private int MaxHealth;
 
     private Health EnemyHealth = new();
+    private PathCreator EnemyPath;
 
     // Start is called before the first frame update
     void Start()
@@ -24,9 +26,13 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void TakeDamageOrHeal(int damage)
     {
-        
+        EnemyHealth.TakeDamage(damage);
     }
 
-    //Here we put the functions to change behaviour]
+    public void SetPath(PathCreator path)
+    {
+        EnemyPath = path;
+    }
+    //Here we put the functions to change behaviour
 
 }
