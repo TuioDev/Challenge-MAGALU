@@ -9,6 +9,7 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private SpikeBehaviour SpikePrefab;
     [SerializeField] private Transform SpikeSpawnTransform;
     [SerializeField] private float SpikeShootCooldown;
+    [SerializeField] private float TimeToDisableSpike;
 
     private Vector3 SpikeSpawnPosition;
     private bool CanShootSpike;
@@ -38,7 +39,7 @@ public class InputHandler : MonoBehaviour
         if (CanShootSpike && context.performed)
         {
             CanShootSpike = false;
-            ActivatePooledOject();
+            ActivatePooledSpike();
         }
     }
 
@@ -47,7 +48,8 @@ public class InputHandler : MonoBehaviour
         return (Vector2)Camera.main.ScreenToWorldPoint(position);
     }
 
-    private void ActivatePooledOject()
+    // Get inactive object and set active, also invoking the disable function from here
+    private void ActivatePooledSpike()
     {
         SpikeBehaviour spike = ObjectPool.Instance.GetInactivePooledObject<SpikeBehaviour>();
         if(spike != null)
@@ -55,6 +57,7 @@ public class InputHandler : MonoBehaviour
             spike.transform.position = SpikeSpawnPosition;
             spike.SetDirection(ScreenToGame2DPosition(Mouse.current.position.ReadValue() ));
             spike.gameObject.SetActive(true);
+            spike.Invoke("DisableObject", TimeToDisableSpike);
         }
     }
     private void CheckCanShootSpike()

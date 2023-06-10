@@ -13,15 +13,13 @@ public class EnemySpawner : MonoBehaviour
 
     private EnemyData[] AllEnemiesData;
     private List<Enemy> AllEnemiesReference = new List<Enemy>();
-    private bool IsRunning = false;
-    private float ElapsedTime = 0f;
 
     /// <summary>
     /// TODO: BETTER SPAWNER BASED ON GAME TIME
     /// Get a list of some enemies:
     ///     The later the phase goes, the higher the amount
     /// </summary>
-    
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -31,15 +29,12 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        IsRunning = true; //This should be in a method
-        //StartCoroutine(SpawnEnemimes());
-
-        Invoke("SpawnOneEnemy", 2f);
+        InvokeRepeating("SpawnEnemies", InitialDelay, DelayBetweenEnemies);
     }
 
     private void SetEnemiesReferences()
     {
-        foreach(EnemyData data in AllEnemiesData)
+        foreach (EnemyData data in AllEnemiesData)
         {
             if (data != null)
             {
@@ -48,28 +43,10 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnEnemimes()
+    private void SpawnEnemies()
     {
-        ElapsedTime += Time.deltaTime;
-        Debug.Log("Elapsed time: " + ElapsedTime);
-
-        if (ElapsedTime >= InitialDelay)
-        {
-            while (IsRunning)
-            {
-                GameObject tmp = AllEnemiesData[Random.Range(0, AllEnemiesData.Length)].GetPrefab();
-                //tmp.GetComponent<Enemy>().SetPath();
-                yield return new WaitForSeconds(DelayBetweenEnemies);
-            }
-        }
-    }
-
-    public void SpawnOneEnemy()
-    {
-        Enemy enemy = AllEnemiesReference[Random.Range(0, AllEnemiesReference.Count)];
+        Enemy enemy = ObjectPool.Instance.GetInactivePooledObject<Enemy>();
         enemy.EnemyPath = WalkablePaths.GetRandomPath();
-        Instantiate(enemy);
-        //enemy.SetPath(Paths.GetRandomPath());
-        //enemy.transform.position = enemy.EnemyPath.path.GetPointAtDistance(0);
+        enemy.gameObject.SetActive(true);
     }
 }

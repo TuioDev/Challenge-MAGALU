@@ -11,43 +11,43 @@ public class Enemy : MonoBehaviour, IDamageable
     public PathCreator EnemyPath; //This will be private, just checking if it works
 
     private Health EnemyHealth = new();
-    private float ElapsedTime = 0f;
+
+    // The position on the path is based on time
+    private float PathTimePosition = 0f;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        EnemyHealth.SetAmount(MaxHealth);
-        this.gameObject.SetActive(false);
+        DisableObject();
     }
 
     // Update is called once per frame
     void Update()
     {
         Behaviour();
-        TimeTick();
     }
 
+    private void OnEnable()
+    {
+        ResetEnemy();
+    }
     private void Behaviour()
     {
-        ExecuteBehaviour(1);
-        //if (EnemyHealth.Amount > MaxHealth/2)
-        //{
-        //    ExecuteBehaviour(0);
-        //}
-        //else
-        //{
-        //    ExecuteBehaviour(1);
-        //}
+        //ExecuteBehaviour(1);
+        if (EnemyHealth.Amount > MaxHealth / 2)
+        {
+            ExecuteBehaviour(0);
+        }
+        else
+        {
+            ExecuteBehaviour(1);
+        }
     }
 
     private void ExecuteBehaviour(int index)
     {
-        AIBehaviour[index].Think(this, ElapsedTime);
-    }
-
-    private void TimeTick()
-    {
-        ElapsedTime += Time.deltaTime;
+        AIBehaviour[index]?.Think(this, PathTimePosition);
     }
 
     public void TakeDamageOrHeal(int damage)
@@ -55,13 +55,28 @@ public class Enemy : MonoBehaviour, IDamageable
         EnemyHealth.TakeDamage(damage);
         if (EnemyHealth.Amount <= 0)
         {
-            this.gameObject.SetActive(false);
+            DisableObject();
         }
     }
 
     public void SetPath(PathCreator path)
     {
         EnemyPath = path;
+    }
+
+    private void ResetEnemy()
+    {
+        EnemyHealth.SetAmount(MaxHealth);
+        PathTimePosition = 0f;
+    }
+
+    public void SetOldElapsedTime(float newElapsedTime)
+    {
+        PathTimePosition = newElapsedTime;
+    }
+    public void DisableObject()
+    {
+        this.gameObject.SetActive(false);
     }
     //Here we put the functions to change behaviour
 

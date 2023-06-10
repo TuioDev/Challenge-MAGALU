@@ -44,7 +44,6 @@ public class ObjectPool : MonoBehaviour
         for (int i = 0; i < amountToPool; i++)
         {
             T tmp = Instantiate(componentToPool);
-            if (tmp is SpikeBehaviour) tmp.gameObject.name = "Spike " + i;
             subList.List.Add(tmp);
         }
         AllLists.Add(subList);
