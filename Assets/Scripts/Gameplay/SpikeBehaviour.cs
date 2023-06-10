@@ -8,6 +8,7 @@ public class SpikeBehaviour : MonoBehaviour
     [SerializeField] private float Speed;
     [SerializeField] private int Power;
 
+    private float TimeToDisable = 2f;
     private Rigidbody2D SpikeRB;
     private Vector3 DirectionPoint;
 
@@ -17,9 +18,17 @@ public class SpikeBehaviour : MonoBehaviour
         SpikeRB = GetComponent<Rigidbody2D>();
     }
 
+    void Start()
+    {
+        this.gameObject.SetActive(false);
+    }
+
     private void OnEnable()
     {
         SetVelocity();
+
+        //This function is not doing good...
+        Invoke("DisableObject", TimeToDisable);
     }
 
     private void SetVelocity()
@@ -34,16 +43,22 @@ public class SpikeBehaviour : MonoBehaviour
         transform.up = new Vector2(DirectionPoint.x, DirectionPoint.y);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void DisableObject()
     {
-        //Set the interactions of the layers collision for this, and change the triggerexit?
+        this.gameObject.SetActive(false);
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Border")
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            this.gameObject.SetActive(false);
+            var enemy = collision.gameObject.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamageOrHeal(Power);
+                DisableObject();
+                CancelInvoke();
+            }
         }
     }
 }

@@ -49,7 +49,7 @@ public class InputHandler : MonoBehaviour
 
     private void ActivatePooledOject()
     {
-        SpikeBehaviour spike = ObjectPool.Instance.GetInactivePooledObject();
+        SpikeBehaviour spike = ObjectPool.Instance.GetInactivePooledObject<SpikeBehaviour>();
         if(spike != null)
         {
             spike.transform.position = SpikeSpawnPosition;
