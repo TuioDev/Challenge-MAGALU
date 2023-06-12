@@ -64,13 +64,6 @@ public class ObjectPool : MonoBehaviour
                 }
             }
         }
-        //for (int i = 0; i < AmountToPool; i++)
-        //{
-        //if (!PooledObjects[i].gameObject.activeInHierarchy)
-        //{
-        //    return PooledObjects[i];
-        //}
-        //}
 
         //If the are no object to use, here we can create more, or just return null
         return null;

@@ -8,14 +8,21 @@ public class SimpleMovement : Brain
     [SerializeField] private float Speed;
 
     //This is shared by all of the enemies
-    //TODO: IMPLEMENT THIS IN ENEMY CLASS
 
     public override void Think(Enemy enemy, float time)
     {
         if (enemy.EnemyPath != null)
         {
             time += (Time.deltaTime * Speed);
-            if (time >= enemy.EnemyPath.path.length) enemy.DisableObject(); // An ant was able to walk to the end
+
+            // If the enemy reaches the end of the path, it means if reached the pie
+            if (time >= enemy.EnemyPath.path.length)
+            {
+                enemy.DisableObject();
+                enemy.TriggerOnReachingPie();
+                return;
+            }
+
             enemy.transform.position = enemy.EnemyPath.path.GetPointAtDistance(time);
             enemy.transform.rotation = enemy.EnemyPath.path.GetRotationAtDistance(time) * Quaternion.Euler(0, -90, -90);
             enemy.SetOldElapsedTime(time);

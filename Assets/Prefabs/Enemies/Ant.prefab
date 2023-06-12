@@ -134,6 +134,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b0891515c576e9d40b152fe43642b086, type: 2}
   - {fileID: 11400000, guid: 03ed1be3158f9284cb317e48fb031127, type: 2}
   MaxHealth: 2
+  OnReachingPie: {fileID: 11400000, guid: 7038791db13b75b49925fa48531c3620, type: 2}
   EnemyPath: {fileID: 0}
 --- !u!58 &1282804050853347627
 CircleCollider2D:

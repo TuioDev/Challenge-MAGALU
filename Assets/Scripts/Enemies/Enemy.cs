@@ -8,8 +8,9 @@ public class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] private List<Brain> AIBehaviour;
     [SerializeField] private int MaxHealth;
-    public PathCreator EnemyPath; //This will be private, just checking if it works
+    [SerializeField] private GameEvent OnReachingPie;
 
+    public PathCreator EnemyPath;
     private Health EnemyHealth = new();
 
     // The position on the path is based on time
@@ -20,6 +21,7 @@ public class Enemy : MonoBehaviour, IDamageable
     void Start()
     {
         DisableObject();
+        ResetEnemy();
     }
 
     // Update is called once per frame
@@ -28,10 +30,6 @@ public class Enemy : MonoBehaviour, IDamageable
         Behaviour();
     }
 
-    private void OnEnable()
-    {
-        ResetEnemy();
-    }
     private void Behaviour()
     {
         //ExecuteBehaviour(1);
@@ -64,7 +62,7 @@ public class Enemy : MonoBehaviour, IDamageable
         EnemyPath = path;
     }
 
-    private void ResetEnemy()
+    public void ResetEnemy()
     {
         EnemyHealth.SetAmount(MaxHealth);
         PathTimePosition = 0f;
@@ -77,6 +75,11 @@ public class Enemy : MonoBehaviour, IDamageable
     public void DisableObject()
     {
         this.gameObject.SetActive(false);
+    }
+
+    public void TriggerOnReachingPie()
+    {
+        OnReachingPie.TriggerEvent();
     }
     //Here we put the functions to change behaviour
 

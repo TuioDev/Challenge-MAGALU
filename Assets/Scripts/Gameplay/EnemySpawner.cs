@@ -47,6 +47,7 @@ public class EnemySpawner : MonoBehaviour
     {
         Enemy enemy = ObjectPool.Instance.GetInactivePooledObject<Enemy>();
         enemy.EnemyPath = WalkablePaths.GetRandomPath();
+        enemy.ResetEnemy();
         enemy.gameObject.SetActive(true);
     }
 }
