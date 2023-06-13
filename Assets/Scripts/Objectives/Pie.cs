@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class Pie : MonoBehaviour
 {
+    [Header("Sprites")]
     [SerializeField] private SpriteRenderer PieSprite;
     [SerializeField] private Sprite[] SpriteArray;
+    [Header("Events")]
+    [SerializeField] private GameEvent OnGameOver;
 
     private int SpriteIndex = 0;
 
     public void ChangeToNextSprite()
     {
         SpriteIndex++;
-        if (SpriteIndex >= SpriteArray.Length) return;
         PieSprite.sprite = SpriteArray[SpriteIndex];
+        Debug.Log(SpriteIndex + ": " + PieSprite.sprite.name);
+        if (SpriteIndex >= SpriteArray.Length - 1)
+        {
+            OnGameOver.TriggerEvent();
+        }
     }
 
     // TODO: IF THE GAME STARTS AGAIN, ALL STATS RESETS

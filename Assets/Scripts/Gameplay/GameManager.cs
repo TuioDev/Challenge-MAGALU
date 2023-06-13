@@ -6,8 +6,11 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Timer")]
     [SerializeField] private SpriteRenderer ClockTimer;
     [SerializeField] private float RoundTime;
+    [Header("Events")]
+    [SerializeField] private GameEvent OnTimerEnd;
 
     private float RadialValue = 0f;
     private float ElapsedTime = 0f;
@@ -27,8 +30,14 @@ public class GameManager : MonoBehaviour
         ClockTimer.sharedMaterial.SetFloat("_Arc1", ElapsedTime * RadialValue);
         if (ElapsedTime > RoundTime)
         {
-            ClockTimer.sharedMaterial.SetFloat("_Arc1", 0f);
+            ClockTimer.sharedMaterial.SetFloat("_Arc1", 360f);
+            TriggerTimerEnd();
             this.enabled = false;
         }
+    }
+
+    public void TriggerTimerEnd()
+    {
+        OnTimerEnd.TriggerEvent();
     }
 }

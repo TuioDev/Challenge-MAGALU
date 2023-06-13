@@ -23,6 +23,7 @@ public class EnemyPathSetter : MonoBehaviour
 
             foreach (PathCreator enemyPath in AllEnemyPaths)
             {
+                //Debug.Log("Path " + enemyPath.gameObject.name + ": " + enemyPath.path.length);
                 if (!WalkablePaths.GetPathCreators().Contains(enemyPath))
                 {
                     WalkablePaths.GetPathCreators().Add(enemyPath);

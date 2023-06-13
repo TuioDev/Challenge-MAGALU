@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
     /// TODO: BETTER SPAWNER BASED ON GAME TIME
     /// Get a list of some enemies:
     ///     The later the phase goes, the higher the amount
+    /// Get the paths based on each ones hidden values to modify the probabilites
     /// </summary>
 
     // Start is called before the first frame update
@@ -29,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("SpawnEnemies", InitialDelay, DelayBetweenEnemies);
+        InvokeRepeating("SpawnEnemies", InitialDelay, DelayBetweenEnemies); // CHANGE THIS LINE
     }
 
     private void SetEnemiesReferences()
