@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 1282804050853347628}
   - component: {fileID: 1282804050853347629}
   - component: {fileID: 1282804050853347627}
+  - component: {fileID: 8162930696635307098}
   m_Layer: 9
   m_Name: Ant
   m_TagString: Untagged
@@ -127,15 +128,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1282804050853347630}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42796250aeadf744b9f8273ffe959752, type: 3}
+  m_Script: {fileID: 11500000, guid: bae0dd37ea49df94fadbd4dc0aea8101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AIBehaviour:
-  - {fileID: 11400000, guid: b0891515c576e9d40b152fe43642b086, type: 2}
-  - {fileID: 11400000, guid: 03ed1be3158f9284cb317e48fb031127, type: 2}
+  CurrentBehaviour: {fileID: 11400000, guid: 5c1fea2368169634dbb71c6ed6219983, type: 2}
+  OnReachingPieEvent: {fileID: 11400000, guid: 7038791db13b75b49925fa48531c3620, type: 2}
+  OnTakingDamageEvent: {fileID: 11400000, guid: 5dba6bfce0b25ee41bd2607842cbd03a, type: 2}
   MaxHealth: 2
-  OnReachingPie: {fileID: 11400000, guid: 7038791db13b75b49925fa48531c3620, type: 2}
-  EnemyPath: {fileID: 0}
 --- !u!58 &1282804050853347627
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -152,3 +151,31 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
+--- !u!114 &8162930696635307098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282804050853347630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f91944eddac4264cabaab499f72e2ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 5dba6bfce0b25ee41bd2607842cbd03a, type: 2}
+  onEventTriggered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 5c1fea2368169634dbb71c6ed6219983, type: 2}
+        m_TargetAssemblyTypeName: ChangeBasedOnHealth, Assembly-CSharp
+        m_MethodName: CheckHealthAndTrigger
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1282804050853347629}
+          m_ObjectArgumentAssemblyTypeName: Enemy, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

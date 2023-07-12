@@ -16,7 +16,6 @@ public class Pie : MonoBehaviour
     {
         SpriteIndex++;
         PieSprite.sprite = SpriteArray[SpriteIndex];
-        Debug.Log(SpriteIndex + ": " + PieSprite.sprite.name);
         if (SpriteIndex >= SpriteArray.Length - 1)
         {
             OnGameOver.TriggerEvent();

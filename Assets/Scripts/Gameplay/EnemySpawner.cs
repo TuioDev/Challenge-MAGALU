@@ -47,8 +47,13 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemies()
     {
         Enemy enemy = ObjectPool.Instance.GetInactivePooledObject<Enemy>();
-        enemy.EnemyPath = WalkablePaths.GetRandomPath();
-        enemy.ResetEnemy();
-        enemy.gameObject.SetActive(true);
+
+        if (enemy != null)
+        {
+            enemy.SetEnemyPath(WalkablePaths.GetRandomPath());
+            enemy.transform.position = enemy.GetEnemyPath().path.GetPointAtTime(0);
+            enemy.ResetEnemy();
+            enemy.gameObject.SetActive(true);
+        }
     }
 }

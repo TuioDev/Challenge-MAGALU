@@ -13,6 +13,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "WindPush",
+                    "type": "Button",
+                    "id": "c77b3038-54f8-44a9-9961-50c9e97b6ee6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -20,10 +29,21 @@
                     "name": "",
                     "id": "24fb20cf-6637-49a5-a92b-f373e88ccce4",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "",
+                    "interactions": "Tap(duration=0.4)",
                     "processors": "",
                     "groups": "",
                     "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fcf30164-d24d-416e-986d-598db2d737cb",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WindPush",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

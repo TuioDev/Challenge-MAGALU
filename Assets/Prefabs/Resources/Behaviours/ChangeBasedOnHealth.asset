@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d39d6f92ea931349b248d4c3d3e75dd, type: 3}
+  m_Name: ChangeBasedOnHealth
+  m_EditorClassIdentifier: 
+  NormalMovement: {fileID: 11400000, guid: b0891515c576e9d40b152fe43642b086, type: 2}
+  FastMovement: {fileID: 11400000, guid: 03ed1be3158f9284cb317e48fb031127, type: 2}
+  HealthPercentageTrigger: 50
+  OnTakingDamageEvent: {fileID: 11400000, guid: 5dba6bfce0b25ee41bd2607842cbd03a, type: 2}

@@ -1,60 +1,45 @@
 using PathCreation;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Assertions;
 
-public class Enemy : MonoBehaviour, IDamageable
+public abstract class Enemy : MonoBehaviour
 {
-    [SerializeField] private List<Brain> AIBehaviour;
-    [SerializeField] private int MaxHealth;
-    [SerializeField] private GameEvent OnReachingPie;
+    [Header("Enemy base info")]
+    [SerializeField] private protected AIBehaviour CurrentBehaviour;
+    [SerializeField] private protected GameEvent OnReachingPieEvent;
 
-    public PathCreator EnemyPath;
-    private Health EnemyHealth = new();
-
+    private protected Brain CurrentBrain;
     // The position on the path is based on time
-    private float PathTimePosition = 0f;
+    private protected float TimePosition = 0f;
+    private PathCreator EnemyPath;
 
+    //public void SetCurrentBehaviour(AIBehaviour aIBehaviour) => CurrentBehaviour = aIBehaviour;
+    public PathCreator GetEnemyPath() => EnemyPath;
+    public void SetCurrentBrain(Brain brain) => CurrentBrain = brain;
+    public Brain GetCurrentBrain() => CurrentBrain;
+    public void SetEnemyPath(PathCreator path) => EnemyPath = path;
+    public float GetTimePosition() => TimePosition;
+    public void SetOldElapsedTime(float newElapsedTime) => TimePosition = newElapsedTime;
 
-    // Start is called before the first frame update
-    void Start()
+    // The Awake is used here so that the object is not Active when Instantiated and call OnEnable
+    private void Awake()
     {
         DisableObject();
-        ResetEnemy();
     }
 
-    // Update is called once per frame
-    void Update()
+    private protected void Update()
     {
-        Behaviour();
+        // Execute the AIBehaviour, make the behaviour act as it has an Update
+        ExecuteEnemyBehaviour(this);
     }
 
-    private void Behaviour()
+    private void ExecuteEnemyBehaviour(Enemy enemy)
     {
-        //ExecuteBehaviour(1);
-        if (EnemyHealth.Amount > MaxHealth / 2)
-        {
-            ExecuteBehaviour(0);
-        }
-        else
-        {
-            ExecuteBehaviour(1);
-        }
-    }
-
-    private void ExecuteBehaviour(int index)
-    {
-        AIBehaviour[index]?.Think(this, PathTimePosition);
-    }
-
-    public void TakeDamageOrHeal(int damage)
-    {
-        EnemyHealth.TakeDamage(damage);
-        if (EnemyHealth.Amount <= 0)
-        {
-            DisableObject();
-        }
+        CurrentBehaviour.Execute(enemy);
     }
 
     public void SetPath(PathCreator path)
@@ -62,16 +47,12 @@ public class Enemy : MonoBehaviour, IDamageable
         EnemyPath = path;
     }
 
-    public void ResetEnemy()
+    public virtual void ResetEnemy()
     {
-        EnemyHealth.SetAmount(MaxHealth);
-        PathTimePosition = 0f;
+        CurrentBehaviour.Initialize(this);
+        TimePosition = 0f;
     }
 
-    public void SetOldElapsedTime(float newElapsedTime)
-    {
-        PathTimePosition = newElapsedTime;
-    }
     public void DisableObject()
     {
         this.gameObject.SetActive(false);
@@ -79,8 +60,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void TriggerOnReachingPie()
     {
-        OnReachingPie.TriggerEvent();
+        OnReachingPieEvent.TriggerEvent();
     }
-    //Here we put the functions to change behaviour
 
 }

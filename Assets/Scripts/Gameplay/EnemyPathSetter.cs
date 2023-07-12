@@ -6,27 +6,28 @@ using UnityEngine;
 public class EnemyPathSetter : MonoBehaviour
 {
     [SerializeField] private PathCollection WalkablePaths;
+    [SerializeField] private PathCollection SpiderPaths;
     [SerializeField] private List<PathCreator> AllEnemyPaths;
 
     void Awake()
     {
-        SetPathCollection();
+        SetPathCollection(WalkablePaths);
     }
 
-    private void SetPathCollection()
+    private void SetPathCollection(PathCollection pathCollection)
     {
-        if (WalkablePaths != null)
+        if (pathCollection != null)
         {
             //Everytime we open the level we need to set the paths to the ScriptableObject
             //so we clear the object before setting, because it can lead to null reference
-            WalkablePaths.GetPathCreators().Clear();
+            pathCollection.GetPathCreators().Clear();
 
             foreach (PathCreator enemyPath in AllEnemyPaths)
             {
                 //Debug.Log("Path " + enemyPath.gameObject.name + ": " + enemyPath.path.length);
-                if (!WalkablePaths.GetPathCreators().Contains(enemyPath))
+                if (!pathCollection.GetPathCreators().Contains(enemyPath))
                 {
-                    WalkablePaths.GetPathCreators().Add(enemyPath);
+                    pathCollection.GetPathCreators().Add(enemyPath);
                 }
             }
         }

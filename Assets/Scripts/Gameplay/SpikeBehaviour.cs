@@ -48,10 +48,10 @@ public class SpikeBehaviour : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            var enemy = collision.gameObject.GetComponent<Enemy>();
-            if (enemy != null)
+            var damageable = collision.gameObject.GetComponent<IDamageable>();
+            if (damageable != null)
             {
-                enemy.TakeDamageOrHeal(Power);
+                damageable.TakeDamageOrHeal(Power);
                 DisableObject();
                 CancelInvoke();
             }

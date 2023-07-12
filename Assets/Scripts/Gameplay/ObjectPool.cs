@@ -30,17 +30,21 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] private int AmountOfSpikeToPool;
     [SerializeField] private Enemy EnemyPrefab;
     [SerializeField] private int AmountOfEnemyToPool;
+    [SerializeField] private Enemy SpiderPrefab;
+    [SerializeField] private int AmountOfSpiderToPool;
 
     private void Awake()
     {
         //Instantiates all objects that the game can use
         InstantiateComponents<SpikeBehaviour>(SpikePrefab, AmountOfSpikeToPool);
         InstantiateComponents<Enemy>(EnemyPrefab, AmountOfEnemyToPool);
+        //InstantiateComponents<Enemy>(SpiderPrefab, AmountOfSpiderToPool);
     }
 
     private void InstantiateComponents<T>(T componentToPool, int amountToPool) where T : Component
     {
         ListOfSameObject subList = new();
+
         for (int i = 0; i < amountToPool; i++)
         {
             T tmp = Instantiate(componentToPool);
@@ -64,8 +68,11 @@ public class ObjectPool : MonoBehaviour
                 }
             }
         }
-
         //If the are no object to use, here we can create more, or just return null
+        else
+        {
+            
+        }
         return null;
     }
 

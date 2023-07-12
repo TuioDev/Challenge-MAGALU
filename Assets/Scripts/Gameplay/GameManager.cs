@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using System;
 
+// Rename this to a TimeManager
 public class GameManager : MonoBehaviour
 {
     [Header("Timer")]
@@ -15,16 +16,17 @@ public class GameManager : MonoBehaviour
     private float RadialValue = 0f;
     private float ElapsedTime = 0f;
 
-    // Maybe try using ScriptableOject events
-    //public static event Action OnGameOver;
-    // Start is called before the first frame update
     void Start()
     {
         RadialValue = 360 / RoundTime;
     }
 
-    // Update is called once per frame
     void Update()
+    {
+        UpdateClockTimerVisual();
+    }
+
+    private void UpdateClockTimerVisual()
     {
         ElapsedTime += Time.deltaTime;
         ClockTimer.sharedMaterial.SetFloat("_Arc1", ElapsedTime * RadialValue);

@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Health
 {
-    public int Amount { get; private set; }
+    public int CurrentAmount { get; private set; }
 
     public void SetAmount(int value)
     {
-        Amount = value;
+        CurrentAmount = value;
     }
     public void TakeDamage(int value)
     {
-        Amount -= value;
+        CurrentAmount -= value;
     }
 
     public void Recover(int value)
     {
-        Amount += value;
+        CurrentAmount += value;
     }
 }
