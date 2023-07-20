@@ -17,7 +17,6 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private GameEvent OnWindStoppedEvent;
 
     private Vector3 SpikeSpawnPosition;
-    private bool CanPerformAction;
     private bool CanShootSpike;
     private bool CanWindPush;
     private float Timer;
@@ -29,7 +28,6 @@ public class InputHandler : MonoBehaviour
 
     private void Start()
     {
-        CanPerformAction = true;
         CanShootSpike = true;
         CanWindPush = true;
         Timer = 0.0f;
@@ -37,16 +35,7 @@ public class InputHandler : MonoBehaviour
 
     private void Update()
     {
-        CheckCanPerformAction();
-    }
-
-    private void CheckCanPerformAction()
-    {
-        if (CanPerformAction)
-        {
-            CheckCanShootSpike();
-        }
-        //Timer += Time.deltaTime;
+        CheckCanShootSpike();
     }
 
     #region Spike Related

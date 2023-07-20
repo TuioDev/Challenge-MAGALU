@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Health
 {
-    public int CurrentAmount { get; private set; }
+    public float CurrentAmount { get; private set; }
 
-    public void SetAmount(int value)
+    public void SetAmount(float value)
     {
         CurrentAmount = value;
     }
-    public void TakeDamage(int value)
+    public void TakeDamage(float value)
     {
         CurrentAmount -= value;
     }
 
-    public void Recover(int value)
+    public void Recover(float value)
     {
         CurrentAmount += value;
     }

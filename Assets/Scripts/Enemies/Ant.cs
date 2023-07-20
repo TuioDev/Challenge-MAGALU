@@ -7,13 +7,10 @@ public class Ant : Enemy, IDamageable
 {
     [Header("Ant info")]
     [SerializeField] private protected GameEvent OnTakingDamageEvent;
-    [Header("Ant status")]
-    [SerializeField] private protected int MaxHealth;
 
-    private protected Health EnemyHealth = new();
-    public int GetEnemyHealthPercentage() => EnemyHealth.CurrentAmount * 100 / MaxHealth;
+    public int GetEnemyHealthPercentage() => (int)(EnemyHealth.CurrentAmount * 100 / MaxHealth);
 
-    public void TakeDamageOrHeal(int damage)
+    public void TakeDamageOrHeal(float damage)
     {
         // Send the damage amount to this enemy health
         EnemyHealth.TakeDamage(damage);
@@ -28,13 +25,6 @@ public class Ant : Enemy, IDamageable
         // Trigger if survived the damage
         TriggerOnTakingDamage();
     }
-
-    public override void ResetEnemy()
-    {
-        base.ResetEnemy();
-        EnemyHealth.SetAmount(MaxHealth);
-    }
-
 
     public void TriggerOnTakingDamage()
     {

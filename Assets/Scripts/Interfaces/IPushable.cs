@@ -4,6 +4,8 @@ using UnityEngine;
 
 public interface IPushable
 {
-    void Pushed();
-    void Released();
+    bool IsResisting { get; }
+
+    void BeginResisting();
+    void StopResisting();
 }

@@ -8,23 +8,47 @@ using UnityEngine;
 public class Spider : Enemy, IDamageable, IPushable
 {
     [Header("Spider info")]
-    [SerializeField] private float PushSpeed;
+    [SerializeField] private GameEvent OnBeingPushed;
+    //[Header("Spider stats")]
+    //[SerializeField] private float PushTimeInSeconds;
+
+    public bool IsResisting { get; private set; }
 
     public int GetEnemyHealthPercentage() => 0;
 
-    public void Pushed()
+    private protected override void ExecuteEnemyBehaviour(Enemy enemy)
     {
-        // Change the Brain?
-        
+        if (IsResisting)
+        {
+            TakeDamageOrHeal(Time.deltaTime);
+        }
+        base.ExecuteEnemyBehaviour(enemy);
     }
 
-    public void Released()
+    public override void ResetEnemy()
     {
-        // Change the Brain back to normal?
+        base.ResetEnemy();
+        IsResisting = false;
     }
 
-    public void TakeDamageOrHeal(int damage)
+    public void BeginResisting()
     {
-        
+        IsResisting = true;
+    }
+
+    public void StopResisting()
+    {
+        IsResisting = false;
+    }
+    public void TakeDamageOrHeal(float damage)
+    {
+        // Decrease health based on time
+        EnemyHealth.TakeDamage(damage);
+
+        // If health is bellow zero, disable enemy
+        if (EnemyHealth.CurrentAmount <= 0)
+        {
+            DisableObject();
+        }
     }
 }

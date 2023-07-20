@@ -12,10 +12,14 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private protected AIBehaviour CurrentBehaviour;
     [SerializeField] private protected GameEvent OnReachingPieEvent;
 
+    [Header("Enemy stats")]
+    [SerializeField] private protected int MaxHealth;
+
     private protected Brain CurrentBrain;
     // The position on the path is based on time
     private protected float TimePosition = 0f;
     private PathCreator EnemyPath;
+    private protected Health EnemyHealth = new();
 
     //public void SetCurrentBehaviour(AIBehaviour aIBehaviour) => CurrentBehaviour = aIBehaviour;
     public PathCreator GetEnemyPath() => EnemyPath;
@@ -25,7 +29,7 @@ public abstract class Enemy : MonoBehaviour
     public float GetTimePosition() => TimePosition;
     public void SetOldElapsedTime(float newElapsedTime) => TimePosition = newElapsedTime;
 
-    // The Awake is used here so that the object is not Active when Instantiated and call OnEnable
+    // The Awake is used here so that the object is not Active when Instantiated and don't call OnEnable
     private void Awake()
     {
         DisableObject();
@@ -37,7 +41,7 @@ public abstract class Enemy : MonoBehaviour
         ExecuteEnemyBehaviour(this);
     }
 
-    private void ExecuteEnemyBehaviour(Enemy enemy)
+    private protected virtual void ExecuteEnemyBehaviour(Enemy enemy)
     {
         CurrentBehaviour.Execute(enemy);
     }
@@ -51,6 +55,7 @@ public abstract class Enemy : MonoBehaviour
     {
         CurrentBehaviour.Initialize(this);
         TimePosition = 0f;
+        EnemyHealth.SetAmount(MaxHealth);
     }
 
     public void DisableObject()
@@ -62,5 +67,4 @@ public abstract class Enemy : MonoBehaviour
     {
         OnReachingPieEvent.TriggerEvent();
     }
-
 }

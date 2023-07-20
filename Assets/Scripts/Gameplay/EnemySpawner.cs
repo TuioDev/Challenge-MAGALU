@@ -9,8 +9,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float InitialDelay;
     //This probably will be changed, but for now it works to test everything
     [SerializeField] private float DelayBetweenEnemies;
-    [SerializeField] private PathCollection WalkablePaths;
-
+    
+    private EnemyPathSetter PathSetter;
     private EnemyData[] AllEnemiesData;
     private List<Enemy> AllEnemiesReference = new List<Enemy>();
 
@@ -24,6 +24,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        PathSetter = FindObjectOfType<EnemyPathSetter>();
         AllEnemiesData = Resources.LoadAll<EnemyData>("Enemies");
         SetEnemiesReferences();
     }
@@ -50,10 +51,11 @@ public class EnemySpawner : MonoBehaviour
 
         if (enemy != null)
         {
-            enemy.SetEnemyPath(WalkablePaths.GetRandomPath());
+            enemy.SetEnemyPath(PathSetter.GetWalkablePathCollection().GetRandomPath());
             enemy.transform.position = enemy.GetEnemyPath().path.GetPointAtTime(0);
             enemy.ResetEnemy();
             enemy.gameObject.SetActive(true);
         }
     }
+
 }

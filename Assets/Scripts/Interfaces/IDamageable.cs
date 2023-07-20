@@ -1,5 +1,5 @@
 public interface IDamageable
 {
-    void TakeDamageOrHeal(int damage);
+    void TakeDamageOrHeal(float damage);
     int GetEnemyHealthPercentage();
 }

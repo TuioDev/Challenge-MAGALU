@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3b73b58a3933c24aab2fb777aba9fc2, type: 3}
+  m_Name: ChangeBasedOnTime
+  m_EditorClassIdentifier: 
+  <DesignatedEvent>k__BackingField: {fileID: 11400000, guid: e7365e52493376040934cde7600c5a5a, type: 2}
+  <InitialBrain>k__BackingField: {fileID: 11400000, guid: b0891515c576e9d40b152fe43642b086, type: 2}
+  <SecondBrain>k__BackingField: {fileID: 11400000, guid: 03ed1be3158f9284cb317e48fb031127, type: 2}
+  TimeInSecondsToTrigger: 6

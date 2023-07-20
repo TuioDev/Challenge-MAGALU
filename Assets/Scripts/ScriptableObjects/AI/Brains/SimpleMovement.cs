@@ -10,13 +10,12 @@ public class SimpleMovement : Brain
 
     public override void Enter()
     {
-        // Run an animation?
+        // Run Walking animation
     }
 
     public override void Exit()
     {
-        // Pausa enfurecida
-        // Play sound?
+
     }
 
     public override void Think(Enemy enemy)
@@ -24,7 +23,7 @@ public class SimpleMovement : Brain
         if (enemy.GetEnemyPath() != null)
         {
             float time = enemy.GetTimePosition();
-            time += (Time.deltaTime * Speed);
+            time += Time.deltaTime * Speed;
 
             // If the enemy reaches the end of the path, means it reached the pie
             if (time >= enemy.GetEnemyPath().path.length)

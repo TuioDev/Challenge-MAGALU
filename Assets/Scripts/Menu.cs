@@ -22,13 +22,13 @@ public class Menu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(cena);
+        //SceneManager.LoadScene(cena);
     }
 
     public void QuitGame()
     {
         // Editor Unity
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
         // Jogo Compilado
         //Application.Quit();
     }

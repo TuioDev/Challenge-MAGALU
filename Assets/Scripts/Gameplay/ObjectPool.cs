@@ -25,20 +25,23 @@ public class ObjectPool : MonoBehaviour
     public List<ListOfSameObject> AllLists = new List<ListOfSameObject>();
     public List<GameObject> PooledObjects = new List<GameObject>();
 
-    [Header("All objects to pool")]
+    [Header("ALL OBJECTS TO POOL")]
+    [Header("Spikes")]
     [SerializeField] private SpikeBehaviour SpikePrefab;
     [SerializeField] private int AmountOfSpikeToPool;
-    [SerializeField] private Enemy EnemyPrefab;
-    [SerializeField] private int AmountOfEnemyToPool;
-    [SerializeField] private Enemy SpiderPrefab;
-    [SerializeField] private int AmountOfSpiderToPool;
+    [Header("Ants")]
+    [SerializeField] private Ant AntPrefab;
+    [SerializeField] private int AmountOfAntsToPool;
+    [Header("Spiders")]
+    [SerializeField] private Spider SpiderPrefab;
+    [SerializeField] private int AmountOfSpidersToPool;
 
     private void Awake()
     {
         //Instantiates all objects that the game can use
         InstantiateComponents<SpikeBehaviour>(SpikePrefab, AmountOfSpikeToPool);
-        InstantiateComponents<Enemy>(EnemyPrefab, AmountOfEnemyToPool);
-        //InstantiateComponents<Enemy>(SpiderPrefab, AmountOfSpiderToPool);
+        InstantiateComponents<Spider>(SpiderPrefab, AmountOfSpidersToPool);
+        InstantiateComponents<Ant>(AntPrefab, AmountOfAntsToPool);
     }
 
     private void InstantiateComponents<T>(T componentToPool, int amountToPool) where T : Component
@@ -76,6 +79,7 @@ public class ObjectPool : MonoBehaviour
         return null;
     }
 
+    // TODO: Change this method so that it supports all lists of enemies?
     private int GetListIndex<T>() where T : Component
     {
         for (int i = 0; i < AllLists.Count; i++)
