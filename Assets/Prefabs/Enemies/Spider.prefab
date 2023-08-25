@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 782282029440321487}
   - component: {fileID: 782282029440321480}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 328799339
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 9ad0c770985f57e4888f2c21fd062bb7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -93,10 +93,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 782282029530679575}
+  - component: {fileID: 8588210356495557681}
   - component: {fileID: 782282029530679574}
   - component: {fileID: 782282029530679568}
   - component: {fileID: 782282029530679569}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +112,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782282029530679573}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -119,6 +120,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &8588210356495557681
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782282029530679573}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.18}
+  m_Size: {x: 0.7, y: 1.1}
+  m_Direction: 0
 --- !u!114 &782282029530679574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,8 +150,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentBehaviour: {fileID: 11400000, guid: 476837c597bbb974ba818f8a15e69cef, type: 2}
   OnReachingPieEvent: {fileID: 11400000, guid: 7038791db13b75b49925fa48531c3620, type: 2}
-  EnemyPath: {fileID: 0}
-  PushTimeInSeconds: 3
+  MaxHealth: 3
+  OnBeingPushed: {fileID: 11400000, guid: d310f0d107e5efa4b920a8f06b2421a3, type: 2}
+  CenterPointOfSpawn: {fileID: 0}
+  WebTimeToSpawn: 0
+  WaitTimeAfterWebSpawn: 0
 --- !u!114 &782282029530679568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,8 +171,20 @@ MonoBehaviour:
   onEventTriggered:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 782282029530679574}
+        m_TargetAssemblyTypeName: Spider, Assembly-CSharp
+        m_MethodName: BeginResisting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 476837c597bbb974ba818f8a15e69cef, type: 2}
-        m_TargetAssemblyTypeName: ChangeWithEvent, Assembly-CSharp
+        m_TargetAssemblyTypeName: ChangeInbetweenWithEvent, Assembly-CSharp
         m_MethodName: ChangeBackAndForth
         m_Mode: 2
         m_Arguments:
@@ -179,6 +211,18 @@ MonoBehaviour:
   onEventTriggered:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 782282029530679574}
+        m_TargetAssemblyTypeName: Spider, Assembly-CSharp
+        m_MethodName: StopResisting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 476837c597bbb974ba818f8a15e69cef, type: 2}
         m_TargetAssemblyTypeName: ChangeWithEvent, Assembly-CSharp
         m_MethodName: ChangeToInitialBrain

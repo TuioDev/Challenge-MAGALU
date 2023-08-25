@@ -9,8 +9,9 @@ public class Spider : Enemy, IDamageable, IPushable
 {
     [Header("Spider info")]
     [SerializeField] private GameEvent OnBeingPushed;
-    //[Header("Spider stats")]
-    //[SerializeField] private float PushTimeInSeconds;
+    [Header("Spiderweb info")]
+    [SerializeField] private float WebTimeToSpawn;
+    [SerializeField] private float WaitTimeAfterWebSpawn;
 
     public bool IsResisting { get; private set; }
 
@@ -34,11 +35,13 @@ public class Spider : Enemy, IDamageable, IPushable
     public void BeginResisting()
     {
         IsResisting = true;
+        // Play animation?
     }
 
     public void StopResisting()
     {
         IsResisting = false;
+        // Stop animation?
     }
     public void TakeDamageOrHeal(float damage)
     {
@@ -49,6 +52,18 @@ public class Spider : Enemy, IDamageable, IPushable
         if (EnemyHealth.CurrentAmount <= 0)
         {
             DisableObject();
+            RemoveMyselfFromPathList();
         }
+    }
+
+    public override void TriggerOnReachingPie()
+    {
+        RemoveMyselfFromPathList();
+        base.TriggerOnReachingPie();
+    }
+
+    private void RemoveMyselfFromPathList()
+    {
+        EnemyPath.gameObject.GetComponent<EnemiesReferenceKeeper>().RemoveEnemyOnPath(this);
     }
 }

@@ -18,14 +18,14 @@ public abstract class Enemy : MonoBehaviour
     private protected Brain CurrentBrain;
     // The position on the path is based on time
     private protected float TimePosition = 0f;
-    private PathCreator EnemyPath;
+    private protected PathCreator EnemyPath;
     private protected Health EnemyHealth = new();
 
     //public void SetCurrentBehaviour(AIBehaviour aIBehaviour) => CurrentBehaviour = aIBehaviour;
+    public void SetEnemyPath(PathCreator path) => EnemyPath = path;
     public PathCreator GetEnemyPath() => EnemyPath;
     public void SetCurrentBrain(Brain brain) => CurrentBrain = brain;
     public Brain GetCurrentBrain() => CurrentBrain;
-    public void SetEnemyPath(PathCreator path) => EnemyPath = path;
     public float GetTimePosition() => TimePosition;
     public void SetOldElapsedTime(float newElapsedTime) => TimePosition = newElapsedTime;
 
@@ -63,7 +63,7 @@ public abstract class Enemy : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    public void TriggerOnReachingPie()
+    public virtual void TriggerOnReachingPie()
     {
         OnReachingPieEvent.TriggerEvent();
     }

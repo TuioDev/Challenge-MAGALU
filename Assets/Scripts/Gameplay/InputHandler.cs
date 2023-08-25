@@ -12,9 +12,9 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private float SpikeShootCooldown;
     [SerializeField] private float TimeToDisableSpike;
     [Header("Wind info")]
-    [SerializeField] private float WindPushCooldown;
     [SerializeField] private GameEvent OnWindPushEvent;
     [SerializeField] private GameEvent OnWindStoppedEvent;
+    [SerializeField] private ParticleSystem WindVFX;
 
     private Vector3 SpikeSpawnPosition;
     private bool CanShootSpike;
@@ -59,6 +59,7 @@ public class InputHandler : MonoBehaviour
     private void ActivatePooledSpike()
     {
         SpikeBehaviour spike = ObjectPool.Instance.GetInactivePooledObject<SpikeBehaviour>();
+
         if (spike != null)
         {
             spike.transform.position = SpikeSpawnPosition;
@@ -82,7 +83,7 @@ public class InputHandler : MonoBehaviour
     #endregion
 
     #region Wind Related
-    // The second core mechanic is the wind that will call the IsPush function from the IPushable objects
+    // The second core mechanic is the wind, it will raise an event and objects subscribed will act
 
     public void WindPush(InputAction.CallbackContext context)
     {
@@ -101,11 +102,13 @@ public class InputHandler : MonoBehaviour
     private void PerformIsPushed()
     {
         OnWindPushEvent.TriggerEvent();
+        WindVFX.Play();
     }
 
     private void StopIsPushed()
     {
         OnWindStoppedEvent.TriggerEvent();
+        WindVFX.Stop(false, ParticleSystemStopBehavior.StopEmitting);
     }
     #endregion
 }

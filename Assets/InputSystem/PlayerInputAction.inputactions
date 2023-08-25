@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Plus5Seconds",
+                    "type": "Button",
+                    "id": "06fea0d0-7af3-4a23-958e-efff14e66d3f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -44,6 +53,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "WindPush",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d12d7df1-a043-4219-b189-ddbd6ee4d577",
+                    "path": "<Keyboard>/k",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Plus5Seconds",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

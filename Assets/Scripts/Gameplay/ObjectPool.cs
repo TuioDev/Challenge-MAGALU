@@ -1,11 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Pool;
-using static Unity.Burst.Intrinsics.X86.Avx;
 
 public class ObjectPool : MonoBehaviour
 {
@@ -22,61 +16,58 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    public List<ListOfSameObject> AllLists = new List<ListOfSameObject>();
-    public List<GameObject> PooledObjects = new List<GameObject>();
+    [Header("Objects instantiated")]
+    public List<ListOfSameObject> AllLists = new();
 
-    [Header("ALL OBJECTS TO POOL")]
-    [Header("Spikes")]
-    [SerializeField] private SpikeBehaviour SpikePrefab;
-    [SerializeField] private int AmountOfSpikeToPool;
-    [Header("Ants")]
-    [SerializeField] private Ant AntPrefab;
-    [SerializeField] private int AmountOfAntsToPool;
-    [Header("Spiders")]
-    [SerializeField] private Spider SpiderPrefab;
-    [SerializeField] private int AmountOfSpidersToPool;
+    [SerializeField] private List<PoolingObject> ObjectsToPool;
+
+    private List<int> EnemiesIndexList = new();
 
     private void Awake()
     {
-        //Instantiates all objects that the game can use
-        InstantiateComponents<SpikeBehaviour>(SpikePrefab, AmountOfSpikeToPool);
-        InstantiateComponents<Spider>(SpiderPrefab, AmountOfSpidersToPool);
-        InstantiateComponents<Ant>(AntPrefab, AmountOfAntsToPool);
+        InstantiateObjects();
+        SetEnemiesIndexList();
     }
 
-    private void InstantiateComponents<T>(T componentToPool, int amountToPool) where T : Component
+    private void InstantiateObjects()
     {
-        ListOfSameObject subList = new();
-
-        for (int i = 0; i < amountToPool; i++)
+        foreach (PoolingObject objectToPool in ObjectsToPool)
         {
-            T tmp = Instantiate(componentToPool);
-            subList.List.Add(tmp);
+            ListOfSameObject subList = new();
+
+            for (int i = 0; i < objectToPool.AmountToSpawn; i++)
+            {
+                GameObject tmp = Instantiate(objectToPool.Prefab);
+                subList.List.Add(tmp);
+            }
+
+            AllLists.Add(subList);
         }
-        AllLists.Add(subList);
     }
 
-    public T GetInactivePooledObject<T>() where T : Component
+    public T GetInactivePooledObject<T>(int index = 0) where T : Component
     {
-        int index = GetListIndex<T>();
+        if (index == 0) index = GetListIndex<T>();
+        
+        if (index < 0) return null;
 
         if (AllLists[index] != null)
         {
-            List<Component> subList = AllLists[index].List;
+            List<GameObject> subList = AllLists[index].List;
             for (int i = 0; i < subList.Count; i++)
             {
-                if (!subList[i].gameObject.activeInHierarchy)
+                if (!subList[i].activeInHierarchy)
                 {
-                    return subList[i].gameObject.GetComponent<T>();
+                    return subList[i].GetComponent<T>();
                 }
             }
         }
         //If the are no object to use, here we can create more, or just return null
         else
         {
-            
+
         }
-        return null;
+        return null; // TODO: Remove this later, the null return was already called
     }
 
     // TODO: Change this method so that it supports all lists of enemies?
@@ -84,22 +75,45 @@ public class ObjectPool : MonoBehaviour
     {
         for (int i = 0; i < AllLists.Count; i++)
         {
-            if (AllLists[i].List[0] is T)
+            if (AllLists[i].List[0].GetComponent<T>() != null)
             {
                 return i;
             }
         }
         return -1;
     }
+
+    private void SetEnemiesIndexList()
+    {
+        for (int i = 0; i < ObjectsToPool.Count; i++)
+        {
+            if (ObjectsToPool[i].Prefab.GetComponent<Enemy>() != null)
+            {
+                EnemiesIndexList.Add(i);
+            }
+        }
+    }
+
+    public Enemy GetRandomInactiveEnemy()
+    {
+        return GetInactivePooledObject<Enemy>(EnemiesIndexList[Random.Range(0, EnemiesIndexList.Count)]);
+    }
 }
 
-[Serializable]
+[System.Serializable]
+public class PoolingObject
+{
+    public GameObject Prefab;
+    public int AmountToSpawn;
+}
+
+[System.Serializable]
 public class ListOfSameObject
 {
-    public List<Component> List;
+    public List<GameObject> List;
 
     public ListOfSameObject()
     {
-        List = new List<Component>();
+        List = new List<GameObject>();
     }
 }

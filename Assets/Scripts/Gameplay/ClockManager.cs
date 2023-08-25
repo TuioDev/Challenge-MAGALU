@@ -11,9 +11,10 @@ public class ClockManager : MonoBehaviour
     [SerializeField] private float RoundTime;
     [Header("Events")]
     [SerializeField] private GameEvent OnTimerEnd;
+    [Header("Float reference")]
+    [SerializeField] private FloatVariable LevelTime;
 
     private float RadialValue = 0f;
-    private float ElapsedTime = 0f;
 
     void Start()
     {
@@ -27,9 +28,8 @@ public class ClockManager : MonoBehaviour
 
     private void UpdateClockTimerVisual()
     {
-        ElapsedTime += Time.deltaTime;
-        ClockTimer.sharedMaterial.SetFloat("_Arc1", ElapsedTime * RadialValue);
-        if (ElapsedTime > RoundTime)
+        ClockTimer.sharedMaterial.SetFloat("_Arc1", LevelTime.Value * RadialValue);
+        if (LevelTime.Value > RoundTime)
         {
             ClockTimer.sharedMaterial.SetFloat("_Arc1", 360f);
             TriggerTimerEnd();
