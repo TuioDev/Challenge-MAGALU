@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemiesReferenceKeeper : MonoBehaviour
 {
-    private List<Enemy> EnemiesOnPath = new();
+    private readonly List<Enemy> EnemiesOnPath = new();
     public List<Enemy> GetEnemiesOnPath() => EnemiesOnPath;
     public void AddEnemyOnPath(Enemy enemy) => EnemiesOnPath.Add(enemy);
     public void RemoveEnemyOnPath(Enemy enemy)

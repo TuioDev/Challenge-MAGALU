@@ -1673,6 +1673,99 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 530732710}
   m_CullTransparentMesh: 1
+--- !u!1 &535511036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 535511038}
+  - component: {fileID: 535511037}
+  m_Layer: 0
+  m_Name: CloudPath1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &535511037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535511036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5ac92bc18f545cc84cd886ece82b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorData:
+    _bezierPath:
+      points:
+      - {x: 1.1698872, y: 3.4111981, z: 0}
+      - {x: 1.1798667, y: 2.4332247, z: 0}
+      - {x: -0.13308567, y: 2.7202837, z: 0}
+      - {x: -0.07752764, y: 2.253597, z: 0}
+      - {x: -0.027630985, y: 1.8344657, z: 0}
+      - {x: 2.5419436, y: 2.037903, z: 0}
+      - {x: 2.4472399, y: 1.8344657, z: 0}
+      - {x: 2.1777983, y: 1.2556652, z: 0}
+      - {x: 0.04222423, y: 1.5849828, z: 0}
+      - {x: 0, y: 1, z: 0}
+      isClosed: 0
+      space: 1
+      controlMode: 0
+      autoControlLength: 0.3
+      boundsUpToDate: 0
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 2, y: 0.14433756, z: 0}
+      perAnchorNormalsAngle:
+      - 0
+      - 0
+      - 0
+      - 0
+      globalNormalsAngle: 0
+      flipNormals: 0
+    vertexPathUpToDate: 1
+    vertexPathMaxAngleError: 0.3
+    vertexPathMinVertexSpacing: 0.01
+    showTransformTool: 1
+    showPathBounds: 0
+    showPerSegmentBounds: 0
+    displayAnchorPoints: 1
+    displayControlPoints: 1
+    bezierHandleScale: 1
+    globalDisplaySettingsFoldout: 0
+    keepConstantHandleSize: 0
+    showNormalsInVertexMode: 0
+    showBezierPathInVertexMode: 0
+    showDisplayOptions: 0
+    showPathOptions: 1
+    showVertexPathDisplayOptions: 0
+    showVertexPathOptions: 1
+    showNormals: 0
+    showNormalsHelpInfo: 0
+    tabIndex: 0
+  initialized: 1
+--- !u!4 &535511038
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535511036}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1874190485}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &552352013
 GameObject:
   m_ObjectHideFlags: 0
@@ -2134,6 +2227,8 @@ MonoBehaviour:
     AmountToSpawn: 15
   - Prefab: {fileID: 782282029530679573, guid: 05f13dbf5f127d04d9c8b1446dbd1734, type: 3}
     AmountToSpawn: 10
+  - Prefab: {fileID: 4479533027985904750, guid: d0d95815c88e04e47adea53213f7623f, type: 3}
+    AmountToSpawn: 5
 --- !u!1 &731927940
 GameObject:
   m_ObjectHideFlags: 0
@@ -4016,6 +4111,7 @@ Transform:
   - {fileID: 281712558}
   - {fileID: 162876711}
   - {fileID: 586821120}
+  - {fileID: 535511038}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4033,12 +4129,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WalkablePathCollection: {fileID: 11400000, guid: 558725a602c7c494cbbeb928936e6cf9, type: 2}
   SpiderPathCollection: {fileID: 11400000, guid: 0fcf8542b33bb604ca18a541f03e1dd7, type: 2}
+  CloudPathCollection: {fileID: 11400000, guid: 075763b9e51e79147953ae3a4af2221a, type: 2}
   AllWalkablePaths:
   - {fileID: 1494853980}
   - {fileID: 281712557}
   - {fileID: 162876712}
   - {fileID: 586821121}
-  AllSpiderPaths: []
+  AllCloudPaths:
+  - {fileID: 535511037}
   SpiderPathPrefab: {fileID: 2283266996522833499, guid: 7c9c9eeb2ab36e04f9729485831a4307, type: 3}
   AmountOfSpiderPaths: 10
 --- !u!1 &1902149037

@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
     private EnemyPathSetter PathSetter;
 
     // See if we can get this, but every enemy will have to despawn, or when it dies call an event
-    private List<Enemy> AllEnemiesActive = new List<Enemy>();
+    //private List<Enemy> AllEnemiesActive = new List<Enemy>();
 
     /// <summary>
     /// TODO: BETTER SPAWNER BASED ON GAME TIME
@@ -35,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("SpawnEnemies", InitialDelay, DelayBetweenEnemies); // CHANGE THIS LINE
+        InvokeRepeating(nameof(SpawnEnemies), InitialDelay, DelayBetweenEnemies); // CHANGE THIS LINE
     }
 
     private void SpawnEnemies()
@@ -46,7 +46,7 @@ public class EnemySpawner : MonoBehaviour
         if (enemy != null)
         {
             if (enemy is Spider) { SetEnemySpider(enemy); return; }
-            //if (enemy is Cloud) SetEnemyCloud(enemy as Cloud);
+            if (enemy is Cloud) SetEnemyCloud(enemy as Cloud);
 
             SetEnemy(enemy);
         }
@@ -69,9 +69,8 @@ public class EnemySpawner : MonoBehaviour
         // Set points 1 and 2 as something in between
 
         // Get a random path for the spider
-        // TODO: IF 2 OR MORE SPIDERS GET THE SAME PATH
-        //      SO LETS ENSURE THAT IF A SPIDER GETS THE SAME PATH IT JUST SPAWNS ON IT
         PathCreator spiderPath = PathSetter.GetSpiderPathCollection().GetRandomPath();
+        if (spiderPath == null) return;
         PathSetter.AllSpiderPathAndReferences[spiderPath].AddEnemyOnPath(enemy);
 
         spiderPath.gameObject.SetActive(true);
@@ -111,6 +110,11 @@ public class EnemySpawner : MonoBehaviour
         enemy.transform.position = enemy.GetEnemyPath().path.GetPointAtTime(0);
         enemy.ResetEnemy();
         enemy.gameObject.SetActive(true);
+    }
+
+    private void SetEnemyCloud(Enemy enemy)
+    {
+
     }
 
     private Vector3 GetRandomPointOutsideOfView()

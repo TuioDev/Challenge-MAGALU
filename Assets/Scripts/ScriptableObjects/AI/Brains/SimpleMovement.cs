@@ -35,8 +35,10 @@ public class SimpleMovement : Brain
 
             enemy.transform.SetPositionAndRotation(
                 enemy.GetEnemyPath().path.GetPointAtDistance(time),
-                enemy.GetEnemyPath().path.GetRotationAtDistance(time) * Quaternion.Euler(0, -90, -90));
+                enemy.GetEnemyPath().path.GetRotationAtDistance(time) * Quaternion.Euler(0, -90, -90)) ;
 
+            //float test = 1f + time / enemy.GetEnemyPath().path.length;
+            //enemy.transform.localScale = new Vector3(test, test, enemy.transform.localScale.z);
             enemy.SetOldElapsedTime(time);
         }
     }

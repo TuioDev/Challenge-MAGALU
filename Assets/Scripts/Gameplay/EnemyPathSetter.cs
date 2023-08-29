@@ -9,17 +9,21 @@ public class EnemyPathSetter : MonoBehaviour
     [Header("Path collections")]
     [SerializeField] private PathCollection WalkablePathCollection;
     [SerializeField] private PathCollection SpiderPathCollection;
+    [SerializeField] private PathCollection CloudPathCollection;
 
-    [Header("List of enemy paths for each collection")]
+    [Header("List of enemy paths manually setted")]
     [SerializeField] private List<PathCreator> AllWalkablePaths;
-    [SerializeField] private List<PathCreator> AllSpiderPaths;
+    [SerializeField] private List<PathCreator> AllCloudPaths;
 
     [Header("Spider path prefab and amount")]
     [SerializeField] private GameObject SpiderPathPrefab;
     [SerializeField] private float AmountOfSpiderPaths;
 
+    private readonly List<PathCreator> AllSpiderPaths;
+
     public PathCollection GetWalkablePathCollection() => WalkablePathCollection;
     public PathCollection GetSpiderPathCollection() => SpiderPathCollection;
+    public PathCollection GetCloudPathCollection() => CloudPathCollection;
 
     public Dictionary<PathCreator, EnemiesReferenceKeeper> AllSpiderPathAndReferences = new();
 
@@ -29,6 +33,7 @@ public class EnemyPathSetter : MonoBehaviour
 
         SetPathCollection(WalkablePathCollection);
         SetPathCollection(SpiderPathCollection);
+        SetPathCollection(CloudPathCollection);
     }
 
     private void SetPathCollection(PathCollection pathCollection)
@@ -57,6 +62,7 @@ public class EnemyPathSetter : MonoBehaviour
         {
             "WalkablePathCollection" => AllWalkablePaths,
             "SpiderPathCollection" => AllSpiderPaths,
+            "CloudPathCollection" => AllCloudPaths,
             _ => null,
         };
     }
