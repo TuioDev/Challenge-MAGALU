@@ -52,7 +52,6 @@ public class Spider : Enemy, IDamageable, IPushable
         if (EnemyHealth.CurrentAmount <= 0)
         {
             DisableObject();
-            RemoveMyselfFromPathList();
         }
     }
 
@@ -62,8 +61,15 @@ public class Spider : Enemy, IDamageable, IPushable
         base.TriggerOnReachingPie();
     }
 
+    public override void DisableObject()
+    {
+        RemoveMyselfFromPathList();
+        base.DisableObject();
+    }
+
     private void RemoveMyselfFromPathList()
     {
+        if (EnemyPath == null) return;
         EnemyPath.gameObject.GetComponent<EnemiesReferenceKeeper>().RemoveEnemyOnPath(this);
     }
 }

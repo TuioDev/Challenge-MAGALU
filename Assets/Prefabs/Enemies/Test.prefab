@@ -151,8 +151,8 @@ MonoBehaviour:
   CurrentBehaviour: {fileID: 11400000, guid: 476837c597bbb974ba818f8a15e69cef, type: 2}
   OnReachingPieEvent: {fileID: 11400000, guid: 7038791db13b75b49925fa48531c3620, type: 2}
   MaxHealth: 3
+  InicialScale: 1
   OnBeingPushed: {fileID: 11400000, guid: d310f0d107e5efa4b920a8f06b2421a3, type: 2}
-  CenterPointOfSpawn: {fileID: 0}
   WebTimeToSpawn: 0
   WaitTimeAfterWebSpawn: 0
 --- !u!114 &3726000258009874294

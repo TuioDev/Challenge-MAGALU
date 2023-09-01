@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ChangeWithWindPush_Cloud
   m_EditorClassIdentifier: 
   <DesignatedEvent>k__BackingField: {fileID: 11400000, guid: d310f0d107e5efa4b920a8f06b2421a3, type: 2}
-  <InitialBrain>k__BackingField: {fileID: 11400000, guid: 9a6471eeec9e8a045bdb3ece5abeb5ed, type: 2}
-  <SecondBrain>k__BackingField: {fileID: 11400000, guid: fa5ad503499c53e4f9aaf8415b30e905, type: 2}
+  <InitialBrain>k__BackingField: {fileID: 11400000, guid: b6c3b83a9610b4643bbf9c0df9fc175f, type: 2}
+  <SecondBrain>k__BackingField: {fileID: 11400000, guid: 84e3842b0158ec64c89cf00b1239661c, type: 2}

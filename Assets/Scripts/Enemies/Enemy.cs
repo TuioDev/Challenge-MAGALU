@@ -14,7 +14,9 @@ public abstract class Enemy : MonoBehaviour
 
     [Header("Enemy stats")]
     [SerializeField] private protected int MaxHealth;
+    [SerializeField][Range(.1f, 1f)] private float InicialScale;
 
+    private protected Animator EnemyAnimator;
     private protected Brain CurrentBrain;
     // The position on the path is based on time
     private protected float TimePosition = 0f;
@@ -22,6 +24,7 @@ public abstract class Enemy : MonoBehaviour
     private protected Health EnemyHealth = new();
 
     //public void SetCurrentBehaviour(AIBehaviour aIBehaviour) => CurrentBehaviour = aIBehaviour;
+    public float GetInicialScale() => InicialScale;
     public void SetEnemyPath(PathCreator path) => EnemyPath = path;
     public PathCreator GetEnemyPath() => EnemyPath;
     public void SetCurrentBrain(Brain brain) => CurrentBrain = brain;
@@ -32,6 +35,7 @@ public abstract class Enemy : MonoBehaviour
     // The Awake is used here so that the object is not Active when Instantiated and don't call OnEnable
     private void Awake()
     {
+        EnemyAnimator = GetComponent<Animator>();
         DisableObject();
     }
 
@@ -56,9 +60,10 @@ public abstract class Enemy : MonoBehaviour
         CurrentBehaviour.Initialize(this);
         TimePosition = 0f;
         EnemyHealth.SetAmount(MaxHealth);
+        this.transform.localScale = new Vector3(GetInicialScale(), GetInicialScale(), 1);
     }
 
-    public void DisableObject()
+    public virtual void DisableObject()
     {
         this.gameObject.SetActive(false);
     }

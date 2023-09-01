@@ -113,8 +113,8 @@ Transform:
   m_GameObject: {fileID: 782282029530679573}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 782282029440321487}
   m_Father: {fileID: 0}
@@ -151,8 +151,8 @@ MonoBehaviour:
   CurrentBehaviour: {fileID: 11400000, guid: 476837c597bbb974ba818f8a15e69cef, type: 2}
   OnReachingPieEvent: {fileID: 11400000, guid: 7038791db13b75b49925fa48531c3620, type: 2}
   MaxHealth: 3
+  InicialScale: 0.7
   OnBeingPushed: {fileID: 11400000, guid: d310f0d107e5efa4b920a8f06b2421a3, type: 2}
-  CenterPointOfSpawn: {fileID: 0}
   WebTimeToSpawn: 0
   WaitTimeAfterWebSpawn: 0
 --- !u!114 &782282029530679568

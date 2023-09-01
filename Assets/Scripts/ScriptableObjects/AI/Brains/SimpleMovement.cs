@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [CreateAssetMenu(menuName = "AI/Simple Movement")]
 public class SimpleMovement : Brain
@@ -24,6 +25,8 @@ public class SimpleMovement : Brain
         {
             float time = enemy.GetTimePosition();
             time += Time.deltaTime * Speed;
+            if (time < 0) {enemy.DisableObject(); return;
+        }
 
             // If the enemy reaches the end of the path, means it reached the pie
             if (time >= enemy.GetEnemyPath().path.length)

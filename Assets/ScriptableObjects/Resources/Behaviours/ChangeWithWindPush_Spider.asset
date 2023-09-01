@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <DesignatedEvent>k__BackingField: {fileID: 11400000, guid: d310f0d107e5efa4b920a8f06b2421a3, type: 2}
   <InitialBrain>k__BackingField: {fileID: 11400000, guid: b0891515c576e9d40b152fe43642b086, type: 2}
-  <SecondBrain>k__BackingField: {fileID: 11400000, guid: fa5ad503499c53e4f9aaf8415b30e905, type: 2}
+  <SecondBrain>k__BackingField: {fileID: 11400000, guid: c115fa45cefeffa4c93da8fe0a6de450, type: 2}

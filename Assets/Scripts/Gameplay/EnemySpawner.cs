@@ -46,7 +46,7 @@ public class EnemySpawner : MonoBehaviour
         if (enemy != null)
         {
             if (enemy is Spider) { SetEnemySpider(enemy); return; }
-            if (enemy is Cloud) SetEnemyCloud(enemy as Cloud);
+            if (enemy is Cloud) { SetEnemyCloud(enemy); return; }
 
             SetEnemy(enemy);
         }
@@ -114,7 +114,11 @@ public class EnemySpawner : MonoBehaviour
 
     private void SetEnemyCloud(Enemy enemy)
     {
-
+        // Gives the path reference to the enemy and sets the position
+        enemy.SetEnemyPath(PathSetter.GetCloudPathCollection().GetRandomPath());
+        enemy.transform.position = enemy.GetEnemyPath().path.GetPointAtTime(0);
+        enemy.ResetEnemy();
+        enemy.gameObject.SetActive(true);
     }
 
     private Vector3 GetRandomPointOutsideOfView()

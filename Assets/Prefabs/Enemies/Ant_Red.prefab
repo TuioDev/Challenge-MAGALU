@@ -133,9 +133,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentBehaviour: {fileID: 11400000, guid: 5c1fea2368169634dbb71c6ed6219983, type: 2}
   OnReachingPieEvent: {fileID: 11400000, guid: 7038791db13b75b49925fa48531c3620, type: 2}
-  EnemyPath: {fileID: 0}
-  OnTakingDamageEvent: {fileID: 11400000, guid: 5dba6bfce0b25ee41bd2607842cbd03a, type: 2}
   MaxHealth: 2
+  InicialScale: 1
+  OnTakingDamageEvent: {fileID: 11400000, guid: 5dba6bfce0b25ee41bd2607842cbd03a, type: 2}
 --- !u!58 &1282804050853347627
 CircleCollider2D:
   m_ObjectHideFlags: 0

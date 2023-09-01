@@ -56,5 +56,10 @@ public class SpikeBehaviour : MonoBehaviour
                 CancelInvoke();
             }
         }
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        {
+            DisableObject();
+            CancelInvoke();
+        }
     }
 }

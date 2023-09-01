@@ -19,7 +19,7 @@ public class EnemyPathSetter : MonoBehaviour
     [SerializeField] private GameObject SpiderPathPrefab;
     [SerializeField] private float AmountOfSpiderPaths;
 
-    private readonly List<PathCreator> AllSpiderPaths;
+    private List<PathCreator> AllSpiderPaths = new();
 
     public PathCollection GetWalkablePathCollection() => WalkablePathCollection;
     public PathCollection GetSpiderPathCollection() => SpiderPathCollection;
