@@ -2221,15 +2221,11 @@ MonoBehaviour:
   ObjectsToPool:
   - Prefab: {fileID: 5257518624903213684, guid: 9b549c3e95f945c4b8445511da4c0e8d, type: 3}
     AmountToSpawn: 10
-  - Prefab: {fileID: 4479533027985904750, guid: d0d95815c88e04e47adea53213f7623f, type: 3}
-    AmountToSpawn: 8
   - Prefab: {fileID: 1282804050853347630, guid: 8a2a7aa40800a7c419672b17f1550337, type: 3}
     AmountToSpawn: 15
+  - Prefab: {fileID: 4479533027985904750, guid: d0d95815c88e04e47adea53213f7623f, type: 3}
+    AmountToSpawn: 8
   - Prefab: {fileID: 782282029530679573, guid: 05f13dbf5f127d04d9c8b1446dbd1734, type: 3}
-    AmountToSpawn: 10
-  - Prefab: {fileID: 1282804050853347630, guid: c6ef1ab8c1081474e81d5fee96f37f67, type: 3}
-    AmountToSpawn: 10
-  - Prefab: {fileID: 1282804050853347630, guid: a52ac24972ffa4242a9480489e104fd9, type: 3}
     AmountToSpawn: 10
 --- !u!1 &731927940
 GameObject:
@@ -4335,7 +4331,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
