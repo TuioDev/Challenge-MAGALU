@@ -121,9 +121,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 4466
-        width: 1522
-        height: 2233
+        y: 2606
+        width: 1353
+        height: 1303
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cd098bee07636c46a4e8a47632be25e
-      internalID: -1050561385
+      spriteID: 993c9304250354c409067ba4245b6d29
+      internalID: 2015163197
       vertices: []
       indices: 
       edges: []
@@ -141,10 +141,10 @@ TextureImporter:
       name: spritesheet_florzinha_1
       rect:
         serializedVersion: 2
-        x: 1522
-        y: 4466
-        width: 1522
-        height: 2233
+        x: 1353
+        y: 2606
+        width: 1353
+        height: 1303
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f798cd484c94f3c44ac98171b69e8553
-      internalID: 1460821704
+      spriteID: 8da16266e1a2df34d8a5240fc729db83
+      internalID: 1713492027
       vertices: []
       indices: 
       edges: []
@@ -162,10 +162,10 @@ TextureImporter:
       name: spritesheet_florzinha_2
       rect:
         serializedVersion: 2
-        x: 3044
-        y: 4466
-        width: 1522
-        height: 2233
+        x: 2706
+        y: 2606
+        width: 1353
+        height: 1303
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,8 +173,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acca1d23ee02d5d429ee6a38b346741d
-      internalID: -1322410899
+      spriteID: 1f77f4b1ed3841f4a893f2987ea9e3a6
+      internalID: -1640258610
       vertices: []
       indices: 
       edges: []
@@ -183,10 +183,10 @@ TextureImporter:
       name: spritesheet_florzinha_3
       rect:
         serializedVersion: 2
-        x: 4566
-        y: 4466
-        width: 1522
-        height: 2233
+        x: 4059
+        y: 2606
+        width: 1353
+        height: 1303
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9266efe31c94350478a46cc95f91ef91
-      internalID: -1875672174
+      spriteID: 2f0a97d146fe5724f9edc5f776fe7e65
+      internalID: -941773870
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
       name: spritesheet_florzinha_4
       rect:
         serializedVersion: 2
-        x: 6088
-        y: 4466
-        width: 1522
-        height: 2233
+        x: 0
+        y: 1303
+        width: 1353
+        height: 1303
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,8 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c66a2de88d629c41bf24b4b59b08942
-      internalID: 1959481471
+      spriteID: dee71d3612c5cb5459824831d2ee7abd
+      internalID: 1104685012
       vertices: []
       indices: 
       edges: []
@@ -225,10 +225,10 @@ TextureImporter:
       name: spritesheet_florzinha_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2233
-        width: 1522
-        height: 2233
+        x: 1353
+        y: 1303
+        width: 1353
+        height: 1303
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,8 +236,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c13279bd7f02e5459e0b8e93638920b
-      internalID: 1520467583
+      spriteID: 00f96bd0fae13ca4d9767c9fe00845a3
+      internalID: -1428366104
       vertices: []
       indices: 
       edges: []
@@ -246,10 +246,10 @@ TextureImporter:
       name: spritesheet_florzinha_6
       rect:
         serializedVersion: 2
-        x: 1522
-        y: 2233
-        width: 1522
-        height: 2233
+        x: 2706
+        y: 1303
+        width: 1353
+        height: 1303
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,8 +257,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21d2ef9168c7b31409d51da9d1e7c84a
-      internalID: -561907231
+      spriteID: e5156c3338fc4f94cafc97f30b778a59
+      internalID: -651214599
       vertices: []
       indices: 
       edges: []
@@ -267,10 +267,10 @@ TextureImporter:
       name: spritesheet_florzinha_7
       rect:
         serializedVersion: 2
-        x: 3044
-        y: 2233
-        width: 1522
-        height: 2233
+        x: 4059
+        y: 1303
+        width: 1353
+        height: 1303
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,8 +278,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cca7862315d45345aa164ec280d47f6
-      internalID: 1456045712
+      spriteID: 2cc2138f26e9ae2458525de6755e391b
+      internalID: 734861806
       vertices: []
       indices: 
       edges: []
@@ -288,10 +288,10 @@ TextureImporter:
       name: spritesheet_florzinha_8
       rect:
         serializedVersion: 2
-        x: 4566
-        y: 2233
-        width: 1522
-        height: 2233
+        x: 0
+        y: 0
+        width: 1353
+        height: 1303
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,8 +299,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7bdf4ea2f7bc88e469654eff4686bdc9
-      internalID: -1666586514
+      spriteID: 529941ccb8465b54391e2d5d55e03879
+      internalID: -1701779864
       vertices: []
       indices: 
       edges: []
@@ -309,10 +309,10 @@ TextureImporter:
       name: spritesheet_florzinha_9
       rect:
         serializedVersion: 2
-        x: 6088
-        y: 2233
-        width: 1522
-        height: 2233
+        x: 1353
+        y: 0
+        width: 1353
+        height: 1303
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -320,8 +320,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d549ed31127918d4ebcc9950dc2fad43
-      internalID: 917159171
+      spriteID: 111ec39f0302a1b419f58533ea31a042
+      internalID: -1240352490
       vertices: []
       indices: 
       edges: []
@@ -330,10 +330,10 @@ TextureImporter:
       name: spritesheet_florzinha_10
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2706
         y: 0
-        width: 1522
-        height: 2233
+        width: 1353
+        height: 1303
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -341,8 +341,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a99c0c523946b84ea1bf8e2076caf85
-      internalID: 786031998
+      spriteID: 6b4d4cc2bc5f51b4c852b4434c2c6ffc
+      internalID: -1929001443
       vertices: []
       indices: 
       edges: []
@@ -351,10 +351,10 @@ TextureImporter:
       name: spritesheet_florzinha_11
       rect:
         serializedVersion: 2
-        x: 1522
+        x: 4059
         y: 0
-        width: 1522
-        height: 2233
+        width: 1353
+        height: 1303
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -362,8 +362,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 808ca6d04ea678543b5f340beb9b6adc
-      internalID: 1710606557
+      spriteID: 0c602c8cbdd8db548bda1a14af57224d
+      internalID: -2123438015
       vertices: []
       indices: 
       edges: []
@@ -379,18 +379,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      spritesheet_florzinha_0: -1050561385
-      spritesheet_florzinha_1: 1460821704
-      spritesheet_florzinha_10: 786031998
-      spritesheet_florzinha_11: 1710606557
-      spritesheet_florzinha_2: -1322410899
-      spritesheet_florzinha_3: -1875672174
-      spritesheet_florzinha_4: 1959481471
-      spritesheet_florzinha_5: 1520467583
-      spritesheet_florzinha_6: -561907231
-      spritesheet_florzinha_7: 1456045712
-      spritesheet_florzinha_8: -1666586514
-      spritesheet_florzinha_9: 917159171
+      spritesheet_florzinha_0: 2015163197
+      spritesheet_florzinha_1: 1713492027
+      spritesheet_florzinha_10: -1929001443
+      spritesheet_florzinha_11: -2123438015
+      spritesheet_florzinha_2: -1640258610
+      spritesheet_florzinha_3: -941773870
+      spritesheet_florzinha_4: 1104685012
+      spritesheet_florzinha_5: -1428366104
+      spritesheet_florzinha_6: -651214599
+      spritesheet_florzinha_7: 734861806
+      spritesheet_florzinha_8: -1701779864
+      spritesheet_florzinha_9: -1240352490
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
