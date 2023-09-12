@@ -120,10 +120,10 @@ TextureImporter:
       name: spritesheet_florzinhaGirando_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1303
-        width: 1200
-        height: 1303
+        x: 25
+        y: 1477
+        width: 1112.6666
+        height: 1129
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d419da29f729edf4b9230768ca5ceef0
-      internalID: -1194316307
+      spriteID: 76d8f9a95eea94243ac0d1dac4e9e052
+      internalID: -794415635
       vertices: []
       indices: 
       edges: []
@@ -141,10 +141,10 @@ TextureImporter:
       name: spritesheet_florzinhaGirando_1
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 1303
-        width: 1200
-        height: 1303
+        x: 1216
+        y: 1477
+        width: 1112.6666
+        height: 1129
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45600cd6ece42754b9e213ef57a49742
-      internalID: -847217360
+      spriteID: 9ccf21f12ab537b4797cdcb45028e3bc
+      internalID: -1699116279
       vertices: []
       indices: 
       edges: []
@@ -162,10 +162,10 @@ TextureImporter:
       name: spritesheet_florzinhaGirando_2
       rect:
         serializedVersion: 2
-        x: 2400
-        y: 1303
-        width: 1200
-        height: 1303
+        x: 2407
+        y: 1477
+        width: 1112.6666
+        height: 1129
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,8 +173,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76e1ceeb6e9be6647bebe0217f5e227d
-      internalID: 866407361
+      spriteID: 6d97de13d32cd634abe1eaa9d768163f
+      internalID: -881717404
       vertices: []
       indices: 
       edges: []
@@ -183,10 +183,10 @@ TextureImporter:
       name: spritesheet_florzinhaGirando_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1200
-        height: 1303
+        x: 25
+        y: 174
+        width: 1112.6666
+        height: 1129
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f46a7d60a5168c2408925432e577e73d
-      internalID: 93615263
+      spriteID: faa4275cf859a4749b7cab1b2731d883
+      internalID: 171133555
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
       name: spritesheet_florzinhaGirando_4
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 0
-        width: 1200
-        height: 1303
+        x: 1216
+        y: 174
+        width: 1112.6666
+        height: 1129
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,8 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea39f2f6b20697c4394fa4a1d66f1ed0
-      internalID: -1682409681
+      spriteID: ec3b9aec916a1ee4b906bf82ab879d0f
+      internalID: -642493982
       vertices: []
       indices: 
       edges: []
@@ -225,10 +225,10 @@ TextureImporter:
       name: spritesheet_florzinhaGirando_5
       rect:
         serializedVersion: 2
-        x: 2400
-        y: 0
-        width: 1200
-        height: 1303
+        x: 2407
+        y: 174
+        width: 1112.6666
+        height: 1129
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,8 +236,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9fb5f1d9a2074849a53b9745c8e228a
-      internalID: -1673165433
+      spriteID: 9eededba890fec644af58b7c4b62c36d
+      internalID: 982146269
       vertices: []
       indices: 
       edges: []
@@ -253,12 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      spritesheet_florzinhaGirando_0: -1194316307
-      spritesheet_florzinhaGirando_1: -847217360
-      spritesheet_florzinhaGirando_2: 866407361
-      spritesheet_florzinhaGirando_3: 93615263
-      spritesheet_florzinhaGirando_4: -1682409681
-      spritesheet_florzinhaGirando_5: -1673165433
+      spritesheet_florzinhaGirando_0: -794415635
+      spritesheet_florzinhaGirando_1: -1699116279
+      spritesheet_florzinhaGirando_2: -881717404
+      spritesheet_florzinhaGirando_3: 171133555
+      spritesheet_florzinhaGirando_4: -642493982
+      spritesheet_florzinhaGirando_5: 982146269
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
