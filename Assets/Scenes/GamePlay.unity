@@ -1197,7 +1197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpikePrefab: {fileID: 5257518624903213691, guid: 9b549c3e95f945c4b8445511da4c0e8d, type: 3}
   SpikeSpawnTransform: {fileID: 1999492475}
-  SpikeShootCooldown: 0.5
+  SpikeShootCooldown: 0.4
   TimeToDisableSpike: 2
   OnWindPushEvent: {fileID: 11400000, guid: d310f0d107e5efa4b920a8f06b2421a3, type: 2}
   OnWindStoppedEvent: {fileID: 11400000, guid: 738d9675edc97a94b90849b74f6d302a, type: 2}
@@ -2371,8 +2371,61 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialDelay: 2
-  DelayBetweenEnemies: 2
-  LevelTime: {fileID: 11400000, guid: 0a67e734a3422a6449ad59d4d2adb411, type: 2}
+  InitialDelayBetweenEnemies: 1
+  InitialDelayBetweenWaves: 2
+  InitialWeightPoints: 5
+  FinalWeightPoints: 25
+  WeightPointCalculation: 1
+  <TotalRoundTime>k__BackingField: {fileID: 11400000, guid: a2c5fc941bbbea248beb837d6b8d7695, type: 2}
+  <CurrentLevelTime>k__BackingField: {fileID: 11400000, guid: 0a67e734a3422a6449ad59d4d2adb411, type: 2}
+  <LinearCalculationCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 4
+      inSlope: 0.35
+      outSlope: 0.35
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 60
+      value: 25
+      inSlope: 0.35
+      outSlope: 0.35
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  <ExponentialCalculationCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 4
+      inSlope: 0.14911114
+      outSlope: 0.14911114
+      tangentMode: 0
+      weightedMode: 2
+      inWeight: 0.33333334
+      outWeight: 0.5867843
+    - serializedVersion: 3
+      time: 60
+      value: 50
+      inSlope: 1.1807805
+      outSlope: 1.1807805
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.045561
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &698848120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2389,12 +2442,16 @@ MonoBehaviour:
   ObjectsToPool:
   - Prefab: {fileID: 5257518624903213684, guid: 9b549c3e95f945c4b8445511da4c0e8d, type: 3}
     AmountToSpawn: 10
+    WeightPoints: 0
   - Prefab: {fileID: 1282804050853347630, guid: 8a2a7aa40800a7c419672b17f1550337, type: 3}
     AmountToSpawn: 15
+    WeightPoints: 1
+  - Prefab: {fileID: 782282029530679573, guid: 05f13dbf5f127d04d9c8b1446dbd1734, type: 3}
+    AmountToSpawn: 5
+    WeightPoints: 5
   - Prefab: {fileID: 4479533027985904750, guid: d0d95815c88e04e47adea53213f7623f, type: 3}
     AmountToSpawn: 8
-  - Prefab: {fileID: 782282029530679573, guid: 05f13dbf5f127d04d9c8b1446dbd1734, type: 3}
-    AmountToSpawn: 10
+    WeightPoints: 2
 --- !u!1 &731927940
 GameObject:
   m_ObjectHideFlags: 0
@@ -3626,8 +3683,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ClockTimer: {fileID: 1380602151}
-  RoundTime: 30
   OnTimerEnd: {fileID: 11400000, guid: e7365e52493376040934cde7600c5a5a, type: 2}
+  RoundTime: {fileID: 11400000, guid: a2c5fc941bbbea248beb837d6b8d7695, type: 2}
   LevelTime: {fileID: 11400000, guid: 0a67e734a3422a6449ad59d4d2adb411, type: 2}
 --- !u!114 &1354965649
 MonoBehaviour:
@@ -3641,6 +3698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f3689580fdee04b90a4b4f984480ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RoundTime: {fileID: 11400000, guid: a2c5fc941bbbea248beb837d6b8d7695, type: 2}
   LevelTime: {fileID: 11400000, guid: 0a67e734a3422a6449ad59d4d2adb411, type: 2}
 --- !u!1 &1380602148
 GameObject:
@@ -4425,6 +4483,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1681608858}
   - component: {fileID: 1681608857}
+  - component: {fileID: 1681608859}
   m_Layer: 0
   m_Name: Vento 1
   m_TagString: Untagged
@@ -4499,6 +4558,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1681608859
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681608856}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2492af99d3ef0be4d9b556423d7394d0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1874190484
 GameObject:
   m_ObjectHideFlags: 0
@@ -5054,5 +5134,17 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7826318728947701279, guid: b50460be79d78414dac67792dd2298bd, type: 3}
+      propertyPath: UVModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826318728947701279, guid: b50460be79d78414dac67792dd2298bd, type: 3}
+      propertyPath: ColorBySpeedModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8003287361774068577, guid: b50460be79d78414dac67792dd2298bd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f5333883aae091b4892a91b588b216d1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b50460be79d78414dac67792dd2298bd, type: 3}

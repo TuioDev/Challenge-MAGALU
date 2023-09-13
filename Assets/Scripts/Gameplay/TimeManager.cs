@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class TimeManager : MonoBehaviour
 {
     [Header("Float reference")]
+    [SerializeField] private FloatVariable RoundTime;
     [SerializeField] private FloatVariable LevelTime;
 
     void Awake()

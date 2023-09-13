@@ -1,57 +1,167 @@
 using PathCreation;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
+using System.Net.WebSockets;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEditor;
 
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Spawn settings")]
     [SerializeField] private float InitialDelay;
-    //This probably will be changed, but for now it works to test everything
-    [SerializeField] private float DelayBetweenEnemies;
-    [Header("References")]
-    [SerializeField] private FloatVariable LevelTime;
+    [SerializeField] private float InitialDelayBetweenEnemies;
+    [SerializeField] private float InitialDelayBetweenWaves;
+    [Header("Weight settings")]
+    [SerializeField] private int InitialWeightPoints;
+    [SerializeField] private int FinalWeightPoints;
+    [SerializeField] private MathematicalCalculation WeightPointCalculation;
+    [field: Header("References")]
+    [field: SerializeField] public FloatVariable TotalRoundTime { get; private set; }
+    [field: SerializeField] public FloatVariable CurrentLevelTime { get; private set; }
+    [field: Header("Curve Settings")]
+    [field: SerializeField] public AnimationCurve LinearCalculationCurve { get; private set; }
+    [field: SerializeField] public AnimationCurve ExponentialCalculationCurve { get; private set; }
 
     private Transform PieTransform;
     private EnemyPathSetter PathSetter;
+    private List<EnemyReference> EnemiesThisLevel = new();
+    private int CurrentWeightPoints;
+    private float CurrentDelayBetweenEnemies;
+    private float CurrentDelayBetweenWaves;
 
-    // See if we can get this, but every enemy will have to despawn, or when it dies call an event
-    //private List<Enemy> AllEnemiesActive = new List<Enemy>();
+    private Keyframe[] CurveFrames = new Keyframe[2];
+    //private bool IsSpawningWave = false;
 
-    /// <summary>
-    /// TODO: BETTER SPAWNER BASED ON GAME TIME
-    /// Get a list of some enemies:
-    ///     The later the phase goes, the higher the amount
-    /// Get the paths based on each ones hidden values to modify the probabilites
-    /// </summary>
+    // TODO: BETTER SPAWNER BASED ON GAME TIME
+    // Get reference of all enemies in the level from ObjectToPool
+    //     The later the phase goes, the higher the amount
+    // Get the paths based on each ones hidden values to modify the probabilites
 
     // Start is called before the first frame update
     void Awake()
     {
         PathSetter = FindObjectOfType<EnemyPathSetter>();
         PieTransform = FindObjectOfType<Pie>().transform;
+        SetInitialValues();
+        SetCurvesInitialValues();
+        SetEnemiesThisLevel();
     }
 
     void Start()
     {
-        InvokeRepeating(nameof(SpawnEnemies), InitialDelay, DelayBetweenEnemies); // CHANGE THIS LINE
+        StartCoroutine(LevelStart());
     }
 
-    private void SpawnEnemies()
+    private void SetInitialValues()
     {
-        // TODO: If we want a more organic level we change this line
-        Enemy enemy = ObjectPool.Instance.GetRandomInactiveEnemy();
+        CurrentDelayBetweenEnemies = InitialDelayBetweenEnemies;
+        CurrentDelayBetweenWaves = InitialDelayBetweenWaves;
+        CurrentWeightPoints = InitialWeightPoints;
+    }
 
-        if (enemy != null)
+    private void SetCurvesInitialValues()
+    {
+        // Set Linear curve initial value
+        CurveFrames = LinearCalculationCurve.keys;
+        CurveFrames[0].value = InitialWeightPoints;
+        CurveFrames[0].time = 0f;
+        CurveFrames[1].value = FinalWeightPoints;
+        CurveFrames[1].time = TotalRoundTime.Value;
+
+        LinearCalculationCurve.keys = CurveFrames;
+
+        // Set Exponential curve initial value
+        CurveFrames = ExponentialCalculationCurve.keys;
+        CurveFrames[0].value = InitialWeightPoints;
+        CurveFrames[0].time = 0f;
+        CurveFrames[1].value = FinalWeightPoints;
+        CurveFrames[1].time = TotalRoundTime.Value;
+
+        ExponentialCalculationCurve.keys = CurveFrames;
+
+        CurveFrames = null;
+    }
+
+    private void SetEnemiesThisLevel()
+    {
+        EnemiesThisLevel.Clear();
+        foreach (PoolingObject pooledObject in ObjectPool.Instance.GetObjectsToPool())
         {
-            if (enemy is Spider) { SetEnemySpider(enemy); return; }
-            if (enemy is Cloud) { SetEnemyCloud(enemy); return; }
+            if (pooledObject.Prefab.GetComponent<Enemy>() == null) { continue; }
 
-            SetEnemy(enemy);
+            EnemyReference newEnemyReference = new()
+            {
+                EnemyComponent = pooledObject.Prefab.GetComponent<Enemy>(),
+                WeightPoints = pooledObject.WeightPoints
+            };
+
+            EnemiesThisLevel.Add(newEnemyReference);
         }
     }
 
+    private IEnumerator LevelStart()
+    {
+        yield return new WaitForSeconds(InitialDelay);
+        StartCoroutine(SpawnEnemies());
+    }
+    private IEnumerator SpawnEnemies()
+    {
+        Queue<Enemy> waveEnemies = new();
+
+        // Get a list of enemies from the weight system
+        while (CurrentWeightPoints > 0)
+        {
+            ShuffleList<EnemyReference>(EnemiesThisLevel);
+
+            for (int i = 0; ; i++)
+            {
+                if (EnemiesThisLevel[i].WeightPoints <= CurrentWeightPoints)
+                {
+                    CurrentWeightPoints -= EnemiesThisLevel[i].WeightPoints;
+                    waveEnemies.Enqueue(EnemiesThisLevel[i].EnemyComponent);
+                    break;
+                }
+            }
+        }
+
+        // Start spawning the enemy wave
+        StartCoroutine(SpawnWave(waveEnemies));
+
+        yield return null;
+    }
+    
+    private IEnumerator SpawnWave(Queue<Enemy> enemyWave)
+    {
+        // Spawn current wave
+        while (enemyWave.Count > 0)
+        {
+            Enemy enemy = enemyWave.Dequeue();
+
+            if (enemy is Ant)
+            {
+                SetEnemy(ObjectPool.Instance.GetInactivePooledObject<Ant>());
+            }
+            else if (enemy is Cloud)
+            {
+                SetEnemyCloud(ObjectPool.Instance.GetInactivePooledObject<Cloud>());
+            }
+            else
+            {
+                SetEnemySpider(ObjectPool.Instance.GetInactivePooledObject<Spider>());
+            }
+
+            yield return new WaitForSeconds(CurrentDelayBetweenEnemies);
+        }
+
+        // Update the amount of points for the next wave
+        CalculateNewWeightPoint();
+
+        yield return new WaitForSeconds(CurrentDelayBetweenWaves);
+        StartCoroutine(SpawnEnemies());
+    }
+    #region Enemies Setters
     private void SetEnemy(Enemy enemy)
     {
         // Gives the path reference to the enemy and sets the position
@@ -63,11 +173,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void SetEnemySpider(Enemy enemy)
     {
-        // Get a random position around the pie
-        // Get position of the pie
-        // Set point 0 and 3 as this positions
-        // Set points 1 and 2 as something in between
-
         // Get a random path for the spider
         PathCreator spiderPath = PathSetter.GetSpiderPathCollection().GetRandomPath();
         if (spiderPath == null) return;
@@ -106,7 +211,7 @@ public class EnemySpawner : MonoBehaviour
 
         // Gives the path reference to the spider and sets the position
         enemy.SetEnemyPath(spiderPath);
-        
+
         enemy.transform.position = enemy.GetEnemyPath().path.GetPointAtTime(0);
         enemy.ResetEnemy();
         enemy.gameObject.SetActive(true);
@@ -133,4 +238,73 @@ public class EnemySpawner : MonoBehaviour
 
         return Camera.main.ViewportToWorldPoint(pointOutsideOfView);
     }
+    #endregion
+
+    #region LevelProgressionCalculation
+    private void CalculateNewWeightPoint()
+    {
+        switch (WeightPointCalculation)
+        {
+            case MathematicalCalculation.Constant:
+                SetValueAsConstant();
+                break;
+            case MathematicalCalculation.Linear:
+                SetValueAsLinear();
+                break;
+            case MathematicalCalculation.Exponential:
+                SetValueAsExponential();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void SetValueAsConstant()
+    {
+        CurrentWeightPoints = InitialWeightPoints;
+        //CurrentDelayBetweenEnemies = InitialDelayBetweenEnemies;
+        //CurrentDelayBetweenWaves = InitialDelayBetweenWaves;
+    }
+
+    private void SetValueAsLinear()
+    {
+        CurrentWeightPoints = (int)LinearCalculationCurve.Evaluate(CurrentLevelTime.Value);
+        //CurrentDelayBetweenEnemies = InitialDelayBetweenEnemies;
+        //CurrentDelayBetweenWaves = InitialDelayBetweenWaves;
+    }
+
+    private void SetValueAsExponential()
+    {
+        CurrentWeightPoints = (int)ExponentialCalculationCurve.Evaluate(CurrentLevelTime.Value);
+    }
+    #endregion
+
+    private List<T> ShuffleList<T>(List<T> list)
+    {
+        int index = list.Count;
+        while (index > 1)
+        {
+            index--;
+            int randomIndex = Random.Range(0, index + 1);
+            T item = list[index];
+            list[index] = list[randomIndex];
+            list[randomIndex] = item;
+        }
+
+        return list;
+    }
+}
+
+[System.Serializable]
+public class EnemyReference
+{
+    public Enemy EnemyComponent;
+    public int WeightPoints;
+}
+
+public enum MathematicalCalculation
+{
+    Constant,
+    Linear,
+    Exponential
 }

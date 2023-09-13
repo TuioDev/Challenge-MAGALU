@@ -6,12 +6,10 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     [SerializeField] private GameObject Prefab;
-    [SerializeField] private int ID;
+    [SerializeField] private int CostToSpawn;
 
-    public GameObject GetPrefab()
-    {
-        return Prefab;
-    }
+    public GameObject GetPrefab() => Prefab;
+    public int GetCostToSpawn() => CostToSpawn;
 
     public Enemy GetEnemyComponent()
     {

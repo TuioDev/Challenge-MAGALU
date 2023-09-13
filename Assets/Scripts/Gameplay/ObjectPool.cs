@@ -1,5 +1,8 @@
+//using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class ObjectPool : MonoBehaviour
 {
@@ -23,10 +26,12 @@ public class ObjectPool : MonoBehaviour
 
     private List<int> EnemiesIndexList = new();
 
+    public List<PoolingObject> GetObjectsToPool() => ObjectsToPool;
+
     private void Awake()
     {
         InstantiateObjects();
-        SetEnemiesIndexList();
+        SetEnemiesReferenceLists();
     }
 
     private void InstantiateObjects()
@@ -48,26 +53,32 @@ public class ObjectPool : MonoBehaviour
     public T GetInactivePooledObject<T>(int index = 0) where T : Component
     {
         if (index == 0) index = GetListIndex<T>();
-        
+
         if (index < 0) return null;
 
-        if (AllLists[index] != null)
+        if (AllLists[index] == null) return null;
+
+        List<GameObject> subList = AllLists[index].List;
+        
+        // Instead of looping through all the objects, there could be a list of inactive objects
+        for (int i = 0; i < subList.Count; i++)
         {
-            List<GameObject> subList = AllLists[index].List;
-            for (int i = 0; i < subList.Count; i++)
+            if (!subList[i].activeInHierarchy)
             {
-                if (!subList[i].activeInHierarchy)
-                {
-                    return subList[i].GetComponent<T>();
-                }
+                return subList[i].GetComponent<T>();
             }
         }
-        //If the are no object to use, here we can create more, or just return null
-        else
-        {
 
-        }
-        return null; // TODO: Remove this later, the null return was already called
+        // If the are no object to use, we create another one and add to the sublist
+        // Find wich type of enemy needs to spawn
+        
+        // Get the prefab from the ObjectsToPool
+        // Instantiate the prefab
+        // Assing to the sublist
+        GameObject newInactiveObject = Instantiate(GetPrefabReference<T>());
+        AllLists[index].List.Add(newInactiveObject);
+
+        return newInactiveObject.GetComponent<T>();
     }
 
     // TODO: Change this method so that it supports all lists of enemies?
@@ -83,7 +94,8 @@ public class ObjectPool : MonoBehaviour
         return -1;
     }
 
-    private void SetEnemiesIndexList()
+    
+    private void SetEnemiesReferenceLists()
     {
         for (int i = 0; i < ObjectsToPool.Count; i++)
         {
@@ -98,6 +110,20 @@ public class ObjectPool : MonoBehaviour
     {
         return GetInactivePooledObject<Enemy>(EnemiesIndexList[Random.Range(0, EnemiesIndexList.Count)]);
     }
+
+    // This method is returning an Ant_Normal if EnemySpawner needs a new object
+    public GameObject GetPrefabReference<T>() where T : Component
+    {
+        for (int i = 0; i < ObjectsToPool.Count; i++)
+        {
+            if (ObjectsToPool[i].Prefab.GetComponent<T>() != null)
+            {
+                return ObjectsToPool[i].Prefab;
+            }
+        }
+
+        return null;
+    }
 }
 
 [System.Serializable]
@@ -105,6 +131,7 @@ public class PoolingObject
 {
     public GameObject Prefab;
     public int AmountToSpawn;
+    public int WeightPoints;
 }
 
 [System.Serializable]
