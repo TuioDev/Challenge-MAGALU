@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b341bc8bd740684cba3dfa3d259ca12, type: 3}
-  m_Name: Ant
+  m_Script: {fileID: 11500000, guid: 9ae8c982d57ce5a448e8220ec8722689, type: 3}
+  m_Name: RoundTime
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 1282804050853347630, guid: 8a2a7aa40800a7c419672b17f1550337, type: 3}
-  CostToSpawn: 1
+  Value: 60
