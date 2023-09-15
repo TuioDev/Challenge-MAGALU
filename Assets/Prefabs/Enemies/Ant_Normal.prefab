@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentBehaviour: {fileID: 11400000, guid: 1d54d7b034886ad49bca88a95f2bb2e4, type: 2}
   OnReachingPieEvent: {fileID: 11400000, guid: 7038791db13b75b49925fa48531c3620, type: 2}
-  MaxHealth: 2
+  MaxHealth: 1
   InicialScale: 1
   OnTakingDamageEvent: {fileID: 11400000, guid: ae49cae8c49204742a57b732609049ab, type: 2}
 --- !u!58 &1282804050853347627
