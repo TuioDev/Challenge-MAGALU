@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00d0f4dad8e824b4cac77fbee33ffa17, type: 3}
-  m_Name: ContinuousNormal
+  m_Name: Spider_Normal
   m_EditorClassIdentifier: 
-  Speed: 1.3
+  Speed: {fileID: 11400000, guid: 5bed348042eacff4a85e1f9d678c774e, type: 2}

@@ -16,6 +16,7 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private GameEvent OnWindStoppedEvent;
     [SerializeField] private ParticleSystem WindVFX;
 
+    private PlayerInput Inputs;
     private Vector3 SpikeSpawnPosition;
     private bool CanShootSpike;
     private bool CanWindPush;
@@ -23,6 +24,7 @@ public class InputHandler : MonoBehaviour
 
     private void Awake()
     {
+        Inputs = GetComponent<PlayerInput>();
         SpikeSpawnPosition = SpikeSpawnTransform.position;
     }
 
@@ -111,4 +113,14 @@ public class InputHandler : MonoBehaviour
         WindVFX.Stop(false, ParticleSystemStopBehavior.StopEmitting);
     }
     #endregion
+
+    public void ChangeToUIActionMap()
+    {
+        Inputs.SwitchCurrentActionMap("UI");
+    }
+
+    public void ChangeToGameplayActionMap()
+    {
+        Inputs.SwitchCurrentActionMap("Gameplay");
+    }
 }

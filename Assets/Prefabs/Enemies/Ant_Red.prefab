@@ -134,7 +134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentBehaviour: {fileID: 11400000, guid: 5c1fea2368169634dbb71c6ed6219983, type: 2}
   OnReachingPieEvent: {fileID: 11400000, guid: 7038791db13b75b49925fa48531c3620, type: 2}
-  MaxHealth: 2
+  MaxHealth: {fileID: 11400000, guid: c56d342ae484e2743b40d054169a3499, type: 2}
+  Speed: {fileID: 11400000, guid: df99a3693ac457443af7fc65e49b8876, type: 2}
   InicialScale: 1
   OnTakingDamageEvent: {fileID: 11400000, guid: 5dba6bfce0b25ee41bd2607842cbd03a, type: 2}
 --- !u!58 &1282804050853347627

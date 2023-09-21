@@ -24,9 +24,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Plus5Seconds",
+                    "name": "OpenCheatPanel",
                     "type": "Button",
-                    "id": "06fea0d0-7af3-4a23-958e-efff14e66d3f",
+                    "id": "5bbd8c64-42c8-4ebc-9103-2e8865bab95c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -58,12 +58,40 @@
                 },
                 {
                     "name": "",
-                    "id": "d12d7df1-a043-4219-b189-ddbd6ee4d577",
-                    "path": "<Keyboard>/k",
-                    "interactions": "Tap",
+                    "id": "694b4680-2c04-4b57-aea6-875c3b915dc9",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Plus5Seconds",
+                    "action": "OpenCheatPanel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "275bc7dc-59a5-44d5-a6f7-2536ad144df6",
+            "actions": [
+                {
+                    "name": "CloseCheatPanel",
+                    "type": "Button",
+                    "id": "440fa654-0925-4bda-9ba8-0b206d329ba0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c47c8712-ecba-4e83-ab47-931b93d22cda",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseCheatPanel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

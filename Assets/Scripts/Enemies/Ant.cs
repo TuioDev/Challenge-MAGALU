@@ -8,7 +8,7 @@ public class Ant : Enemy, IDamageable
     [Header("Ant info")]
     [SerializeField] private protected GameEvent OnTakingDamageEvent;
 
-    public int GetEnemyHealthPercentage() => (int)(EnemyHealth.CurrentAmount * 100 / MaxHealth);
+    public int GetEnemyHealthPercentage() => (int)(EnemyHealth.CurrentAmount * 100 / MaxHealth.Value);
 
     public void TakeDamageOrHeal(float damage)
     {

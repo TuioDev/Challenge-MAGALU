@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00d0f4dad8e824b4cac77fbee33ffa17, type: 3}
-  m_Name: ContinuousFast
+  m_Script: {fileID: 11500000, guid: 9ae8c982d57ce5a448e8220ec8722689, type: 3}
+  m_Name: AntRed_Speed
   m_EditorClassIdentifier: 
-  Speed: 2
+  Value: 1

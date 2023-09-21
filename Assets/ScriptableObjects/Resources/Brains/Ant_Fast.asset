@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00d0f4dad8e824b4cac77fbee33ffa17, type: 3}
-  m_Name: ContinuousSlow
+  m_Name: Ant_Fast
   m_EditorClassIdentifier: 
-  Speed: 0.6
+  Speed: {fileID: 11400000, guid: 26b561a62d81817488305a2df317b50f, type: 2}

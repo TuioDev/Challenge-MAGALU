@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class SpikeBehaviour : MonoBehaviour
 {
-    [SerializeField] private float Speed;
-    [SerializeField] private int Power;
+    [SerializeField] private FloatVariable ProjectileSpeed;
+    [SerializeField] private FloatVariable ProjectileDamage;
 
     private Rigidbody2D SpikeRB;
     private Vector3 DirectionPoint;
@@ -29,7 +29,7 @@ public class SpikeBehaviour : MonoBehaviour
 
     private void SetVelocity()
     {
-        SpikeRB.velocity = DirectionPoint.normalized * Speed;
+        SpikeRB.velocity = DirectionPoint.normalized * ProjectileSpeed.Value;
     }
 
     //Sets the direction of the spike, receives the 2D position of the mouse to calculate based on the spawn position
@@ -51,7 +51,7 @@ public class SpikeBehaviour : MonoBehaviour
             var damageable = collision.gameObject.GetComponent<IDamageable>();
             if (damageable != null)
             {
-                damageable.TakeDamageOrHeal(Power);
+                damageable.TakeDamageOrHeal(ProjectileDamage.Value);
                 DisableObject();
                 CancelInvoke();
             }

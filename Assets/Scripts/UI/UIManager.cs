@@ -9,20 +9,16 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject VictoryObject;
     [SerializeField] private GameObject LostObject;
 
-    public void Awake()
-    {
-        Time.timeScale = 1f; // THIS SHOULD BE A JOB FOR THE TIME MANAGER, HE SUBSCRIBES AS A LISTENER AND CHANGES TIME!
-    }
     public void SetGameVictory()
     {
         VictoryObject.SetActive(true);
-        Time.timeScale = 0f;
+        Time.timeScale = 0f; // Try to put the Time Manager in an event when the game is over
     }
 
     public void SetGameLost()
     {
         LostObject.SetActive(true);
-        Time.timeScale = 0f;
+        Time.timeScale = 0f; // Try to put the Time Manager in an event when the game is over
     }
 
     public void RestartLevel()

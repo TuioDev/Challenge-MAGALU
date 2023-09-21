@@ -222,7 +222,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentBehaviour: {fileID: 11400000, guid: fd776fd7ad8ff2048811a4e7b3a4eed5, type: 2}
   OnReachingPieEvent: {fileID: 11400000, guid: 7038791db13b75b49925fa48531c3620, type: 2}
-  MaxHealth: 3
+  MaxHealth: {fileID: 11400000, guid: b0d23d5c6ef434940b0c01d164aee44a, type: 2}
+  Speed: {fileID: 11400000, guid: a66024b4bc5672541977836c196ed669, type: 2}
   InicialScale: 0.4
   ChannelLightningInSeconds: 2
 --- !u!114 &1418455024769695687

@@ -21,6 +21,4 @@ public class Pie : MonoBehaviour
             OnGameOver.TriggerEvent();
         }
     }
-
-    // TODO: IF THE GAME STARTS AGAIN, ALL STATS RESETS
 }

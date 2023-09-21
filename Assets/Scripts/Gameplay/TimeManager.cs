@@ -24,11 +24,13 @@ public class TimeManager : MonoBehaviour
         LevelTime.Value += Time.deltaTime;
     }
 
-    public void PlusFiveSeconds(InputAction.CallbackContext context)
+    public void PauseGame()
     {
-        if (context.performed)
-        {
-            LevelTime.Value -= 5f;
-        }
+        Time.timeScale = 0;
+    }
+
+    public void UnpauseGame()
+    {
+        Time.timeScale = 1;
     }
 }

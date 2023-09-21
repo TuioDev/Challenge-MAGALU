@@ -7,17 +7,16 @@ public class Stop : Brain
 {
     public override void Think(Enemy enemy)
     {
-        // Function
+        // Update
     }
+
     public override void Enter()
     {
-        // Change sprite
+        // When changing into this brain
     }
 
     public override void Exit()
     {
-        // Go back sprite
+        // When leaving this brain
     }
-
-    
 }

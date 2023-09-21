@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e329950c3cab71e4eae71288a08d21b2, type: 3}
   m_Name: CloudMovementSlow
   m_EditorClassIdentifier: 
-  Speed: 0.2
+  Speed: {fileID: 11400000, guid: 6fd5929a8c314e141b9a0ee29a59b6d0, type: 2}

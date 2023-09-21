@@ -13,17 +13,18 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private protected GameEvent OnReachingPieEvent;
 
     [Header("Enemy stats")]
-    [SerializeField] private protected int MaxHealth;
+    [SerializeField] private protected FloatVariable MaxHealth;
     [SerializeField][Range(.1f, 1f)] private float InicialScale;
 
+    private protected float TimePosition = 0f; // The position on the path is based on time
+    private protected float Speed; // If there something needs to change the speed of each enemy
     private protected Animator EnemyAnimator;
     private protected Brain CurrentBrain;
-    // The position on the path is based on time
-    private protected float TimePosition = 0f;
     private protected PathCreator EnemyPath;
     private protected Health EnemyHealth = new();
 
-    //public void SetCurrentBehaviour(AIBehaviour aIBehaviour) => CurrentBehaviour = aIBehaviour;
+    //public void SetCurrentBehaviour(AIBehaviour aIBehaviour) => CurrentBehaviour = aIBehaviour; // We can apply a new Behaviour
+    public float GetSpeed() => Speed;
     public float GetInicialScale() => InicialScale;
     public void SetEnemyPath(PathCreator path) => EnemyPath = path;
     public PathCreator GetEnemyPath() => EnemyPath;
@@ -59,7 +60,7 @@ public abstract class Enemy : MonoBehaviour
     {
         CurrentBehaviour.Initialize(this);
         TimePosition = 0f;
-        EnemyHealth.SetAmount(MaxHealth);
+        EnemyHealth.SetAmount(MaxHealth.Value);
         this.transform.localScale = new Vector3(GetInicialScale(), GetInicialScale(), 1);
     }
 

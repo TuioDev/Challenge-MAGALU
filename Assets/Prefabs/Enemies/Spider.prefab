@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentBehaviour: {fileID: 11400000, guid: 476837c597bbb974ba818f8a15e69cef, type: 2}
   OnReachingPieEvent: {fileID: 11400000, guid: 7038791db13b75b49925fa48531c3620, type: 2}
-  MaxHealth: 3
+  MaxHealth: {fileID: 11400000, guid: f9892589761a59f4b98d2571860e4961, type: 2}
   InicialScale: 0.7
   OnBeingPushed: {fileID: 11400000, guid: d310f0d107e5efa4b920a8f06b2421a3, type: 2}
   WebTimeToSpawn: 0
