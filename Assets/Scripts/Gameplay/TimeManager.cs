@@ -11,6 +11,7 @@ public class TimeManager : MonoBehaviour
 
     void Awake()
     {
+        UnpauseGame();
         LevelTime.Value = 0f;
     }
 

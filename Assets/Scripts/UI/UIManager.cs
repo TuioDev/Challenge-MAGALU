@@ -12,18 +12,12 @@ public class UIManager : MonoBehaviour
     public void SetGameVictory()
     {
         VictoryObject.SetActive(true);
-        Time.timeScale = 0f; // Try to put the Time Manager in an event when the game is over
+        // Play audio?
     }
 
     public void SetGameLost()
     {
         LostObject.SetActive(true);
-        Time.timeScale = 0f; // Try to put the Time Manager in an event when the game is over
-    }
-
-    public void RestartLevel()
-    {
-        // TODO: CHANGE THIS SO IT DOESN'T HAS TO GET STRING NAME
-        SceneManager.LoadScene("GamePlay");
+        // Play audio?
     }
 }

@@ -9,7 +9,11 @@ public class Cloud : Enemy, IPushable
     [SerializeField] private float ChannelLightningInSeconds;
     public bool IsResisting { get; private set; }
     public bool IsChanneling { get; private set; }
-    public bool ChannelingWasInvoked { get; private set; }
+
+    // Animator parameters
+    private const string BOOL_IS_BEING_DAMAGED = "IsBeingDamaged";
+    private const string TRIGGER_CHANNELING = "Channeling";
+    private const string TRIGGER_LIGHTNING = "Lightning";
 
     private protected override void ExecuteEnemyBehaviour(Enemy enemy)
     {
@@ -19,7 +23,7 @@ public class Cloud : Enemy, IPushable
         }
         if (IsChanneling)
         {
-            // If the cloud is at the end, we don't need to run all the logic from behaviour
+            // If the cloud is at the end, we don't need to run the logic from behaviour
             return;
         }
         base.ExecuteEnemyBehaviour(enemy);
@@ -30,17 +34,18 @@ public class Cloud : Enemy, IPushable
         base.ResetEnemy();
         IsResisting = false;
         IsChanneling = false;
-        ChannelingWasInvoked = false;
     }
 
     public void BeginResisting()
     {
         IsResisting = true;
+        EnemyAnimator.SetBool(BOOL_IS_BEING_DAMAGED, true);
     }
 
     public void StopResisting()
     {
         IsResisting = false;
+        EnemyAnimator.SetBool(BOOL_IS_BEING_DAMAGED, false);
     }
 
     public void TakeDamageOrHeal(float damage)
@@ -57,19 +62,18 @@ public class Cloud : Enemy, IPushable
 
     public override void TriggerOnReachingPie()
     {
-        // TODO: Change sprite/animation
         IsChanneling = true;
         StartCoroutine(ChannelLighting(base.TriggerOnReachingPie));
 
     }
     private IEnumerator ChannelLighting(Action TriggerBase)
     {
-        EnemyAnimator.SetTrigger("Channeling");
+        EnemyAnimator.SetTrigger(TRIGGER_CHANNELING);
 
         yield return new WaitForSeconds(ChannelLightningInSeconds);
 
-        TriggerBase();
+        EnemyAnimator.SetTrigger(TRIGGER_LIGHTNING);
 
-        //DisableObject(); // The animation has a DisableObject event in the end
+        TriggerBase();
     }
 }

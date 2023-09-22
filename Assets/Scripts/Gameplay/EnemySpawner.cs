@@ -32,12 +32,6 @@ public class EnemySpawner : MonoBehaviour
     private float CurrentDelayBetweenWaves;
 
     private Keyframe[] CurveFrames = new Keyframe[2];
-    //private bool IsSpawningWave = false;
-
-    // TODO: BETTER SPAWNER BASED ON GAME TIME
-    // Get reference of all enemies in the level from ObjectToPool
-    //     The later the phase goes, the higher the amount
-    // Get the paths based on each ones hidden values to modify the probabilites
 
     // Start is called before the first frame update
     void Awake()

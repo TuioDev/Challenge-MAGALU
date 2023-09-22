@@ -15,6 +15,10 @@ public class Spider : Enemy, IDamageable, IPushable
 
     public bool IsResisting { get; private set; }
 
+    // Animator parameters
+    private const string BOOL_IS_BEING_DAMAGED = "IsBeingDamaged";
+    private const string TRIGGER_PROJECTILEDAMAGE = "ProjectileDamage";
+
     public int GetEnemyHealthPercentage() => 0;
 
     private protected override void ExecuteEnemyBehaviour(Enemy enemy)
@@ -35,13 +39,13 @@ public class Spider : Enemy, IDamageable, IPushable
     public void BeginResisting()
     {
         IsResisting = true;
-        // Play animation?
+        EnemyAnimator.SetBool(BOOL_IS_BEING_DAMAGED, true);
     }
 
     public void StopResisting()
     {
         IsResisting = false;
-        // Stop animation?
+        EnemyAnimator.SetBool(BOOL_IS_BEING_DAMAGED, false);
     }
     public void TakeDamageOrHeal(float damage)
     {
