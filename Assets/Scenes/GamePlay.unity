@@ -4362,7 +4362,7 @@ MonoBehaviour:
   InitialDelay: 2
   InitialDelayBetweenEnemies: 1.25
   InitialDelayBetweenWaves: 2
-  InitialWeightPoints: 4
+  InitialWeightPoints: 15
   FinalWeightPoints: 35
   WeightPointCalculation: 1
   <TotalRoundTime>k__BackingField: {fileID: 11400000, guid: a2c5fc941bbbea248beb837d6b8d7695, type: 2}

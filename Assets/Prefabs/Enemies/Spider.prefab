@@ -155,9 +155,9 @@ MonoBehaviour:
   OnReachingPieEvent: {fileID: 11400000, guid: 7038791db13b75b49925fa48531c3620, type: 2}
   MaxHealth: {fileID: 11400000, guid: f9892589761a59f4b98d2571860e4961, type: 2}
   InicialScale: 0.7
-  OnBeingPushed: {fileID: 11400000, guid: d310f0d107e5efa4b920a8f06b2421a3, type: 2}
   WebTimeToSpawn: 0
   WaitTimeAfterWebSpawn: 0
+  <MinimumDamageToPlayAnimation>k__BackingField: 1
 --- !u!114 &782282029530679568
 MonoBehaviour:
   m_ObjectHideFlags: 0

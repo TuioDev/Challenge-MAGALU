@@ -42,6 +42,7 @@ public class SpikeBehaviour : MonoBehaviour
     public void DisableObject()
     {
         this.gameObject.SetActive(false);
+        CancelInvoke();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -53,13 +54,11 @@ public class SpikeBehaviour : MonoBehaviour
             {
                 damageable.TakeDamageOrHeal(ProjectileDamage.Value);
                 DisableObject();
-                CancelInvoke();
             }
         }
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
             DisableObject();
-            CancelInvoke();
         }
     }
 }

@@ -7,6 +7,7 @@ public class Ant : Enemy, IDamageable
 {
     [Header("Ant info")]
     [SerializeField] private protected GameEvent OnTakingDamageEvent;
+    [field: SerializeField] public float MinimumDamageToPlayAnimation { get; set; }
 
     public int GetEnemyHealthPercentage() => (int)(EnemyHealth.CurrentAmount * 100 / MaxHealth.Value);
 

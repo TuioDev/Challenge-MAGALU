@@ -94,7 +94,7 @@ public class InputHandler : MonoBehaviour
             CanWindPush = false;
             PerformIsPushed();
         }
-        if (context.canceled)
+        if (!CanWindPush && context.canceled)
         {
             StopIsPushed();
             CanWindPush = true;

@@ -11,9 +11,9 @@ public class Cloud : Enemy, IPushable
     public bool IsChanneling { get; private set; }
 
     // Animator parameters
-    private const string BOOL_IS_BEING_DAMAGED = "IsBeingDamaged";
-    private const string TRIGGER_CHANNELING = "Channeling";
-    private const string TRIGGER_LIGHTNING = "Lightning";
+    private static readonly int BOOL_IS_BEING_PUSHED = Animator.StringToHash("IsBeingPushed");
+    private static readonly int TRIGGER_CHANNELING = Animator.StringToHash("Channeling");
+    private static readonly int TRIGGER_LIGHTNING = Animator.StringToHash("Lightning");
 
     private protected override void ExecuteEnemyBehaviour(Enemy enemy)
     {
@@ -39,13 +39,13 @@ public class Cloud : Enemy, IPushable
     public void BeginResisting()
     {
         IsResisting = true;
-        EnemyAnimator.SetBool(BOOL_IS_BEING_DAMAGED, true);
+        EnemyAnimator.SetBool(BOOL_IS_BEING_PUSHED, true);
     }
 
     public void StopResisting()
     {
         IsResisting = false;
-        EnemyAnimator.SetBool(BOOL_IS_BEING_DAMAGED, false);
+        EnemyAnimator.SetBool(BOOL_IS_BEING_PUSHED, false);
     }
 
     public void TakeDamageOrHeal(float damage)

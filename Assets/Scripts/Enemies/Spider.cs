@@ -8,16 +8,17 @@ using UnityEngine;
 public class Spider : Enemy, IDamageable, IPushable
 {
     [Header("Spider info")]
-    [SerializeField] private GameEvent OnBeingPushed;
-    [Header("Spiderweb info")]
+    
     [SerializeField] private float WebTimeToSpawn;
     [SerializeField] private float WaitTimeAfterWebSpawn;
+    [field: SerializeField] public float MinimumDamageToPlayAnimation { get; set; }
 
     public bool IsResisting { get; private set; }
 
     // Animator parameters
-    private const string BOOL_IS_BEING_DAMAGED = "IsBeingDamaged";
-    private const string TRIGGER_PROJECTILEDAMAGE = "ProjectileDamage";
+    private static readonly int BOOL_IS_BEING_PUSHED = Animator.StringToHash("IsBeingPushed");
+    private static readonly int TRIGGER_TOOKDAMAGE = Animator.StringToHash("TookDamage");
+    private static readonly int ANIMATION_SIDER_DAMAGE = Animator.StringToHash("Spider_Damage");
 
     public int GetEnemyHealthPercentage() => 0;
 
@@ -38,14 +39,16 @@ public class Spider : Enemy, IDamageable, IPushable
 
     public void BeginResisting()
     {
+        Debug.Log("Começou");
         IsResisting = true;
-        EnemyAnimator.SetBool(BOOL_IS_BEING_DAMAGED, true);
+        EnemyAnimator.SetBool(BOOL_IS_BEING_PUSHED, true);
     }
 
     public void StopResisting()
     {
         IsResisting = false;
-        EnemyAnimator.SetBool(BOOL_IS_BEING_DAMAGED, false);
+        EnemyAnimator.SetBool(BOOL_IS_BEING_PUSHED, false);
+        Debug.Log("Parou");
     }
     public void TakeDamageOrHeal(float damage)
     {
@@ -56,6 +59,11 @@ public class Spider : Enemy, IDamageable, IPushable
         if (EnemyHealth.CurrentAmount <= 0)
         {
             DisableObject();
+        }
+
+        if (damage >= MinimumDamageToPlayAnimation)
+        {
+            EnemyAnimator.SetTrigger(TRIGGER_TOOKDAMAGE);
         }
     }
 
