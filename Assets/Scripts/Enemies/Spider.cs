@@ -18,7 +18,6 @@ public class Spider : Enemy, IDamageable, IPushable
     // Animator parameters
     private static readonly int BOOL_IS_BEING_PUSHED = Animator.StringToHash("IsBeingPushed");
     private static readonly int TRIGGER_TOOKDAMAGE = Animator.StringToHash("TookDamage");
-    private static readonly int ANIMATION_SIDER_DAMAGE = Animator.StringToHash("Spider_Damage");
 
     public int GetEnemyHealthPercentage() => 0;
 
@@ -39,7 +38,6 @@ public class Spider : Enemy, IDamageable, IPushable
 
     public void BeginResisting()
     {
-        Debug.Log("Começou");
         IsResisting = true;
         EnemyAnimator.SetBool(BOOL_IS_BEING_PUSHED, true);
     }
@@ -48,7 +46,6 @@ public class Spider : Enemy, IDamageable, IPushable
     {
         IsResisting = false;
         EnemyAnimator.SetBool(BOOL_IS_BEING_PUSHED, false);
-        Debug.Log("Parou");
     }
     public void TakeDamageOrHeal(float damage)
     {

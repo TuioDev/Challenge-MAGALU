@@ -7,6 +7,7 @@ public class SpikeBehaviour : MonoBehaviour
 {
     [SerializeField] private FloatVariable ProjectileSpeed;
     [SerializeField] private FloatVariable ProjectileDamage;
+    [SerializeField] private FloatVariable ProjectileRotationSpeed;
 
     private Rigidbody2D SpikeRB;
     private Vector3 DirectionPoint;
@@ -22,9 +23,21 @@ public class SpikeBehaviour : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
+    void Update()
+    {
+        RotateObject();
+    }
+
     private void OnEnable()
     {
-        SetVelocity();        
+        SetVelocity();
+    }
+
+    private void RotateObject()
+    {
+        this.transform.Rotate( new Vector3(0f, 0f, ProjectileRotationSpeed.Value * Time.deltaTime));
+        if (this.transform.rotation.eulerAngles.z > 360f)
+            this.transform.Rotate(new Vector3(0f, 0f, 0f));
     }
 
     private void SetVelocity()

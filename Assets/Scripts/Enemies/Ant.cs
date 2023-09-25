@@ -9,6 +9,8 @@ public class Ant : Enemy, IDamageable
     [SerializeField] private protected GameEvent OnTakingDamageEvent;
     [field: SerializeField] public float MinimumDamageToPlayAnimation { get; set; }
 
+    private static readonly int TRIGGER_TOOKDAMAGE = Animator.StringToHash("TookDamage");
+
     public int GetEnemyHealthPercentage() => (int)(EnemyHealth.CurrentAmount * 100 / MaxHealth.Value);
 
     public void TakeDamageOrHeal(float damage)
@@ -29,6 +31,7 @@ public class Ant : Enemy, IDamageable
 
     public void TriggerOnTakingDamage()
     {
+        EnemyAnimator.SetTrigger(TRIGGER_TOOKDAMAGE);
         OnTakingDamageEvent.TriggerEvent();
     }
 }
