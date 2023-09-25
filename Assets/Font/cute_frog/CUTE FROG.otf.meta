@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c964c315ba828de41ba1df6eb1fb1310
+guid: 740736ca7273e0c45a8347ab44c116cc
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Cheese Burger
+  - CUTE FROG
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

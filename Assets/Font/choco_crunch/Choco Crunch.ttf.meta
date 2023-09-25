@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d3a23b0a960936549a78275fc18dd6f3
+guid: 6e87ea55c3504df48b1735a5e5f90cab
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Cartoon Fun
+  - Choco Crunch
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
