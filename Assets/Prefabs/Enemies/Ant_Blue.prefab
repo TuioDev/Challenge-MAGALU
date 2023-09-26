@@ -135,6 +135,7 @@ MonoBehaviour:
   MaxHealth: {fileID: 11400000, guid: 985b638e91e79564dab0f0c92d6273dd, type: 2}
   InicialScale: 1
   OnTakingDamageEvent: {fileID: 11400000, guid: ae49cae8c49204742a57b732609049ab, type: 2}
+  OnDying: {fileID: 11400000, guid: 25c3ca432c0f82e44aa323afb4d04eb0, type: 2}
   <MinimumDamageToPlayAnimation>k__BackingField: 1
 --- !u!58 &1282804050853347627
 CircleCollider2D:

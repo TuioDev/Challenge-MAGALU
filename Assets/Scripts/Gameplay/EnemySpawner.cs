@@ -27,6 +27,7 @@ public class EnemySpawner : MonoBehaviour
     private Transform PieTransform;
     private EnemyPathSetter PathSetter;
     private List<EnemyReference> EnemiesThisLevel = new();
+    private Enemy LastEnemyBought;
     private int CurrentWeightPoints;
     private float CurrentDelayBetweenEnemies;
     private float CurrentDelayBetweenWaves;
@@ -109,12 +110,19 @@ public class EnemySpawner : MonoBehaviour
         {
             ShuffleList<EnemyReference>(EnemiesThisLevel);
 
+            // Ensure that between different enemies there is always an ant
+            if (LastEnemyBought != null && LastEnemyBought is not Ant)
+            {
+                
+            }
+
             for (int i = 0; ; i++)
             {
                 if (EnemiesThisLevel[i].WeightPoints <= CurrentWeightPoints)
                 {
                     CurrentWeightPoints -= EnemiesThisLevel[i].WeightPoints;
                     waveEnemies.Enqueue(EnemiesThisLevel[i].EnemyComponent);
+                    LastEnemyBought = EnemiesThisLevel[i].EnemyComponent;
                     break;
                 }
             }

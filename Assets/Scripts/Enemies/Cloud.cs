@@ -6,6 +6,7 @@ using UnityEngine;
 public class Cloud : Enemy, IPushable
 {
     [Header("Cloud info")]
+    [SerializeField] private protected GameEvent OnDying;
     [SerializeField] private float ChannelLightningInSeconds;
     public bool IsResisting { get; private set; }
     public bool IsChanneling { get; private set; }
@@ -56,7 +57,7 @@ public class Cloud : Enemy, IPushable
         // If health is bellow zero, disable enemy
         if (EnemyHealth.CurrentAmount <= 0)
         {
-            DisableObject();
+            TriggerOnDying();
         }
     }
 
@@ -66,6 +67,13 @@ public class Cloud : Enemy, IPushable
         StartCoroutine(ChannelLighting(base.TriggerOnReachingPie));
 
     }
+
+    private void TriggerOnDying()
+    {
+        DisableObject();
+        OnDying.TriggerEvent();
+    }
+
     private IEnumerator ChannelLighting(Action TriggerBase)
     {
         EnemyAnimator.SetTrigger(TRIGGER_CHANNELING);

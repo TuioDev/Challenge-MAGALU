@@ -8,7 +8,8 @@ using UnityEngine;
 public class Spider : Enemy, IDamageable, IPushable
 {
     [Header("Spider info")]
-    
+    [SerializeField] private protected GameEvent OnTakingDamageEvent;
+    [SerializeField] private protected GameEvent OnDying;
     [SerializeField] private float WebTimeToSpawn;
     [SerializeField] private float WaitTimeAfterWebSpawn;
     [field: SerializeField] public float MinimumDamageToPlayAnimation { get; set; }
@@ -55,12 +56,13 @@ public class Spider : Enemy, IDamageable, IPushable
         // If health is bellow zero, disable enemy
         if (EnemyHealth.CurrentAmount <= 0)
         {
-            DisableObject();
+            TriggerOnDying();
+            return;
         }
 
         if (damage >= MinimumDamageToPlayAnimation)
         {
-            EnemyAnimator.SetTrigger(TRIGGER_TOOKDAMAGE);
+            TriggerOnTakingDamage();
         }
     }
 
@@ -68,6 +70,18 @@ public class Spider : Enemy, IDamageable, IPushable
     {
         RemoveMyselfFromPathList();
         base.TriggerOnReachingPie();
+    }
+
+    public void TriggerOnTakingDamage()
+    {
+        EnemyAnimator.SetTrigger(TRIGGER_TOOKDAMAGE);
+        OnTakingDamageEvent.TriggerEvent();
+    }
+
+    private void TriggerOnDying()
+    {
+        DisableObject();
+        OnDying.TriggerEvent();
     }
 
     public override void DisableObject()
