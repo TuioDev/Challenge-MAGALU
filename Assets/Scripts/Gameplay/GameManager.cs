@@ -6,11 +6,23 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameEvent InitialEvent;
+
     public const string SCENE_MENU = "Menu";
     public const string SCENE_GAMEPLAY = "Gameplay";
     public const string SCENE_CONTROLS = "Controls";
     public const string SCENE_SETTINGS = "Settings";
     public const string SCENE_CREDITS = "Credits";
+
+    void Start()
+    {
+        TriggerInitialEvent();
+    }
+
+    private void TriggerInitialEvent()
+    {
+        if (InitialEvent != null) InitialEvent.TriggerEvent();
+    }
 
     public void LoadGameplay()
     {
@@ -21,10 +33,12 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SCENE_CONTROLS);
     }
+
     public void LoadSettings()
     {
         SceneManager.LoadScene(SCENE_SETTINGS);
     }
+
     public void LoadCredits()
     {
         SceneManager.LoadScene(SCENE_CREDITS);

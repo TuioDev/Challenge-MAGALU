@@ -12,10 +12,9 @@ public class AudioCollection : ScriptableObject
     [RangedFloat(0, 2, RangedFloatAttribute.RangeDisplayType.EditableRanges)]
     [SerializeField] private RangedFloat Pitch;
 
-    [SerializeField] private List<AudioClip> ClipList;
+    [SerializeField] private AudioClip[] Clips;
 
-    public List<AudioClip> GetClipList() => ClipList;
     public float GetRandomPitch() => Random.Range(Pitch.min, Pitch.max);
     public AudioClip GetRandomAudioClip() => 
-        ClipList.Count > 1 ? ClipList[Random.Range(0, ClipList.Count)] : ClipList[0];
+        Clips.Length > 1 ? Clips[Random.Range(0, Clips.Length)] : Clips[0];
 }

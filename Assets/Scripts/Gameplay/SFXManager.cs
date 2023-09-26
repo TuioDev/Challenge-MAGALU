@@ -7,9 +7,6 @@ public class SFXManager : MonoBehaviour
 {
     [Header("General audio")]
     [SerializeField] private FloatVariable SFXVolume;
-    [Header("SFX clips")]
-    [SerializeField] private AudioClip EnemyDamaged;
-    [SerializeField] private AudioClip ReachingPie;
 
     private Vector3 CameraPosition;
     private AudioSource SFXPlayer;
@@ -24,9 +21,10 @@ public class SFXManager : MonoBehaviour
     {
         AudioSource source = PlayClipAtPoint(audios.GetRandomAudioClip(), CameraPosition, SFXVolume.Value);
         source.pitch = audios.GetRandomPitch();
+        Debug.Log("Played " + audios.name);
     }
 
-    // Smae method from AudioSource but return an AudioSource to edit the pitch
+    // Same method from AudioSource but return an AudioSource to edit the pitch
     private AudioSource PlayClipAtPoint(AudioClip clip, Vector3 position, [UnityEngine.Internal.DefaultValue("1.0F")] float volume)
     {
         GameObject gameObject = new GameObject("One shot audio");

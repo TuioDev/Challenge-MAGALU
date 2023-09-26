@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: -4714467901653077074}
   - component: {fileID: 3726000258009874294}
   - component: {fileID: -7441777495651598694}
+  - component: {fileID: 8853173001341948192}
   m_Layer: 9
   m_Name: Test
   m_TagString: Untagged
@@ -150,11 +151,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentBehaviour: {fileID: 11400000, guid: 476837c597bbb974ba818f8a15e69cef, type: 2}
   OnReachingPieEvent: {fileID: 11400000, guid: 7038791db13b75b49925fa48531c3620, type: 2}
-  MaxHealth: 3
+  MaxHealth: {fileID: 11400000, guid: f9892589761a59f4b98d2571860e4961, type: 2}
   InicialScale: 1
-  OnBeingPushed: {fileID: 11400000, guid: d310f0d107e5efa4b920a8f06b2421a3, type: 2}
+  OnTakingDamageEvent: {fileID: 11400000, guid: 5dba6bfce0b25ee41bd2607842cbd03a, type: 2}
+  OnDying: {fileID: 11400000, guid: 25c3ca432c0f82e44aa323afb4d04eb0, type: 2}
   WebTimeToSpawn: 0
   WaitTimeAfterWebSpawn: 0
+  <MinimumDamageToPlayAnimation>k__BackingField: 1
 --- !u!114 &3726000258009874294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,3 +238,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &8853173001341948192
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282804050853347630}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

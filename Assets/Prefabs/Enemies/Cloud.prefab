@@ -391,11 +391,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentBehaviour: {fileID: 11400000, guid: fd776fd7ad8ff2048811a4e7b3a4eed5, type: 2}
-  OnReachingPieEvent: {fileID: 11400000, guid: 7038791db13b75b49925fa48531c3620, type: 2}
+  OnReachingPieEvent: {fileID: 11400000, guid: bb66282d3fbb7ea46a7243dab6e18ea1, type: 2}
   MaxHealth: {fileID: 11400000, guid: b0d23d5c6ef434940b0c01d164aee44a, type: 2}
   InicialScale: 0.4
   OnDying: {fileID: 11400000, guid: d646f4f73b7bb5543b07470464dfc2fa, type: 2}
-  ChannelLightningInSeconds: 4
+  ChannelLightningInSeconds: 2
 --- !u!114 &1418455024769695687
 MonoBehaviour:
   m_ObjectHideFlags: 0
