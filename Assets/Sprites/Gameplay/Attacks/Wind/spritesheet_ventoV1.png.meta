@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 17f2ffe7bf171fa45bb98e1e54cd4234
+guid: b908c76dad1f49c4a8b5cde526453d1a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 90
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spritesheet_vento_0
+      name: spritesheet_ventoV1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69ce4cb7bbdee9a49a69c0f6db286464
-      internalID: 834276501
+      spriteID: e2fc34769f1fcd94b9a5145dc3d98845
+      internalID: -2078713436
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet_vento_1
+      name: spritesheet_ventoV1_1
       rect:
         serializedVersion: 2
         x: 620
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bae298fa34a0004cb5a1cfcbcf6502f
-      internalID: -1812607440
+      spriteID: 6d65d87929d7b964dab6ba17a0b2cf17
+      internalID: -1183714761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet_vento_2
+      name: spritesheet_ventoV1_2
       rect:
         serializedVersion: 2
         x: 1240
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f507de0088b648f46be37d87cccffdc1
-      internalID: -285860775
+      spriteID: d6d51989e93d549409b0759c6981a0ff
+      internalID: 505152873
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet_vento_3
+      name: spritesheet_ventoV1_3
       rect:
         serializedVersion: 2
         x: 1860
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a318df6b6332b2944ab9690e160266da
-      internalID: 826772337
+      spriteID: 09d5fe36cf762084581ff803298d1242
+      internalID: -1936773897
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet_vento_4
+      name: spritesheet_ventoV1_4
       rect:
         serializedVersion: 2
         x: 2480
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b3343108791a4e48a188b4c1a9ecef2
-      internalID: 378462689
+      spriteID: 05f23f976e4c8c542ae02433dc411507
+      internalID: -623580191
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet_vento_5
+      name: spritesheet_ventoV1_5
       rect:
         serializedVersion: 2
         x: 3100
@@ -236,14 +236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 530b4a8ad7e033e4ba9c5b5bf1ecb9c5
-      internalID: 113426068
+      spriteID: e2d0f10f07ac1744e951a46facf3be8b
+      internalID: -1255625350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet_vento_6
+      name: spritesheet_ventoV1_6
       rect:
         serializedVersion: 2
         x: 3720
@@ -257,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b76f399be65b474ab336eb29e9cda14
-      internalID: -887434691
+      spriteID: 11f72cc7bd32d3243a965f17417c3c24
+      internalID: -1966980579
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet_vento_7
+      name: spritesheet_ventoV1_7
       rect:
         serializedVersion: 2
         x: 4340
@@ -278,14 +278,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a97f132ca9a960549975c2503e4eeecd
-      internalID: -1378214882
+      spriteID: 26d3ce395c7a8c64fbc91120c434fb88
+      internalID: -2114477616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet_vento_8
+      name: spritesheet_ventoV1_8
       rect:
         serializedVersion: 2
         x: 4960
@@ -299,14 +299,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04b2296e3ae55f44b8a0814bbfb80b96
-      internalID: 2129599719
+      spriteID: 62f2655b4c687f548aef0f88a789c20a
+      internalID: -2131884936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spritesheet_vento_9
+      name: spritesheet_ventoV1_9
       rect:
         serializedVersion: 2
         x: 5580
@@ -320,8 +320,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd88697b40afe6b4e900592d1e0f88ce
-      internalID: -1727568198
+      spriteID: 3b3ce7f1f5d65054bbeafe5b4608764a
+      internalID: 1031077011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_ventoV1_10
+      rect:
+        serializedVersion: 2
+        x: 6200
+        y: 0
+        width: 620
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d0cf6f2d879aeb4da71634eac2e8083
+      internalID: -872447886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet_ventoV1_11
+      rect:
+        serializedVersion: 2
+        x: 6820
+        y: 0
+        width: 620
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c310cf5377bf10449a94396f6f69ce5
+      internalID: 185404012
       vertices: []
       indices: 
       edges: []
@@ -337,16 +379,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      spritesheet_vento_0: 834276501
-      spritesheet_vento_1: -1812607440
-      spritesheet_vento_2: -285860775
-      spritesheet_vento_3: 826772337
-      spritesheet_vento_4: 378462689
-      spritesheet_vento_5: 113426068
-      spritesheet_vento_6: -887434691
-      spritesheet_vento_7: -1378214882
-      spritesheet_vento_8: 2129599719
-      spritesheet_vento_9: -1727568198
+      spritesheet_ventoV1_0: -2078713436
+      spritesheet_ventoV1_1: -1183714761
+      spritesheet_ventoV1_10: -872447886
+      spritesheet_ventoV1_11: 185404012
+      spritesheet_ventoV1_2: 505152873
+      spritesheet_ventoV1_3: -1936773897
+      spritesheet_ventoV1_4: -623580191
+      spritesheet_ventoV1_5: -1255625350
+      spritesheet_ventoV1_6: -1966980579
+      spritesheet_ventoV1_7: -2114477616
+      spritesheet_ventoV1_8: -2131884936
+      spritesheet_ventoV1_9: 1031077011
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
