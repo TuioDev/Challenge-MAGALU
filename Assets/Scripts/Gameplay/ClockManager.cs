@@ -32,8 +32,8 @@ public class ClockManager : MonoBehaviour
         if (LevelTime.Value > RoundTime.Value)
         {
             ClockTimer.sharedMaterial.SetFloat("_Arc1", 360f);
-            TriggerTimerEnd();
             this.enabled = false;
+            TriggerTimerEnd();
         }
     }
 

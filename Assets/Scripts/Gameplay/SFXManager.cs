@@ -9,11 +9,9 @@ public class SFXManager : MonoBehaviour
     [SerializeField] private FloatVariable SFXVolume;
 
     private Vector3 CameraPosition;
-    private AudioSource SFXPlayer;
 
     void Start()
     {
-        SFXPlayer = GetComponent<AudioSource>();
         CameraPosition = Camera.main.transform.position;
     }
 
@@ -21,17 +19,16 @@ public class SFXManager : MonoBehaviour
     {
         AudioSource source = PlayClipAtPoint(audios.GetRandomAudioClip(), CameraPosition, SFXVolume.Value);
         source.pitch = audios.GetRandomPitch();
-        Debug.Log("Played " + audios.name);
     }
 
     // Same method from AudioSource but return an AudioSource to edit the pitch
     private AudioSource PlayClipAtPoint(AudioClip clip, Vector3 position, [UnityEngine.Internal.DefaultValue("1.0F")] float volume)
     {
-        GameObject gameObject = new GameObject("One shot audio");
+        GameObject gameObject = new("One shot audio");
         gameObject.transform.position = position;
         AudioSource audioSource = (AudioSource)gameObject.AddComponent(typeof(AudioSource));
         audioSource.clip = clip;
-        audioSource.spatialBlend = 1f;
+        audioSource.spatialBlend = 0f;
         audioSource.volume = volume;
         audioSource.Play();
         Object.Destroy(gameObject, clip.length * ((Time.timeScale < 0.01f) ? 0.01f : Time.timeScale));

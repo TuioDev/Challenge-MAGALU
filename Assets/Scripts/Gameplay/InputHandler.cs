@@ -1,36 +1,38 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputHandler : MonoBehaviour
 {
-    [Header("Spike info")]
-    [SerializeField] private SpikeBehaviour SpikePrefab;
-    [SerializeField] private Transform SpikeSpawnTransform;
-    [SerializeField] private float SpikeShootCooldown;
-    [SerializeField] private float TimeToDisableSpike;
+    [Header("Projectile info")]
+    [SerializeField] private ProjectileBehaviour ProjectilePrefab;
+    [SerializeField] private Transform ProjectileSpawnTransform;
+    [SerializeField] private float ProjectileShootCooldown;
+    [SerializeField] private float TimeToDisableProjectile;
     [Header("Wind info")]
     [SerializeField] private GameEvent OnWindPushEvent;
     [SerializeField] private GameEvent OnWindStoppedEvent;
+    [SerializeField] private GameEvent OnShootProjectile;
     [SerializeField] private ParticleSystem WindVFX;
 
     private PlayerInput Inputs;
-    private Vector3 SpikeSpawnPosition;
-    private bool CanShootSpike;
+    private Vector3 ProjectileSpawnPosition;
+    private bool CanShoot;
     private bool CanWindPush;
     private float Timer;
 
     private void Awake()
     {
         Inputs = GetComponent<PlayerInput>();
-        SpikeSpawnPosition = SpikeSpawnTransform.position;
+        ProjectileSpawnPosition = ProjectileSpawnTransform.position;
     }
 
     private void Start()
     {
-        CanShootSpike = true;
+        CanShoot = true;
         CanWindPush = true;
         Timer = 0.0f;
     }
@@ -40,15 +42,16 @@ public class InputHandler : MonoBehaviour
         CheckCanShootSpike();
     }
 
-    #region Spike Related
+    #region Projectile Related
     // We spawn the spike based on mouse position, and then set it's direction because inside SpikeBehaviour
     // is defined the velocity based on the direction
-    public void SpawnSpikeByClick(InputAction.CallbackContext context)
+    public void SpawnProjectileByClick(InputAction.CallbackContext context)
     {
-        if (CanShootSpike && context.performed)
+        if (CanShoot && context.performed)
         {
-            CanShootSpike = false;
-            ActivatePooledSpike();
+            CanShoot = false;
+            OnShootProjectile.TriggerEvent();
+            ActivatePooledProjectile();
         }
     }
 
@@ -58,26 +61,26 @@ public class InputHandler : MonoBehaviour
     }
 
     // Get inactive object and set active, also invoking the disable function from here
-    private void ActivatePooledSpike()
+    private void ActivatePooledProjectile()
     {
-        SpikeBehaviour spike = ObjectPool.Instance.GetInactivePooledObject<SpikeBehaviour>();
+        ProjectileBehaviour projectile = ObjectPool.Instance.GetInactivePooledObject<ProjectileBehaviour>();
 
-        if (spike != null)
+        if (projectile != null)
         {
-            spike.transform.position = SpikeSpawnPosition;
-            spike.SetDirection(ScreenToGame2DPosition(Mouse.current.position.ReadValue()));
-            spike.gameObject.SetActive(true);
-            spike.Invoke("DisableObject", TimeToDisableSpike);
+            projectile.transform.position = ProjectileSpawnPosition;
+            projectile.SetDirection(ScreenToGame2DPosition(Mouse.current.position.ReadValue()));
+            projectile.gameObject.SetActive(true);
+            projectile.Invoke("DisableObject", TimeToDisableProjectile);
         }
     }
     private void CheckCanShootSpike()
     {
-        if (!CanShootSpike)
+        if (!CanShoot)
         {
             Timer += Time.deltaTime;
-            if (Timer >= SpikeShootCooldown)
+            if (Timer >= ProjectileShootCooldown)
             {
-                CanShootSpike = true;
+                CanShoot = true;
                 Timer = 0.0f;
             }
         }
@@ -89,7 +92,7 @@ public class InputHandler : MonoBehaviour
 
     public void WindPush(InputAction.CallbackContext context)
     {
-        if(CanWindPush && context.performed)
+        if (CanWindPush && context.performed)
         {
             CanWindPush = false;
             PerformIsPushed();
@@ -110,17 +113,25 @@ public class InputHandler : MonoBehaviour
     private void StopIsPushed()
     {
         OnWindStoppedEvent.TriggerEvent();
-        WindVFX.Stop(false, ParticleSystemStopBehavior.StopEmitting);
+        WindVFX.Stop(true, ParticleSystemStopBehavior.StopEmitting);
     }
     #endregion
 
-    public void ChangeToUIActionMap()
+    #region Action Map
+    public void ChangeToUIActionMap(InputAction.CallbackContext context)
     {
-        Inputs.SwitchCurrentActionMap("UI");
+        if (context.performed)
+        {
+            Inputs.SwitchCurrentActionMap("UI");
+        }
     }
 
-    public void ChangeToGameplayActionMap()
+    public void ChangeToGameplayActionMap(InputAction.CallbackContext context)
     {
-        Inputs.SwitchCurrentActionMap("Gameplay");
+        if (context.performed)
+        {
+            Inputs.SwitchCurrentActionMap("Gameplay");
+        }
     }
+    #endregion
 }

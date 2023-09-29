@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameEvent InitialEvent;
+    [SerializeField] private GameEvent InitialEvent; // REMOVE THIS LATER IF ITS NOT BEING USED
 
     public const string SCENE_MENU = "Menu";
     public const string SCENE_GAMEPLAY = "Gameplay";

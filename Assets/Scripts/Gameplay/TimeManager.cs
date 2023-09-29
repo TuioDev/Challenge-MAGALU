@@ -6,13 +6,12 @@ using UnityEngine.InputSystem;
 public class TimeManager : MonoBehaviour
 {
     [Header("Float reference")]
-    [SerializeField] private FloatVariable RoundTime;
     [SerializeField] private FloatVariable LevelTime;
 
     void Awake()
     {
-        UnpauseGame();
-        LevelTime.Value = 0f;
+        ResumeGame();
+        SetLevelTime();
     }
 
     void Update()
@@ -20,9 +19,14 @@ public class TimeManager : MonoBehaviour
         UpdateLevelTime();
     }
 
+    private void SetLevelTime()
+    {
+        if (LevelTime != null) LevelTime.Value = 0f;
+    }
+
     private void UpdateLevelTime()
     {
-        LevelTime.Value += Time.deltaTime;
+        if (LevelTime != null) LevelTime.Value += Time.deltaTime;
     }
 
     public void PauseGame()
@@ -30,7 +34,7 @@ public class TimeManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    public void UnpauseGame()
+    public void ResumeGame()
     {
         Time.timeScale = 1;
     }
