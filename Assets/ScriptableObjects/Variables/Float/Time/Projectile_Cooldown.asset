@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ae8c982d57ce5a448e8220ec8722689, type: 3}
-  m_Name: ProjectileRotationSpeed
+  m_Name: Projectile_Cooldown
   m_EditorClassIdentifier: 
-  Value: 720
+  Value: 0.4

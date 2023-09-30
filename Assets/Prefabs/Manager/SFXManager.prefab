@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f91944eddac4264cabaab499f72e2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 0}
+  gameEvent: {fileID: 11400000, guid: ae49cae8c49204742a57b732609049ab, type: 2}
   onEventTriggered:
     m_PersistentCalls:
       m_Calls:
@@ -105,7 +105,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -203,8 +203,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFXVolume: {fileID: 11400000, guid: 3ee2f1bb345e1114090101eea46ce002, type: 2}
-  EnemyDamaged: {fileID: 0}
-  ReachingPie: {fileID: 0}
 --- !u!1 &7036899268358966900
 GameObject:
   m_ObjectHideFlags: 0

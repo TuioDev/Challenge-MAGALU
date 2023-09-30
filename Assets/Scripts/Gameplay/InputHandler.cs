@@ -10,7 +10,7 @@ public class InputHandler : MonoBehaviour
     [Header("Projectile info")]
     [SerializeField] private ProjectileBehaviour ProjectilePrefab;
     [SerializeField] private Transform ProjectileSpawnTransform;
-    [SerializeField] private float ProjectileShootCooldown;
+    [SerializeField] private FloatVariable ProjectileShootCooldown;
     [SerializeField] private float TimeToDisableProjectile;
     [Header("Wind info")]
     [SerializeField] private GameEvent OnWindPushEvent;
@@ -78,7 +78,7 @@ public class InputHandler : MonoBehaviour
         if (!CanShoot)
         {
             Timer += Time.deltaTime;
-            if (Timer >= ProjectileShootCooldown)
+            if (Timer >= ProjectileShootCooldown.Value)
             {
                 CanShoot = true;
                 Timer = 0.0f;
