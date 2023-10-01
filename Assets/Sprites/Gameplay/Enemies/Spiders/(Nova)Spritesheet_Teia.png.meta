@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,7 +115,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: (Nova)Spritesheet_Teia_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3042
+        width: 2344
+        height: 1014
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3a5799f2c90d204a9435b893395f6ab
+      internalID: 999131848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: (Nova)Spritesheet_Teia_4
+      rect:
+        serializedVersion: 2
+        x: 2344
+        y: 3042
+        width: 2344
+        height: 1014
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 018c3ba22db34404ea885d2aeb66ad85
+      internalID: -1325678694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: (Nova)Spritesheet_Teia_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2028
+        width: 2344
+        height: 1014
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a1cddfcde8a23742bdfd4bbe476245a
+      internalID: 1253112940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: (Nova)Spritesheet_Teia_5
+      rect:
+        serializedVersion: 2
+        x: 2344
+        y: 2023
+        width: 2344
+        height: 1014
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5358d6a9e998e646837fcbc7d847901
+      internalID: 1966942665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: (Nova)Spritesheet_Teia_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1019
+        width: 2344
+        height: 1014
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 122012cc077005b4cb5561b52d6eabbd
+      internalID: -826912877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: (Nova)Spritesheet_Teia_6
+      rect:
+        serializedVersion: 2
+        x: 2344
+        y: 1029
+        width: 2344
+        height: 1014
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 486c3f384b48f074f96fcdcdb5c322b2
+      internalID: 363027144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: (Nova)Spritesheet_Teia_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2344
+        height: 1014
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a896859abfaa524698b601e633cb103
+      internalID: 1946763190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: (Nova)Spritesheet_Teia_7
+      rect:
+        serializedVersion: 2
+        x: 2344
+        y: 0
+        width: 2344
+        height: 1014
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2b4d7fa5c2182f4b9225c002a528151
+      internalID: 1869083271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +294,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      (Nova)Spritesheet_Teia_0: 999131848
+      (Nova)Spritesheet_Teia_1: 1253112940
+      (Nova)Spritesheet_Teia_2: -826912877
+      (Nova)Spritesheet_Teia_3: 1946763190
+      (Nova)Spritesheet_Teia_4: -1325678694
+      (Nova)Spritesheet_Teia_5: 1966942665
+      (Nova)Spritesheet_Teia_6: 363027144
+      (Nova)Spritesheet_Teia_7: 1869083271
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
