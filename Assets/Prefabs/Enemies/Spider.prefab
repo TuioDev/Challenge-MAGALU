@@ -159,8 +159,7 @@ MonoBehaviour:
   InicialScale: 0.7
   OnTakingDamageEvent: {fileID: 11400000, guid: 5dba6bfce0b25ee41bd2607842cbd03a, type: 2}
   OnDying: {fileID: 11400000, guid: 25c3ca432c0f82e44aa323afb4d04eb0, type: 2}
-  WebTimeToSpawn: 0
-  WaitTimeAfterWebSpawn: 0
+  WaitTimeAfterWebSpawn: {fileID: 11400000, guid: 8c181e1a7ce8e774abae1c102a53d55e, type: 2}
   <MinimumDamageToPlayAnimation>k__BackingField: 1
 --- !u!114 &782282029530679568
 MonoBehaviour:

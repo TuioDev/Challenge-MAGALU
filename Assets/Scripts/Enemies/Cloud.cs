@@ -80,6 +80,8 @@ public class Cloud : Enemy, IPushable
 
         yield return new WaitForSeconds(ChannelLightningInSeconds);
 
+        this.enabled = false;
+
         EnemyAnimator.SetTrigger(TRIGGER_LIGHTNING);
 
         TriggerBase();

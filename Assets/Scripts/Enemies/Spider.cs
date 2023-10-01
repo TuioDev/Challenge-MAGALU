@@ -10,8 +10,7 @@ public class Spider : Enemy, IDamageable, IPushable
     [Header("Spider info")]
     [SerializeField] private protected GameEvent OnTakingDamageEvent;
     [SerializeField] private protected GameEvent OnDying;
-    [SerializeField] private float WebTimeToSpawn;
-    [SerializeField] private float WaitTimeAfterWebSpawn;
+    [SerializeField] private FloatVariable WaitTimeAfterWebSpawn;
     [field: SerializeField] public float MinimumDamageToPlayAnimation { get; set; }
 
     public bool IsResisting { get; private set; }
@@ -78,7 +77,7 @@ public class Spider : Enemy, IDamageable, IPushable
         OnTakingDamageEvent.TriggerEvent();
     }
 
-    private void TriggerOnDying()
+    public void TriggerOnDying()
     {
         DisableObject();
         OnDying.TriggerEvent();
@@ -93,6 +92,12 @@ public class Spider : Enemy, IDamageable, IPushable
     private void RemoveMyselfFromPathList()
     {
         if (EnemyPath == null) return;
-        EnemyPath.gameObject.GetComponent<EnemiesReferenceKeeper>().RemoveEnemyOnPath(this);
+        EnemyPath.gameObject.GetComponent<EnemiesReferenceKeeper>().RemoveEnemyFromPath(this);
+    }
+
+    public IEnumerator WaitWebTime()
+    {
+        yield return new WaitForSeconds(WaitTimeAfterWebSpawn.Value);
+        this.gameObject.SetActive(true);
     }
 }

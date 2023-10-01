@@ -23,7 +23,12 @@ public class BaseMovement : Brain
             float time = enemy.GetTimePosition();
             time += Time.deltaTime * Speed.Value;
 
-            if (time < 0) { enemy.DisableObject(); return; }
+            if (time < 0)
+            {
+                if (enemy is Spider) (enemy as Spider).TriggerOnDying();
+                else enemy.DisableObject();
+                return;
+            }
 
             // If the enemy reaches the end of the path, means it reached the pie
             if (time >= enemy.GetEnemyPath().path.length)
@@ -35,7 +40,7 @@ public class BaseMovement : Brain
 
             enemy.transform.SetPositionAndRotation(
                 enemy.GetEnemyPath().path.GetPointAtDistance(time),
-                enemy.GetEnemyPath().path.GetRotationAtDistance(time) * Quaternion.Euler(0, -90, -90)) ;
+                enemy.GetEnemyPath().path.GetRotationAtDistance(time) * Quaternion.Euler(0, -90, -90));
 
             enemy.SetOldElapsedTime(time);
         }

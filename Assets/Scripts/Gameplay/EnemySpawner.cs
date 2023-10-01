@@ -27,6 +27,7 @@ public class EnemySpawner : MonoBehaviour
     private Transform PieTransform;
     private EnemyPathSetter PathSetter;
     private List<EnemyReference> EnemiesThisLevel = new();
+    private Queue<Enemy> WaveOfEnemies = new();
     private Enemy LastEnemyBought;
     private int CurrentWeightPoints;
     private float CurrentDelayBetweenEnemies;
@@ -103,7 +104,7 @@ public class EnemySpawner : MonoBehaviour
     }
     private IEnumerator SpawnEnemies()
     {
-        Queue<Enemy> waveEnemies = new();
+        WaveOfEnemies.Clear();
 
         // Get a list of enemies from the weight system
         while (CurrentWeightPoints > 0)
@@ -113,7 +114,7 @@ public class EnemySpawner : MonoBehaviour
             // Ensure that between different enemies there is always an ant
             if (LastEnemyBought != null && LastEnemyBought is not Ant)
             {
-                
+                WaveOfEnemies.Enqueue(EnemiesThisLevel.Find(x => x.EnemyComponent is Ant).EnemyComponent);
             }
 
             for (int i = 0; ; i++)
@@ -121,7 +122,7 @@ public class EnemySpawner : MonoBehaviour
                 if (EnemiesThisLevel[i].WeightPoints <= CurrentWeightPoints)
                 {
                     CurrentWeightPoints -= EnemiesThisLevel[i].WeightPoints;
-                    waveEnemies.Enqueue(EnemiesThisLevel[i].EnemyComponent);
+                    WaveOfEnemies.Enqueue(EnemiesThisLevel[i].EnemyComponent);
                     LastEnemyBought = EnemiesThisLevel[i].EnemyComponent;
                     break;
                 }
@@ -129,7 +130,7 @@ public class EnemySpawner : MonoBehaviour
         }
 
         // Start spawning the enemy wave
-        StartCoroutine(SpawnWave(waveEnemies));
+        StartCoroutine(SpawnWave(WaveOfEnemies));
 
         yield return null;
     }
@@ -163,6 +164,7 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(CurrentDelayBetweenWaves);
         StartCoroutine(SpawnEnemies());
     }
+
     #region Enemies Setters
     private void SetEnemy(Enemy enemy)
     {
@@ -173,59 +175,77 @@ public class EnemySpawner : MonoBehaviour
         enemy.gameObject.SetActive(true);
     }
 
-    private void SetEnemySpider(Enemy enemy)
+    private void SetEnemySpider(Spider spider)
     {
         // Get a random path for the spider
         PathCreator spiderPath = PathSetter.GetSpiderPathCollection().GetRandomPath();
         if (spiderPath == null) return;
-        PathSetter.AllSpiderPathAndReferences[spiderPath].AddEnemyOnPath(enemy);
 
-        spiderPath.gameObject.SetActive(true);
+        // Check if the path is already active
+        if (!spiderPath.isActiveAndEnabled)
+        {
+            spiderPath.gameObject.SetActive(true);
 
-        // Sets the initial and final position for the path
-        Vector3 initialPosition = GetRandomPointOutsideOfView();
-        Vector3 direction = new(
-            initialPosition.x - PieTransform.position.x,
-            initialPosition.y - PieTransform.position.y,
-            0.0f
-            );
-        // The 0.4 is based on the pie radius so that the path's end isn't on top of the sprite
-        Vector3 finalPosition = new(
-            PieTransform.position.x + 0.4f * (direction.normalized.x),
-            PieTransform.position.y + 0.4f * (direction.normalized.y),
-            0.0f
-            );
+            // Sets the initial and final position for the path
+            Vector3 initialPosition = GetRandomPointOutsideOfView();
+            initialPosition.z = 0f;
 
-        // Modify its anchor points
-        spiderPath.bezierPath.MovePoint(0, initialPosition);
-        spiderPath.bezierPath.MovePoint(3, finalPosition);
-
-        // Get the middle position
-        Vector3 middlePosition = new Vector3(
-                (finalPosition.x + initialPosition.x) / 2,
-                (finalPosition.y + initialPosition.y) / 2,
+            Vector3 direction = new(
+                initialPosition.x - PieTransform.position.x,
+                initialPosition.y - PieTransform.position.y,
+                0.0f
+                );
+            // The 0.4 is based on the pie radius so that the path's end isn't on top of the sprite
+            Vector3 finalPosition = new(
+                PieTransform.position.x + 0.4f * (direction.normalized.x),
+                PieTransform.position.y + 0.4f * (direction.normalized.y),
                 0.0f
                 );
 
-        // Modify the other points so that the path remains in a line
-        spiderPath.bezierPath.MovePoint(1, middlePosition);
-        spiderPath.bezierPath.MovePoint(2, middlePosition);
+            // Modify its anchor points
+            spiderPath.bezierPath.MovePoint(0, initialPosition);
+            spiderPath.bezierPath.MovePoint(3, finalPosition);
 
+            // Send the angle to the Path's ReferenceKeeper so that it can set the sprite position
+            float angleBetweenPositions = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
+            PathSetter.AllSpiderPathAndReferences[spiderPath].
+                SetSpriteTransform(initialPosition, PieTransform.position, angleBetweenPositions);
+
+            // Get the middle position
+            Vector3 middlePosition = new Vector3(
+                    (finalPosition.x + initialPosition.x) / 2,
+                    (finalPosition.y + initialPosition.y) / 2,
+                    0.0f
+                    );
+
+            // Modify the other points so that the path remains in a line
+            spiderPath.bezierPath.MovePoint(1, middlePosition);
+            spiderPath.bezierPath.MovePoint(2, middlePosition);
+
+            spiderPath.editorData.VertexPathSettingsChanged();
+        }
+
+        // Pass the enemy as a reference to the path
+        PathSetter.AllSpiderPathAndReferences[spiderPath].AddEnemyOnPath(spider);
+        
         // Gives the path reference to the spider and sets the position
-        enemy.SetEnemyPath(spiderPath);
+        spider.SetEnemyPath(spiderPath);
 
-        enemy.transform.position = enemy.GetEnemyPath().path.GetPointAtTime(0);
-        enemy.ResetEnemy();
-        enemy.gameObject.SetActive(true);
+        spider.transform.position = spider.GetEnemyPath().path.GetPointAtTime(0);
+        spider.ResetEnemy();
+
+        // Wait for the timer
+        StartCoroutine(spider.WaitWebTime());
     }
 
-    private void SetEnemyCloud(Enemy enemy)
+    private void SetEnemyCloud(Cloud cloud)
     {
         // Gives the path reference to the enemy and sets the position
-        enemy.SetEnemyPath(PathSetter.GetCloudPathCollection().GetRandomPath());
-        enemy.transform.position = enemy.GetEnemyPath().path.GetPointAtTime(0);
-        enemy.ResetEnemy();
-        enemy.gameObject.SetActive(true);
+        cloud.SetEnemyPath(PathSetter.GetCloudPathCollection().GetRandomPath());
+        cloud.transform.position = cloud.GetEnemyPath().path.GetPointAtTime(0);
+        cloud.ResetEnemy();
+        cloud.enabled = true;
+        cloud.gameObject.SetActive(true);
     }
 
     private Vector3 GetRandomPointOutsideOfView()
