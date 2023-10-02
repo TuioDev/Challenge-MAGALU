@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    [SerializeField] private FloatVariable Volume;
     [Header("Musics managed by this")]
     [SerializeField] private AudioClip MusicMenu;
     [SerializeField] private AudioClip MusicGameplay;
@@ -56,7 +55,6 @@ public class MusicManager : MonoBehaviour
         if (MusicPlayer.clip == clip) return;
 
         MusicPlayer.clip = clip;
-        MusicPlayer.volume = Volume.Value;
         MusicPlayer.loop = true;
         MusicPlayer.Play();
     }

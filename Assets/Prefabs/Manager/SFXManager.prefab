@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955af558de71037459a90d819db689a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SFXVolume: {fileID: 11400000, guid: 3ee2f1bb345e1114090101eea46ce002, type: 2}
+  SFXAudioMixer: {fileID: 3672419000657479504, guid: 879dd2bf8098f0c41acf5d7d288cc0c1, type: 2}
 --- !u!1 &7036899268358966900
 GameObject:
   m_ObjectHideFlags: 0

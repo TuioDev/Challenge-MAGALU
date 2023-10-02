@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class SettingsManager : MonoBehaviour
 {
+    [SerializeField] private AudioMixer GameAudioMixer;
     [Header("Volume References")]
     [Header("Music")]
     [SerializeField] private FloatVariable MusicVolume;
@@ -16,32 +18,53 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private Slider SliderSoundEffectsVolume;
     [SerializeField] private TextMeshProUGUI TextSoundEffectsVolume;
 
+    public const string MusicVolumeKey = "MusicVolume";
+    public const string SoundEffectsVolumeKey = "SFXVolume";
+
     void Start()
     {
-        SetTexts();
+        SetVolumes();
     }
 
-    private void SetTexts()
+    private void SetVolumes()
     {
         // Music
-        SliderMusicVolume.value = MusicVolume.Value * 10;
-        TextMusicVolume.text = MusicVolume.Value.ToString("0.0");
+        SetObjectInfo(MusicVolumeKey, SliderMusicVolume, TextMusicVolume);
+        // SFX
+        SetObjectInfo(SoundEffectsVolumeKey, SliderSoundEffectsVolume, TextSoundEffectsVolume);
+    }
 
-        SliderSoundEffectsVolume.value = SoundEffectsVolume.Value * 10;
-        TextSoundEffectsVolume.text = SoundEffectsVolume.Value.ToString("0.0");
+    private void SetObjectInfo(string key, Slider slider, TextMeshProUGUI text)
+    {
+        float volume = PlayerPrefs.GetFloat(key);
+        slider.value = volume * 10;
+        text.text = volume.ToString("0.0");
+        GameAudioMixer.SetFloat(key, Mathf.Log10(volume) * 20);
     }
 
     public void ChangeMusicVolume(float value)
     {
-        value /= 10;
+        if (value == 0) value = 0.0001f;
+        else value /= 10;
+
         MusicVolume.Value = value;
         TextMusicVolume.text = value.ToString("0.0");
+        GameAudioMixer.SetFloat(MusicVolumeKey, Mathf.Log10(value) * 20);
+        PlayerPrefs.SetFloat(MusicVolumeKey, value);
+
+        PlayerPrefs.Save();
     }
 
     public void ChangeSoundEffectsVolume(float value)
     {
-        value /= 10;
+        if (value == 0) value = 0.0001f;
+        else value /= 10;
+
         SoundEffectsVolume.Value = value;
         TextSoundEffectsVolume.text = value.ToString("0.0");
+        GameAudioMixer.SetFloat(SoundEffectsVolumeKey, Mathf.Log10(value) * 20);
+        PlayerPrefs.SetFloat(SoundEffectsVolumeKey, value);
+
+        PlayerPrefs.Save();
     }
 }

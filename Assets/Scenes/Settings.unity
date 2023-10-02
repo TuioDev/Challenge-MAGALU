@@ -1546,7 +1546,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e5a891f700e614abf16ad791e0e0f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialEvent: {fileID: 0}
 --- !u!1 &1232300888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1675,6 +1674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92ad9c67b860fe45bcc882cbce992d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameAudioMixer: {fileID: 24100000, guid: 879dd2bf8098f0c41acf5d7d288cc0c1, type: 2}
   MusicVolume: {fileID: 11400000, guid: 3e9772d017d125541b59e9fbb3cc0b1b, type: 2}
   SliderMusicVolume: {fileID: 732652563}
   TextMusicVolume: {fileID: 732652562}
