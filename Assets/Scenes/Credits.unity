@@ -184,8 +184,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Joao Arthur, RM92834
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -294,7 +294,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 43, y: -12}
+  m_AnchoredPosition: {x: 44, y: -12}
   m_SizeDelta: {x: 426.9, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &36457370
@@ -319,8 +319,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ~
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -456,8 +456,8 @@ MonoBehaviour:
 
     Fesliyan Studios'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -751,8 +751,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Purple Planet
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -990,8 +990,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '"Sneaky Sloth"'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1125,8 +1125,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Alexander Nakarada, Filmmusic
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1212,7 +1212,7 @@ GameObject:
   - component: {fileID: 402193281}
   - component: {fileID: 402193280}
   m_Layer: 5
-  m_Name: NetFontes
+  m_Name: Larabie Fonts, 1001Freefonts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1258,10 +1258,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NetFontes
+  m_text: Larabie Fonts, 1001Freefonts
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1461,8 +1461,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Thais Melo, RM93084
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1571,7 +1571,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -71.8, y: 8.699982}
+  m_AnchoredPosition: {x: -80.7, y: 9.1}
   m_SizeDelta: {x: 426.9, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &481499624
@@ -1594,10 +1594,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ''''
+  m_text: "\xB4"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a47e3a182a502034ab5a4fe01c85ca4b, type: 2}
-  m_sharedMaterial: {fileID: 5979182467363124350, guid: a47e3a182a502034ab5a4fe01c85ca4b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0736de3f811181143b7f17e7b1b7f833, type: 2}
+  m_sharedMaterial: {fileID: -6318887442170799096, guid: 0736de3f811181143b7f17e7b1b7f833, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1621,8 +1621,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30.49
-  m_fontSizeBase: 30.49
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2013,8 +2013,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Albert Behar, Upbeat
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2189,8 +2189,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 378}
-  m_SizeDelta: {x: 426.9, y: 50}
+  m_AnchoredPosition: {x: -2.5, y: 378}
+  m_SizeDelta: {x: 468.22, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &790857335
 MonoBehaviour:
@@ -2214,8 +2214,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Equipe Rabbit's Treasure
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a47e3a182a502034ab5a4fe01c85ca4b, type: 2}
-  m_sharedMaterial: {fileID: 5979182467363124350, guid: a47e3a182a502034ab5a4fe01c85ca4b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0736de3f811181143b7f17e7b1b7f833, type: 2}
+  m_sharedMaterial: {fileID: -6318887442170799096, guid: 0736de3f811181143b7f17e7b1b7f833, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2239,8 +2239,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30.49
-  m_fontSizeBase: 30.49
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2349,8 +2349,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SFX
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2501,7 +2501,7 @@ GameObject:
   - component: {fileID: 896729166}
   - component: {fileID: 896729165}
   m_Layer: 5
-  m_Name: '"Super Snack"'
+  m_Name: '"Foo"'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2547,10 +2547,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '"Super Snack"'
+  m_text: '"Foo"'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2684,8 +2684,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Purple Planet
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2948,7 +2948,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: f8d7fb6189391fc4ea952f77c2aaadb8, type: 3}
+    m_Font: {fileID: 12800000, guid: 15f68a38241ed6445870e6f1cfa2cb06, type: 3}
     m_FontSize: 44
     m_FontStyle: 0
     m_BestFit: 0
@@ -3082,7 +3082,7 @@ GameObject:
   - component: {fileID: 1154491153}
   - component: {fileID: 1154491152}
   m_Layer: 5
-  m_Name: '"Choco Crunch"'
+  m_Name: '"Junegull"'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3128,10 +3128,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '"Choco Crunch"'
+  m_text: '"Junegull"'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3386,8 +3386,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Game Designer, Programador
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3521,8 +3521,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '"Dixieland Strut"'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3673,7 +3673,7 @@ GameObject:
   - component: {fileID: 1538688547}
   - component: {fileID: 1538688546}
   m_Layer: 5
-  m_Name: '"Cute Frog"'
+  m_Name: '"Dinomouse"'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3719,10 +3719,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '"Sneaky Sloth"'
+  m_text: '"Dinomouse"'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3856,8 +3856,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Diretor de Arte, SFX
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4069,10 +4069,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NetFontes
+  m_text: 1001Freefonts
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4183,8 +4183,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 186}
-  m_SizeDelta: {x: 426.9, y: 50}
+  m_AnchoredPosition: {x: -2.5, y: 186}
+  m_SizeDelta: {x: 468.22, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1637912347
 MonoBehaviour:
@@ -4208,8 +4208,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Musicas & SFX
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a47e3a182a502034ab5a4fe01c85ca4b, type: 2}
-  m_sharedMaterial: {fileID: 5979182467363124350, guid: a47e3a182a502034ab5a4fe01c85ca4b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0736de3f811181143b7f17e7b1b7f833, type: 2}
+  m_sharedMaterial: {fileID: -6318887442170799096, guid: 0736de3f811181143b7f17e7b1b7f833, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4233,8 +4233,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30.49
-  m_fontSizeBase: 30.49
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4295,7 +4295,7 @@ GameObject:
   - component: {fileID: 1702900881}
   - component: {fileID: 1702900880}
   m_Layer: 5
-  m_Name: Dafont
+  m_Name: Larabie Fonts, 1001Freefonts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4341,10 +4341,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dafont
+  m_text: Larabie Fonts, 1001Freefonts
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4850,8 +4850,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '"Candy Club"'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4985,8 +4985,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '"Lazy Morning Coffee"'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5161,8 +5161,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.63000005, y: 0.5}
-  m_AnchoredPosition: {x: -6.5, y: -209}
-  m_SizeDelta: {x: 413.9, y: 50}
+  m_AnchoredPosition: {x: -9, y: -209}
+  m_SizeDelta: {x: 455.22, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2126361532
 MonoBehaviour:
@@ -5186,8 +5186,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Fontes
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a47e3a182a502034ab5a4fe01c85ca4b, type: 2}
-  m_sharedMaterial: {fileID: 5979182467363124350, guid: a47e3a182a502034ab5a4fe01c85ca4b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0736de3f811181143b7f17e7b1b7f833, type: 2}
+  m_sharedMaterial: {fileID: -6318887442170799096, guid: 0736de3f811181143b7f17e7b1b7f833, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5211,8 +5211,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30.49
-  m_fontSizeBase: 30.49
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

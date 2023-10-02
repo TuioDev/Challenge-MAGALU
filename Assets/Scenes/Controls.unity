@@ -322,7 +322,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 142.00002, y: 4.6000214}
+  m_AnchoredPosition: {x: 142.00002, y: -5.2}
   m_SizeDelta: {x: 311.57, y: 59.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &132481344
@@ -347,8 +347,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: C
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 297c4c5e257ba624abad2bb8fb42cf3f, type: 2}
-  m_sharedMaterial: {fileID: 2870645541641604459, guid: 297c4c5e257ba624abad2bb8fb42cf3f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -378,7 +378,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -643,7 +643,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: f8d7fb6189391fc4ea952f77c2aaadb8, type: 3}
+    m_Font: {fileID: 12800000, guid: 15f68a38241ed6445870e6f1cfa2cb06, type: 3}
     m_FontSize: 44
     m_FontStyle: 0
     m_BestFit: 0
@@ -1000,7 +1000,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 130.3, y: 6.300001}
+  m_AnchoredPosition: {x: 126.8, y: 0.9}
   m_SizeDelta: {x: 311.57, y: 59.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1373243706
@@ -1025,8 +1025,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ~
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1473,8 +1473,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Pressione a tecla "C" para acessar o menu de cheats
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1661,7 +1661,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 152.3, y: 6.5}
+  m_AnchoredPosition: {x: 154.8, y: 0.2}
   m_SizeDelta: {x: 311.57, y: 59.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1913312953
@@ -1686,8 +1686,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ~
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1822,8 +1822,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Pressione o botao direito do mouse para atacar com folhas
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1958,8 +1958,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Segure o botao direito do mouse para atacar com vento
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
-  m_sharedMaterial: {fileID: -4948572303803474121, guid: e4a8604acbe23de4a91f5b0e4f5731f8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
+  m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
