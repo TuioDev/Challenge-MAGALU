@@ -137,6 +137,10 @@ public class InputHandler : MonoBehaviour
             Inputs.SwitchCurrentActionMap(ACTIONMAP_GAMEPLAY);
         }
     }
+    public void ChangeToGameplayActionMap()
+    {
+        Inputs.SwitchCurrentActionMap(ACTIONMAP_GAMEPLAY);
+    }
 
     public void ChangeToPauseActionMap(InputAction.CallbackContext context)
     {

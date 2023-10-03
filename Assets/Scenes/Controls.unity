@@ -1035,7 +1035,7 @@ GameObject:
   - component: {fileID: 1336554158}
   - component: {fileID: 1336554157}
   m_Layer: 0
-  m_Name: Mouse
+  m_Name: MouseClick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1131,7 +1131,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1992902896}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1247,7 +1247,7 @@ GameObject:
   - component: {fileID: 1498758825}
   - component: {fileID: 1498758824}
   m_Layer: 0
-  m_Name: Tecla C (1)
+  m_Name: Tecla Esc ou P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1462,7 +1462,7 @@ GameObject:
   - component: {fileID: 1561250684}
   - component: {fileID: 1561250683}
   m_Layer: 0
-  m_Name: Mouse (1)
+  m_Name: MouseHold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2142,7 +2142,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1939378696}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2305,7 +2305,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pressione o botao direito do mouse para atacar com folhas
+  m_text: "Pressione o botao direito do mouse para atacar com folhas\n\xDAtil contra
+    <color=\"orange\">formigas</color> e <color=\"purple\">aranhas</color>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}
@@ -2576,7 +2577,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Segure o botao direito do mouse para atacar com vento
+  m_text: "Segure o botao direito do mouse para atacar com vento\n\xDAtil contra
+    <color=#6DAACD>nuvens</color> e <color=\"purple\">aranhas</color>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe8962bfcca56664693d304d7795911d, type: 2}
   m_sharedMaterial: {fileID: 2105729755322745947, guid: fe8962bfcca56664693d304d7795911d, type: 2}

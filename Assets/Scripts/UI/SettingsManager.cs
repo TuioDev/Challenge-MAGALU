@@ -8,6 +8,15 @@ using UnityEngine.UI;
 public class SettingsManager : MonoBehaviour
 {
     [SerializeField] private AudioMixer GameAudioMixer;
+    [Header("Toogle References")]
+    [SerializeField] private Toggle ToggleMusicMuted;
+    [SerializeField] private Toggle ToggleSFXMuted;
+    [Header("Bool variables")]
+    [SerializeField] private BoolVariable IsMusicMuted;
+    [SerializeField] private BoolVariable IsSFXMuted;
+    [Header("Float variables")]
+    [SerializeField] private FloatVariable MusicVolumeBefore;
+    [SerializeField] private FloatVariable SFXVolumeBefore;
     [Header("Volume References")]
     [Header("Music")]
     [SerializeField] private FloatVariable MusicVolume;
@@ -18,8 +27,13 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private Slider SliderSoundEffectsVolume;
     [SerializeField] private TextMeshProUGUI TextSoundEffectsVolume;
 
-    public const string MusicVolumeKey = "MusicVolume";
+    private float MusicVolumeBeforeMute; // remove
+    private float SFXVolumeBeforeMute; // remove
+
+    public const string MusicVolumeKey = "MusicVolume"; // remove
     public const string SoundEffectsVolumeKey = "SFXVolume";
+    public const string MusicMutedKey = "MusicMuted"; // remove
+    public const string SoundEffectsMutedKey = "SFXMuted";
 
     void Start()
     {
@@ -29,12 +43,14 @@ public class SettingsManager : MonoBehaviour
     private void SetVolumes()
     {
         // Music
-        SetObjectInfo(MusicVolumeKey, SliderMusicVolume, TextMusicVolume);
+        //SetToggleInfo(ToggleMusicMuted, IsMusicMuted);
+        SetSliderInfo(MusicVolumeKey, SliderMusicVolume, TextMusicVolume);
         // SFX
-        SetObjectInfo(SoundEffectsVolumeKey, SliderSoundEffectsVolume, TextSoundEffectsVolume);
+        //SetToggleInfo(ToggleSFXMuted, IsSFXMuted);
+        SetSliderInfo(SoundEffectsVolumeKey, SliderSoundEffectsVolume, TextSoundEffectsVolume);
     }
 
-    private void SetObjectInfo(string key, Slider slider, TextMeshProUGUI text)
+    private void SetSliderInfo(string key, Slider slider, TextMeshProUGUI text)
     {
         float volume = PlayerPrefs.GetFloat(key);
         slider.value = volume * 10;
@@ -42,6 +58,12 @@ public class SettingsManager : MonoBehaviour
         GameAudioMixer.SetFloat(key, Mathf.Log10(volume) * 20);
     }
 
+    //private void SetToggleInfo(Toggle toggle, BoolVariable variable)
+    //{
+    //    toggle.isOn = variable.Value;
+    //}
+
+    // The slider changes from 0 to 10 so that it keeps the whole numbers aspect
     public void ChangeMusicVolume(float value)
     {
         if (value == 0) value = 0.0001f;
@@ -67,4 +89,38 @@ public class SettingsManager : MonoBehaviour
 
         PlayerPrefs.Save();
     }
+
+    //public void MuteMusic(bool mute)
+    //{
+    //    if (mute)
+    //    {
+    //        MusicVolumeBefore.Value = PlayerPrefs.GetFloat(MusicVolumeKey);
+    //        ChangeMusicVolume(0f);
+    //        SliderMusicVolume.value = 0f;
+    //        IsMusicMuted.Value = true;
+    //    }
+    //    else
+    //    {
+    //        ChangeMusicVolume(MusicVolumeBefore.Value * 10);
+    //        SliderMusicVolume.value = MusicVolumeBefore.Value * 10;
+    //        IsMusicMuted.Value = false;
+    //    }
+    //}
+
+    //public void MuteSFX(bool mute)
+    //{
+    //    if (mute)
+    //    {
+    //        SFXVolumeBefore.Value = PlayerPrefs.GetFloat(SoundEffectsVolumeKey);
+    //        ChangeSoundEffectsVolume(0f);
+    //        SliderSoundEffectsVolume.value = 0f;
+    //        IsSFXMuted.Value = true;
+    //    }
+    //    else
+    //    {
+    //        ChangeSoundEffectsVolume(SFXVolumeBefore.Value * 10);
+    //        SliderSoundEffectsVolume.value = SFXVolumeBefore.Value * 10;
+    //        IsSFXMuted.Value = false;
+    //    }
+    //}
 }

@@ -49,7 +49,7 @@
                     "path": "<Mouse>/leftButton",
                     "interactions": "Tap(duration=0.4,pressPoint=0.4)",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Mouse",
                     "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -71,7 +71,7 @@
                     "path": "<Mouse>/leftButton",
                     "interactions": "Hold(duration=0.4,pressPoint=0.4)",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Mouse",
                     "action": "WindPush",
                     "isComposite": false,
                     "isPartOfComposite": false
