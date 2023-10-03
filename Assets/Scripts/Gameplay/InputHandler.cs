@@ -27,6 +27,7 @@ public class InputHandler : MonoBehaviour
     private const string ACTIONMAP_GAMEPLAY = "Gameplay";
     private const string ACTIONMAP_UI = "UI";
     private const string ACTIONMAP_PAUSE = "Pause";
+    private const string ACTIONMAP_DISABLED = "Disabled";
 
     private void Awake()
     {
@@ -130,6 +131,11 @@ public class InputHandler : MonoBehaviour
         }
     }
 
+    public void ChangeToUIActionMap()
+    {
+        Inputs.SwitchCurrentActionMap(ACTIONMAP_UI);
+    }
+
     public void ChangeToGameplayActionMap(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -148,6 +154,11 @@ public class InputHandler : MonoBehaviour
         {
             Inputs.SwitchCurrentActionMap(ACTIONMAP_PAUSE);
         }
+    }
+
+    public void ChangeToDisabledActionMap()
+    {
+        Inputs.SwitchCurrentActionMap(ACTIONMAP_DISABLED);
     }
     #endregion
 }

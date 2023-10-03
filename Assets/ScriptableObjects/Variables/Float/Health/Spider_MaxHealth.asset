@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae8c982d57ce5a448e8220ec8722689, type: 3}
   m_Name: Spider_MaxHealth
   m_EditorClassIdentifier: 
-  Value: 3
+  Value: 4
