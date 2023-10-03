@@ -47,8 +47,30 @@
                 },
                 {
                     "name": "",
+                    "id": "8bee5601-3a4f-4e71-98f6-52f7c7acbaaa",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "Tap(duration=0.4,pressPoint=0.4)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "fcf30164-d24d-416e-986d-598db2d737cb",
                     "path": "<Mouse>/leftButton",
+                    "interactions": "Hold(duration=0.4,pressPoint=0.4)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WindPush",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "12be41db-a1bb-4228-bfd2-72066ac53c68",
+                    "path": "<Touchscreen>/Press",
                     "interactions": "Hold(duration=0.4,pressPoint=0.4)",
                     "processors": "",
                     "groups": "",
