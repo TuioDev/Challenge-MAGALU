@@ -24,6 +24,10 @@ public class InputHandler : MonoBehaviour
     private bool CanWindPush;
     private float Timer;
 
+    private const string ACTIONMAP_GAMEPLAY = "Gameplay";
+    private const string ACTIONMAP_UI = "UI";
+    private const string ACTIONMAP_PAUSE = "Pause";
+
     private void Awake()
     {
         Inputs = GetComponent<PlayerInput>();
@@ -122,7 +126,7 @@ public class InputHandler : MonoBehaviour
     {
         if (context.performed)
         {
-            Inputs.SwitchCurrentActionMap("UI");
+            Inputs.SwitchCurrentActionMap(ACTIONMAP_UI);
         }
     }
 
@@ -130,7 +134,15 @@ public class InputHandler : MonoBehaviour
     {
         if (context.performed)
         {
-            Inputs.SwitchCurrentActionMap("Gameplay");
+            Inputs.SwitchCurrentActionMap(ACTIONMAP_GAMEPLAY);
+        }
+    }
+
+    public void ChangeToPauseActionMap(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Inputs.SwitchCurrentActionMap(ACTIONMAP_PAUSE);
         }
     }
     #endregion

@@ -38,4 +38,14 @@ public class TimeManager : MonoBehaviour
     {
         Time.timeScale = 1;
     }
+
+    public void PauseAudio()
+    {
+        AudioListener.pause = true;
+    }
+
+    public void ResumeAudio()
+    {
+        AudioListener.pause = false;
+    }
 }
