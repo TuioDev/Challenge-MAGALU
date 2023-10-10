@@ -1,12 +1,13 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.EnhancedTouch;
 
 public class InputHandler : MonoBehaviour
 {
+    [Header("Browser info")]
+    [SerializeField] private BoolVariable IsMobileBrowser;
+    [SerializeField] private GameObject MobileButton;
     [Header("Projectile info")]
     [SerializeField] private ProjectileBehaviour ProjectilePrefab;
     [SerializeField] private Transform ProjectileSpawnTransform;
@@ -20,6 +21,8 @@ public class InputHandler : MonoBehaviour
 
     private PlayerInput Inputs;
     private Vector3 ProjectileSpawnPosition;
+
+    private Vector2 TouchPosition;
     private bool CanShoot;
     private bool CanWindPush;
     private float Timer;
@@ -33,10 +36,12 @@ public class InputHandler : MonoBehaviour
     {
         Inputs = GetComponent<PlayerInput>();
         ProjectileSpawnPosition = ProjectileSpawnTransform.position;
+        MobileControls();
     }
 
     private void Start()
     {
+        TouchPosition = Vector2.zero;
         CanShoot = true;
         CanWindPush = true;
         Timer = 0.0f;
@@ -54,10 +59,23 @@ public class InputHandler : MonoBehaviour
     {
         if (CanShoot && context.performed)
         {
-            CanShoot = false;
-            OnShootProjectile.TriggerEvent();
-            ActivatePooledProjectile();
+            ShootProjectile(ScreenToGame2DPosition(Mouse.current.position.ReadValue()));
         }
+    }
+
+    public void SpawnProjectileByTouch()
+    {
+        if (CanShoot)
+        {
+            ShootProjectile(TouchPosition);
+        }
+    }
+
+    private void ShootProjectile(Vector2 inputPosition)
+    {
+        CanShoot = false;
+        OnShootProjectile.TriggerEvent();
+        ActivatePooledProjectile(inputPosition);
     }
 
     private Vector2 ScreenToGame2DPosition(Vector2 position)
@@ -66,14 +84,14 @@ public class InputHandler : MonoBehaviour
     }
 
     // Get inactive object and set active, also invoking the disable function from here
-    private void ActivatePooledProjectile()
+    private void ActivatePooledProjectile(Vector2 inputPosition)
     {
         ProjectileBehaviour projectile = ObjectPool.Instance.GetInactivePooledObject<ProjectileBehaviour>();
 
         if (projectile != null)
         {
             projectile.transform.position = ProjectileSpawnPosition;
-            projectile.SetDirection(ScreenToGame2DPosition(Mouse.current.position.ReadValue()));
+            projectile.SetDirection(inputPosition);
             projectile.gameObject.SetActive(true);
             projectile.Invoke("DisableObject", TimeToDisableProjectile);
         }
@@ -90,6 +108,22 @@ public class InputHandler : MonoBehaviour
             }
         }
     }
+    #endregion
+
+    #region Mobile Related
+
+    private void MobileControls()
+    {
+        MobileButton.SetActive(IsMobileBrowser.Value);
+        EnhancedTouchSupport.Enable();
+        UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerUp += SetTouchPosition;
+    }
+
+    private void SetTouchPosition(Finger finger)
+    {
+        TouchPosition = ScreenToGame2DPosition(finger.currentTouch.screenPosition);
+    }
+
     #endregion
 
     #region Wind Related
@@ -109,13 +143,13 @@ public class InputHandler : MonoBehaviour
         }
     }
 
-    private void PerformIsPushed()
+    public void PerformIsPushed()
     {
         OnWindPushEvent.TriggerEvent();
         WindVFX.Play();
     }
 
-    private void StopIsPushed()
+    public void StopIsPushed()
     {
         OnWindStoppedEvent.TriggerEvent();
         WindVFX.Stop(true, ParticleSystemStopBehavior.StopEmitting);
@@ -154,6 +188,11 @@ public class InputHandler : MonoBehaviour
         {
             Inputs.SwitchCurrentActionMap(ACTIONMAP_PAUSE);
         }
+    }
+
+    public void ChangeToPauseActionMap()
+    {
+        Inputs.SwitchCurrentActionMap(ACTIONMAP_PAUSE);
     }
 
     public void ChangeToDisabledActionMap()

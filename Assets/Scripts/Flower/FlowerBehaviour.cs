@@ -24,9 +24,19 @@ public class FlowerBehaviour : MonoBehaviour
     {
         if (context.performed)
         {
-            FlowerAnimator.SetBool(BOOL_IS_SHOOTING, true);
-            FlowerAnimator.SetFloat(FLOAT_SPEED, (1/ProjectileCooldown.Value));
+            FlowerAttackAnimation();
         }
+    }
+    
+    public void FlowerAttackOnTouch()
+    {
+        FlowerAttackAnimation();
+    }
+
+    private void FlowerAttackAnimation()
+    {
+        FlowerAnimator.SetBool(BOOL_IS_SHOOTING, true);
+        FlowerAnimator.SetFloat(FLOAT_SPEED, (1 / ProjectileCooldown.Value));
     }
 
     public void IsPushing()

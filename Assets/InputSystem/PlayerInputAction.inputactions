@@ -7,12 +7,12 @@
             "actions": [
                 {
                     "name": "Shoot",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "52670d54-5c65-468e-ae56-df2f526f5699",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "WindPush",
@@ -56,8 +56,19 @@
                 },
                 {
                     "name": "",
-                    "id": "8bee5601-3a4f-4e71-98f6-52f7c7acbaaa",
-                    "path": "<Touchscreen>/Press",
+                    "id": "21b39b1e-ed0f-484c-a992-35b94c24af86",
+                    "path": "<Touchscreen>/touch*/press",
+                    "interactions": "Tap(duration=0.4,pressPoint=0.4)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "da0632fb-c6e5-499c-8bb2-8c20a203a19f",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "Tap(duration=0.4,pressPoint=0.4)",
                     "processors": "",
                     "groups": "",
