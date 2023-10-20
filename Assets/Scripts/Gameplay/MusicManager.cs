@@ -40,12 +40,14 @@ public class MusicManager : MonoBehaviour
         switch (scene.name)
         {
             case GameManager.SCENE_MENU:
+            case GameManager.SCENE_LEVEL_SELECTION:
+            case GameManager.SCENE_CONTROLS:
+            case GameManager.SCENE_SETTINGS:
+            case GameManager.SCENE_CREDITS:
                 PlayMusic(MusicMenu);
                 break;
-            case GameManager.SCENE_GAMEPLAY:
-                PlayMusic(MusicGameplay);
-                break;
             default:
+                PlayMusic(MusicGameplay);
                 break;
         }
     }

@@ -9,13 +9,23 @@ public class Pie : MonoBehaviour
     [SerializeField] private Sprite[] SpriteArray;
     [Header("Events")]
     [SerializeField] private GameEvent OnGameOver;
+    [Header("Variables")]
+    [SerializeField] private FloatVariable CurrentLevelPoints;
 
     private int SpriteIndex = 0;
 
+    void Awake()
+    {
+        CurrentLevelPoints.Value = 5;
+    }
+
     public void ChangeToNextSprite()
     {
+        CurrentLevelPoints.Value--;
         SpriteIndex++;
+
         PieSprite.sprite = SpriteArray[SpriteIndex];
+
         if (SpriteIndex >= SpriteArray.Length - 1)
         {
             OnGameOver.TriggerEvent();
