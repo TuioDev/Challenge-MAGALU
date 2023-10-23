@@ -29,7 +29,10 @@ public class LevelEndInfo : MonoBehaviour
     {
         string currentLevel = StatsManager.POINTS_LEVEL + SceneManager.GetActiveScene().name[5..];
 
-        PlayerPrefs.SetInt(currentLevel, (int) CurrentLevelPoints.Value);
-        PlayerPrefs.Save();
+        if (CurrentLevelPoints.Value > PlayerPrefs.GetInt(currentLevel))
+        {
+            PlayerPrefs.SetInt(currentLevel, (int)CurrentLevelPoints.Value);
+            PlayerPrefs.Save();
+        }
     }
 }
