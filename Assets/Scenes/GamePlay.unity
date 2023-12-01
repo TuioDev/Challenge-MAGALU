@@ -2896,6 +2896,7 @@ MonoBehaviour:
   - {fileID: 1356897535, guid: c48ffa3c0e939f945ae338c5ca93647a, type: 3}
   - {fileID: -1740903462, guid: c48ffa3c0e939f945ae338c5ca93647a, type: 3}
   OnGameOver: {fileID: 11400000, guid: 8d28a6ea4fc1d8444a503372fa135ce3, type: 2}
+  CurrentLevelPoints: {fileID: 0}
 --- !u!114 &328556508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5667,6 +5668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PieSpriteReference: {fileID: 794786197}
+  CurrentLevelPoints: {fileID: 0}
 --- !u!114 &619753491
 MonoBehaviour:
   m_ObjectHideFlags: 0
