@@ -31,12 +31,13 @@ public class InputHandler : MonoBehaviour
     private const string ACTIONMAP_UI = "UI";
     private const string ACTIONMAP_PAUSE = "Pause";
     private const string ACTIONMAP_DISABLED = "Disabled";
+    private const string ACTIONMAP_DIALOG = "Dialog";
 
     private void Awake()
     {
         Inputs = GetComponent<PlayerInput>();
         ProjectileSpawnPosition = ProjectileSpawnTransform.position;
-        MobileControls();
+        EnableMobileControlsOnMobile();
     }
 
     private void Start()
@@ -112,11 +113,14 @@ public class InputHandler : MonoBehaviour
 
     #region Mobile Related
 
-    private void MobileControls()
+    private void EnableMobileControlsOnMobile()
     {
-        MobileButton.SetActive(IsMobileBrowser.Value);
-        EnhancedTouchSupport.Enable();
-        UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerUp += SetTouchPosition;
+        if (IsMobileBrowser.Value)
+        {
+            MobileButton.SetActive(IsMobileBrowser.Value);
+            EnhancedTouchSupport.Enable();
+            UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerUp += SetTouchPosition;
+        }
     }
 
     private void SetTouchPosition(Finger finger)
@@ -198,6 +202,11 @@ public class InputHandler : MonoBehaviour
     public void ChangeToDisabledActionMap()
     {
         Inputs.SwitchCurrentActionMap(ACTIONMAP_DISABLED);
+    }
+
+    public void ChangeToInteractActionMap()
+    {
+        Inputs.SwitchCurrentActionMap(ACTIONMAP_DIALOG);
     }
     #endregion
 }

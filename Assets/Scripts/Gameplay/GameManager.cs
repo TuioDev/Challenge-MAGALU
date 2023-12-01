@@ -8,15 +8,14 @@ public class GameManager : MonoBehaviour
 {
     public const string SCENE_MENU = "Menu";
     public const string SCENE_LEVEL_SELECTION = "LevelSelection";
-    public const string SCENE_GAMEPLAY = "GamePlay";
     public const string SCENE_CONTROLS = "Controls";
     public const string SCENE_SETTINGS = "Settings";
     public const string SCENE_LEVEL = "Level";
     public const string SCENE_CREDITS = "Credits";
 
-    public void LoadGameplay()
+    public void LoadSameScene()
     {
-        SceneManager.LoadScene(SCENE_GAMEPLAY);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void LoadControls()

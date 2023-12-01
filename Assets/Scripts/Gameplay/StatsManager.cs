@@ -7,6 +7,8 @@ public class StatsManager : MonoBehaviour
     [SerializeField] private GameObject LevelsReference;
     [SerializeField] private Sprite NoPointSprite;
     [SerializeField] private Sprite GotPointSprite;
+    [Header("Reference to the IsMobile SO, so it doesn't reset")]
+    [SerializeField] private BoolVariable IsMobile; // This SO is reseting when not being referenced before a level
 
     private LevelPoints[] LevelsPointsReference;
 
@@ -20,7 +22,6 @@ public class StatsManager : MonoBehaviour
         // Show the levels that the player can play
         // The other will be locked with a sprite
         // Check the video that shows that
-        // Gets points from the Player prefs and set each level points sprites
     }
 
     private void SetLevelPoints()

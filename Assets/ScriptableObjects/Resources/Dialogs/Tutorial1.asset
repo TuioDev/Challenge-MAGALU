@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1f43e4091acfa4da59a3b6c1eafebc, type: 3}
+  m_Name: Tutorial1
+  m_EditorClassIdentifier: 
+  DialogPrefab: {fileID: 1061137138905446747, guid: 6766ec902a2c344439b3ac823b931eb1, type: 3}
+  TextSpeed: 0.05
+  Conversation:
+  - CharacterSprite: {fileID: 0}
+    SpeakerName: Linha 1
+    TextLine: Quer aprender a derrotar formigas?
+  - CharacterSprite: {fileID: 0}
+    SpeakerName: Linha 2
+    TextLine: Eu posso te ensinar alguns truques...
+  - CharacterSprite: {fileID: 0}
+    SpeakerName: Linha 3
+    TextLine: "Aperte na posi\xE7\xE3o que voc\xEA deseja soltar uma folha, ela pode
+      derrubar a formiga!"

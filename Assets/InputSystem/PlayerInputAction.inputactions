@@ -67,17 +67,6 @@
                 },
                 {
                     "name": "",
-                    "id": "da0632fb-c6e5-499c-8bb2-8c20a203a19f",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "Tap(duration=0.4,pressPoint=0.4)",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Shoot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "fcf30164-d24d-416e-986d-598db2d737cb",
                     "path": "<Mouse>/leftButton",
                     "interactions": "Hold(duration=0.4,pressPoint=0.4)",
@@ -216,6 +205,45 @@
             "id": "a70b74b5-09e6-48d6-9702-e4d2647bd167",
             "actions": [],
             "bindings": []
+        },
+        {
+            "name": "Dialog",
+            "id": "cac1a367-75ac-4d5e-b925-3012fdadfab5",
+            "actions": [
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "5f592aeb-44c5-48e1-93a7-93ac7939ccac",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "bd3c7a35-bf8f-42d1-9b49-901ac92067de",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "db341197-7831-456f-ac7a-6631e11816f7",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

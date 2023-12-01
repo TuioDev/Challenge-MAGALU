@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 152cafc98f6f6af4bb18cebfe7bbf94b, type: 3}
   m_Name: IsMobileBrowser
   m_EditorClassIdentifier: 
-  Value: 1
+  Value: 0

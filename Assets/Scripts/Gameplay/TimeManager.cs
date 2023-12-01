@@ -12,11 +12,17 @@ public class TimeManager : MonoBehaviour
     {
         ResumeGame();
         SetLevelTime();
+        DisableObject();
     }
 
     void Update()
     {
         UpdateLevelTime();
+    }
+
+    private void DisableObject()
+    {
+        this.gameObject.SetActive(false);
     }
 
     private void SetLevelTime()

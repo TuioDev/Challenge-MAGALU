@@ -29,6 +29,8 @@ public class ClockManager : MonoBehaviour
         RadialValue = 360 / RoundTime.Value;
         IsCountdown = false;
         IsAlmostEnding = false;
+        ClockTimer.sharedMaterial.SetFloat("_Arc1", 0);
+        this.gameObject.SetActive(false);
     }
 
     void Update()

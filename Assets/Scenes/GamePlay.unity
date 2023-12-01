@@ -1081,11 +1081,12 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 663553515}
+  - {fileID: 1856732728}
   - {fileID: 360992772}
   - {fileID: 698848118}
-  - {fileID: 1095713208}
   - {fileID: 1354965647}
   - {fileID: 89944190}
+  - {fileID: 1095713208}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2896,7 +2897,7 @@ MonoBehaviour:
   - {fileID: 1356897535, guid: c48ffa3c0e939f945ae338c5ca93647a, type: 3}
   - {fileID: -1740903462, guid: c48ffa3c0e939f945ae338c5ca93647a, type: 3}
   OnGameOver: {fileID: 11400000, guid: 8d28a6ea4fc1d8444a503372fa135ce3, type: 2}
-  CurrentLevelPoints: {fileID: 0}
+  CurrentLevelPoints: {fileID: 11400000, guid: 62e654c155118c64b837c0b91d4fc73d, type: 2}
 --- !u!114 &328556508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3415,9 +3416,25 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 2fc05ba4-91c4-4e29-a2b6-844d5dfeca2c
     m_ActionName: Pause/ResumeGame[/Keyboard/p,/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1095713211}
+        m_TargetAssemblyTypeName: DialogHandler, Assembly-CSharp
+        m_MethodName: FinishLine
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5f592aeb-44c5-48e1-93a7-93ac7939ccac
+    m_ActionName: Dialog/Interact[/Keyboard/e,/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Gameplay
+  m_DefaultActionMap: Disabled
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!4 &360992772
@@ -3433,7 +3450,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 70357051}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &360992773
 MonoBehaviour:
@@ -5669,6 +5686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PieSpriteReference: {fileID: 794786197}
   CurrentLevelPoints: {fileID: 0}
+  CurrentLevelPoints: {fileID: 0}
 --- !u!114 &619753491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6361,7 +6379,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &698848118
 Transform:
   m_ObjectHideFlags: 0
@@ -6375,7 +6393,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 70357051}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &698848119
 MonoBehaviour:
@@ -8890,6 +8908,7 @@ GameObject:
   - component: {fileID: 1095713208}
   - component: {fileID: 1095713209}
   - component: {fileID: 1095713210}
+  - component: {fileID: 1095713211}
   m_Layer: 0
   m_Name: UI_Manager
   m_TagString: Untagged
@@ -8912,7 +8931,7 @@ Transform:
   - {fileID: 603289063}
   - {fileID: 2132858732}
   m_Father: {fileID: 70357051}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1095713209
 MonoBehaviour:
@@ -8973,6 +8992,20 @@ MonoBehaviour:
   SpiderMaxHealth: {fileID: 11400000, guid: f9892589761a59f4b98d2571860e4961, type: 2}
   SliderSpiderMaxHealth: {fileID: 743365773}
   TextSpiderMaxHealth: {fileID: 396202099}
+--- !u!114 &1095713211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095713207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc230121389aea4ab89931e5dc97f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanvasReference: {fileID: 1990047796}
+  PlayerInputHandler: {fileID: 360992770}
 --- !u!1 &1102747969
 GameObject:
   m_ObjectHideFlags: 0
@@ -17403,6 +17436,56 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8312170678219109493, guid: fb0486b6fad49b146b500157cb256f4c, type: 3}
   m_PrefabInstance: {fileID: 1846529873}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1856732727
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1856732728}
+  - component: {fileID: 1856732729}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1856732728
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856732727}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 70357051}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1856732729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856732727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d39931cec3bd4924089a2b4b950b73e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelSpawner: {fileID: 698848117}
+  LevelTimer: {fileID: 1354965646}
+  LevelInfo: 0
+  LevelDialogHandler: {fileID: 1095713211}
+  TutorialDialog: {fileID: 11400000, guid: cac0468916c7bd4479f3cf8e3e7d4020, type: 2}
+  InitialWaitTime: 2
 --- !u!1 &1860849500
 GameObject:
   m_ObjectHideFlags: 0
@@ -20355,6 +20438,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimeManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6996404251344017071, guid: 874412fbfd0433d49ac11531b1163716, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6996404251344017072, guid: 874412fbfd0433d49ac11531b1163716, type: 3}
       propertyPath: LevelTime
       value: 
@@ -20431,6 +20518,10 @@ PrefabInstance:
     - target: {fileID: 7036899268044288051, guid: 4873758124f99304c9878c71a4aee639, type: 3}
       propertyPath: m_Name
       value: SFXManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7036899268044288051, guid: 4873758124f99304c9878c71a4aee639, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4873758124f99304c9878c71a4aee639, type: 3}
