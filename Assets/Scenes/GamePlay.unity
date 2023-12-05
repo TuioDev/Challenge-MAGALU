@@ -5686,7 +5686,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PieSpriteReference: {fileID: 794786197}
   CurrentLevelPoints: {fileID: 0}
-  CurrentLevelPoints: {fileID: 0}
 --- !u!114 &619753491
 MonoBehaviour:
   m_ObjectHideFlags: 0
