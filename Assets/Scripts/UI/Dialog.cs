@@ -5,12 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public class Dialog
 {
-    [SerializeField] private Sprite CharacterSprite;
+    [SerializeField] private DialogCharacterState AnimatorState;
     [SerializeField] private string SpeakerName;
     [TextArea(3, 5)]
     [SerializeField] private string TextLine;
 
-    public Sprite Character => CharacterSprite;
+    public DialogCharacterState State => AnimatorState;
     public string Line => TextLine;
     public string Name => SpeakerName;
 }

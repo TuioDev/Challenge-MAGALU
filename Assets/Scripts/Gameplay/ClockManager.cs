@@ -30,7 +30,6 @@ public class ClockManager : MonoBehaviour
         IsCountdown = false;
         IsAlmostEnding = false;
         ClockTimer.sharedMaterial.SetFloat("_Arc1", 0);
-        this.gameObject.SetActive(false);
     }
 
     void Update()

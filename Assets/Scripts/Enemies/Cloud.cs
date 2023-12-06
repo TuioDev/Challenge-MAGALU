@@ -15,6 +15,7 @@ public class Cloud : Enemy, IPushable
     private static readonly int BOOL_IS_BEING_PUSHED = Animator.StringToHash("IsBeingPushed");
     private static readonly int TRIGGER_CHANNELING = Animator.StringToHash("Channeling");
     private static readonly int TRIGGER_LIGHTNING = Animator.StringToHash("Lightning");
+    private static readonly int TRIGGER_DEATH = Animator.StringToHash("Death");
 
     private protected override void ExecuteEnemyBehaviour(Enemy enemy)
     {
@@ -55,9 +56,9 @@ public class Cloud : Enemy, IPushable
         EnemyHealth.TakeDamage(damage);
 
         // If health is bellow zero, disable enemy
-        if (EnemyHealth.CurrentAmount <= 0)
+        if (EnemyHealth.CurrentAmount <= 0 && !IsInUpdateRoutine)
         {
-            TriggerOnDying();
+            StartCoroutine(TriggerOnDying());
         }
     }
 
@@ -68,10 +69,19 @@ public class Cloud : Enemy, IPushable
 
     }
 
-    private void TriggerOnDying()
+    private IEnumerator TriggerOnDying()
     {
-        DisableObject();
+        IsInUpdateRoutine = true;
+
+        EnemyAnimator.SetTrigger(TRIGGER_DEATH);
         OnDying.TriggerEvent();
+
+        // Wait for the animation to finish
+        yield return new WaitWhile(() => EnemyAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1);
+
+        DisableObject();
+
+        IsInUpdateRoutine = false;
     }
 
     private IEnumerator ChannelLighting(Action TriggerBase)

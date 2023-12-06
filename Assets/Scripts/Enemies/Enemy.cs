@@ -17,11 +17,12 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField][Range(.1f, 1f)] private float InicialScale;
 
     private protected float TimePosition = 0f; // The position on the path is based on time
-    private protected float Speed; // If there something needs to change the speed of each enemy
+    private protected float Speed; // If something needs to change the speed of each enemy
     private protected Animator EnemyAnimator;
     private protected Brain CurrentBrain;
     private protected PathCreator EnemyPath;
     private protected Health EnemyHealth = new();
+    private protected bool IsInUpdateRoutine = false;
 
     //public void SetCurrentBehaviour(AIBehaviour aIBehaviour) => CurrentBehaviour = aIBehaviour; // We can apply a new Behaviour
     public float GetSpeed() => Speed;
@@ -37,6 +38,7 @@ public abstract class Enemy : MonoBehaviour
     private void Awake()
     {
         EnemyAnimator = GetComponent<Animator>();
+        EnemyAnimator.keepAnimatorStateOnDisable = true;
         DisableObject();
     }
 

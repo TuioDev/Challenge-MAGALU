@@ -12,7 +12,7 @@ public class TimeManager : MonoBehaviour
     {
         ResumeGame();
         SetLevelTime();
-        DisableObject();
+        //DisableObject();
     }
 
     void Update()

@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 using NaughtyAttributes;
 using System;
 using System.Threading;
+using Unity.VisualScripting;
 
 public enum LevelType
 {
@@ -15,14 +15,22 @@ public enum LevelType
 public class LevelManager : MonoBehaviour
 {
     [Header("General information")]
-    [SerializeField] private GameObject LevelSpawner;
-    [SerializeField] private GameObject LevelTimer;
+    [SerializeField] private ManagersReference Managers;
     [SerializeField] private LevelType LevelInfo;
     [SerializeField] private DialogHandler LevelDialogHandler;
     [ShowIf(nameof(LevelInfo), LevelType.Tutorial)]
     [SerializeField] private DialogBox TutorialDialog;
     [Header("Tutorial info")]
     [SerializeField] private float InitialWaitTime;
+
+    private GameObject EnemySpawnerObject;
+    private GameObject TimeManagerObject;
+
+    void Awake()
+    {
+        TimeManagerObject = Managers.GetTimeManager();
+        EnemySpawnerObject = Managers.GetEnemySpawner();
+    }
 
     void Start()
     {
@@ -38,7 +46,7 @@ public class LevelManager : MonoBehaviour
 
     public void StartLevel()
     {
-        LevelSpawner.SetActive(true);
-        LevelTimer.SetActive(true);
+        EnemySpawnerObject.SetActive(true);
+        TimeManagerObject.SetActive(true);
     }
 }

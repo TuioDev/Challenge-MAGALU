@@ -1061,6 +1061,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 70357051}
+  - component: {fileID: 70357052}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1090,6 +1091,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &70357052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70357050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba1d82f33cea6c1478b7dc37398167d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemySpawnerReference: {fileID: 698848117}
+  TimeManagerReference: {fileID: 1354965646}
 --- !u!114 &84429389 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8312170678224816258, guid: fb0486b6fad49b146b500157cb256f4c, type: 3}
@@ -9027,6 +9042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanvasReference: {fileID: 1990047796}
   PlayerInputHandler: {fileID: 360992770}
+  IsMobile: {fileID: 11400000, guid: dfb8e0c835f650f4b9b3d2f0bf2349bf, type: 2}
 --- !u!1 &1102747969
 GameObject:
   m_ObjectHideFlags: 0
@@ -17501,8 +17517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d39931cec3bd4924089a2b4b950b73e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelSpawner: {fileID: 698848117}
-  LevelTimer: {fileID: 1354965646}
+  Managers: {fileID: 70357052}
   LevelInfo: 0
   LevelDialogHandler: {fileID: 1095713211}
   TutorialDialog: {fileID: 11400000, guid: cac0468916c7bd4479f3cf8e3e7d4020, type: 2}
@@ -20594,6 +20609,10 @@ PrefabInstance:
     - target: {fileID: 7505603843730048026, guid: 219b83b1fc3bd2146b49c3736c47c871, type: 3}
       propertyPath: m_Name
       value: Leafs
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505603843730048026, guid: 219b83b1fc3bd2146b49c3736c47c871, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7505603843730048027, guid: 219b83b1fc3bd2146b49c3736c47c871, type: 3}
       propertyPath: m_RootOrder

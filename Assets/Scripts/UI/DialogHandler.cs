@@ -10,36 +10,49 @@ public class DialogHandler : MonoBehaviour
 {
     [SerializeField] private GameObject CanvasReference;
     [SerializeField] private InputHandler PlayerInputHandler;
+    [SerializeField] private BoolVariable IsMobile;
 
     private DialogBox CurrentDialog;
+    private LevelManager CurrentLevelManager;
 
     private GameObject DialogPrefab;
     private DialogObjects DialogReferences;
+    private Animator DialogCharacterAnimator;
 
     private bool IsTyping;
     private int CurrentLine;
-    private LevelManager CurrentLevelManager;
 
     void Start()
+    {
+        Initialize();
+    }
+
+    private void Initialize()
     {
         IsTyping = false;
     }
 
     public void StartDialog(DialogBox dialogBox, LevelManager levelManager)
     {
-        // Change player action map
-        PlayerInputHandler.ChangeToInteractActionMap();
-
         CurrentLine = 0;
         CurrentDialog = dialogBox;
-
+        CurrentLevelManager = levelManager;
 
         DialogPrefab = Instantiate(dialogBox.Prefab);
         DialogPrefab.transform.SetParent(CanvasReference.transform, false);
 
         DialogReferences = DialogPrefab.GetComponent<DialogObjects>();
 
-        CurrentLevelManager = levelManager;
+        // Change player action map or if is mobile setactive the button
+        if (!IsMobile.Value)
+        {
+            PlayerInputHandler.ChangeToInteractActionMap();
+        }
+        else
+        {
+            DialogReferences.InteractButton.gameObject.SetActive(true);
+            DialogReferences.InteractButton.onClick.AddListener(delegate { InteractWithDialog(); });
+        }
 
         StartTyping();
     }
@@ -52,9 +65,13 @@ public class DialogHandler : MonoBehaviour
     private IEnumerator TypeLine()
     {
         IsTyping = true;
+
         // Clear the content in the dialog box
         DialogReferences.Name.text = "";
         DialogReferences.Text.text = "";
+
+        // Change animator state
+        DialogCharacterAnimator.SetTrigger(CurrentDialog.GetConversation[CurrentLine].State.ToString());
 
         // Change the name of the current line speaker
         DialogReferences.Name.text = CurrentDialog.GetConversation[CurrentLine].Name;
@@ -72,16 +89,21 @@ public class DialogHandler : MonoBehaviour
     {
         if (context.performed)
         {
-            if (IsTyping)
-            {
-                StopAllCoroutines();
-                DialogReferences.Text.text = "" + CurrentDialog.GetConversation[CurrentLine].Line;
-                IsTyping = false;
-            }
-            else
-            {
-                NextLine();
-            }
+            InteractWithDialog();
+        }
+    }
+
+    private void InteractWithDialog()
+    {
+        if (IsTyping)
+        {
+            StopAllCoroutines();
+            DialogReferences.Text.text = "" + CurrentDialog.GetConversation[CurrentLine].Line;
+            IsTyping = false;
+        }
+        else
+        {
+            NextLine();
         }
     }
 
