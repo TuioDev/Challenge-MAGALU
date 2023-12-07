@@ -15,13 +15,26 @@ MonoBehaviour:
   DialogPrefab: {fileID: 1061137138905446747, guid: 6766ec902a2c344439b3ac823b931eb1, type: 3}
   TextSpeed: 0.05
   Conversation:
-  - AnimatorState: 0
+  - AnimatorState: 1
     SpeakerName: Linha 1
-    TextLine: Quer aprender a derrotar formigas?
+    TextLine: 'Oi, oi! Prazer em te conhecer! '
   - AnimatorState: 0
     SpeakerName: Linha 2
-    TextLine: Eu posso te ensinar alguns truques...
+    TextLine: "Est\xE1 vendo esta torta? T\xE1 com uma cara boa, n\xE9?\r\n"
+  - AnimatorState: 2
+    SpeakerName: Linha 3
+    TextLine: "Mas ela est\xE1 sendo atacada! E preciso de sua ajuda!"
+  - AnimatorState: 2
+    SpeakerName: Linha 3
+    TextLine: Formigas! Muitas delas!
   - AnimatorState: 0
     SpeakerName: Linha 3
-    TextLine: "Aperte na posi\xE7\xE3o que voc\xEA deseja soltar uma folha, ela pode
-      derrubar a formiga!"
+    TextLine: "Ainda temos uma chance! Elas s\xE3o f\xE1ceis de derrotar com folhas,
+      veja s\xF3..."
+  - AnimatorState: 0
+    SpeakerName: Linha 3
+    TextLine: "Aperte na posi\xE7\xE3o que voc\xEA deseja soltar uma folha, d\xEA
+      um toque"
+  - AnimatorState: 1
+    SpeakerName: Linha 3
+    TextLine: "E ent\xE3o, vamos l\xE1?"
