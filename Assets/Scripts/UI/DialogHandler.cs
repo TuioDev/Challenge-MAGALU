@@ -41,7 +41,9 @@ public class DialogHandler : MonoBehaviour
         DialogPrefab = Instantiate(dialogBox.Prefab);
         DialogPrefab.transform.SetParent(CanvasReference.transform, false);
 
+        // Get references from the instantiated prefab
         DialogReferences = DialogPrefab.GetComponent<DialogObjects>();
+        DialogCharacterAnimator = DialogReferences.CharacterAnimator;
 
         // Change player action map or if is mobile setactive the button
         if (!IsMobile.Value)

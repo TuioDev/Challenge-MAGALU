@@ -6,5 +6,6 @@ public enum DialogCharacterState
 {
     Regular,
     Happy,
-    Sad
+    Sad,
+    Help
 }

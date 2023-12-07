@@ -8,11 +8,11 @@ public class DialogObjects : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI NameTMP;
     [SerializeField] private TextMeshProUGUI TextTMP;
-    [SerializeField] private Image CharacterImage;
+    [SerializeField] private Animator DialogCharacterAnimator;
     [SerializeField] private Button MobileButton;
 
     public TextMeshProUGUI Name => NameTMP;
     public TextMeshProUGUI Text => TextTMP;
-    public Image Character => CharacterImage;
+    public Animator CharacterAnimator => DialogCharacterAnimator;
     public Button InteractButton => MobileButton;
 }
