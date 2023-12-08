@@ -19,7 +19,7 @@ MonoBehaviour:
     SpeakerName: Florzinha
     TextLine: 'Oi, oi! Prazer em te conhecer! '
   - AnimatorState: 0
-    SpeakerName: Linha 2
+    SpeakerName: Florzinha
     TextLine: "Est\xE1 vendo esta torta? T\xE1 com uma cara boa, n\xE9?\r\n"
   - AnimatorState: 3
     SpeakerName: Florzinha
