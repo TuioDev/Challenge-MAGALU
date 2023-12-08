@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1f43e4091acfa4da59a3b6c1eafebc, type: 3}
+  m_Name: Tutorial2
+  m_EditorClassIdentifier: 
+  DialogPrefab: {fileID: 0}
+  TextSpeed: 0
+  Conversation:
+  - AnimatorState: 1
+    SpeakerName: Florzinha
+    TextLine: "Uau! Voc\xEA foi muito bem at\xE9 agora!"
+  - AnimatorState: 2
+    SpeakerName: Florzinha
+    TextLine: "Eita... \xC9 s\xF3 impress\xE3o minha, ou vai chover?"
+  - AnimatorState: 3
+    SpeakerName: Florzinha
+    TextLine: "As nuvens! Est\xE3o se aproximando?!"
+  - AnimatorState: 3
+    SpeakerName: Florzinha
+    TextLine: "R\xE1pido, segure o toque para sopr\xE1-las para longe!"
+  - AnimatorState: 2
+    SpeakerName: Florzinha
+    TextLine: "E as formigas ainda est\xE3o vindo... Mantenha a aten\xE7\xE3o!"
+  - AnimatorState: 1
+    SpeakerName: Florzinha
+    TextLine: "Voc\xEA consegue!"
